@@ -10,7 +10,7 @@ namespace CloudbassCRUDII.Controllers
     public class EmployeesController : Controller
     {
         // GET: Employees
-        public JsonResult Get(int? page, int? limit, string sortBy, string direction, string name, string fullname, string lastname)
+        public JsonResult Get(int? page, int? limit, string sortBy, string direction,/* string name, */string firstname, string lastname, string bare)
         {
             List<Models.DTO.Employee> records;
             int total;
@@ -22,12 +22,13 @@ namespace CloudbassCRUDII.Controllers
                     
                     firstName = p.firstName,
                     lastName = p.lastName,
-                    fullName = p.fullName,
+                   // fullName = p.fullName,
                     mobile  = p.mobile,
                     email= p.email,
                     countyId = p.countyId,
-                    bared = p.bared,
-                   // CountyName = p.County != null ? p.County.Name : "",
+                   // bared = p.bared,
+                    // CountyName = p.County != null ? p.County.Name : "",
+                     bared = p.bared != null ? p.bared : "",
                     IsAvailable = p.IsAvailable,
                     startDate = p.startDate,
                     note = p.note,
@@ -38,25 +39,30 @@ namespace CloudbassCRUDII.Controllers
                    // OrderNumber = p.OrderNumber
                 });
 
-                if (!string.IsNullOrWhiteSpace(name))
+                if (!string.IsNullOrWhiteSpace(firstname))
                 {
-                    query = query.Where(q => q.firstName.Contains(name));
+                    query = query.Where(q => q.firstName.Contains(firstname));
                 }
-
-                if (!string.IsNullOrWhiteSpace(fullname))
-                {
-                    query = query.Where(q => q.fullName != null && q.fullName.Contains(fullname));
-                }
-
-                //if (!string.IsNullOrWhiteSpace(county))
-                //{
-                //    query = query.Where(q => q.countyId != null && q.PlaceOfBirth.Contains(placeOfBirth));
-                //}
 
                 if (!string.IsNullOrWhiteSpace(lastname))
                 {
-                    query = query.Where(q => q.firstName.Contains(lastname));
+                    query = query.Where(q => q.lastName.Contains(lastname));
                 }
+
+                //if (!string.IsNullOrWhiteSpace(lastname))
+                //{
+                //    query = query.Where(q => q.lastName != null && q.lastName.Contains(lastname));
+                //}
+
+                if (!string.IsNullOrWhiteSpace(bare))
+                {
+                    query = query.Where(q => q.bared != null && q.bared.Contains("a"));
+                }
+
+                //if (!string.IsNullOrWhiteSpace(lastname))
+                //{
+                //    query = query.Where(q => q.lastName.Contains(lastname));
+                //}
 
 
                 if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
@@ -65,14 +71,14 @@ namespace CloudbassCRUDII.Controllers
                     {
                         switch (sortBy.Trim().ToLower())
                         {
-                            case "name":
+                            case "firstname":
                                 query = query.OrderBy(q => q.firstName);
-                                break;
-                            case "fullname":
-                                query = query.OrderBy(q => q.lastName);
                                 break;
                             case "lastname":
                                 query = query.OrderBy(q => q.lastName);
+                                break;
+                            case "bare":
+                                query = query.OrderBy(q => q.bared);
                                 break;
                             //case "dateofbirth":
                             //    query = query.OrderBy(q => q.DateOfBirth);
@@ -83,14 +89,14 @@ namespace CloudbassCRUDII.Controllers
                     {
                         switch (sortBy.Trim().ToLower())
                         {
-                            case "name":
+                            case "firname":
                                 query = query.OrderByDescending(q => q.firstName);
                                 break;
-                            case "fullname":
+                            case "lastname":
                                 query = query.OrderByDescending(q => q.lastName);
                                 break;
-                            case "lastname":
-                                query = query.OrderByDescending(q => q.fullName);
+                            case "bare":
+                                query = query.OrderByDescending(q => q.bared);
                                 break;
                             //case "dateofbirth":
                             //    query = query.OrderByDescending(q => q.DateOfBirth);
@@ -157,7 +163,7 @@ namespace CloudbassCRUDII.Controllers
                         note = record.note,
                         bared = record.bared,
                         startDate = record.startDate,
-                       // Country = context.Locations.FirstOrDefault(l => l.ID == record.CountryID),
+                       // Has_Role = context.Roles.FirstOrDefault(l => l.Id == record.Id),
                         IsAvailable = record.IsAvailable,
                         photo = record.photo,
                         nextOfKin = record.nextOfKin,
@@ -189,25 +195,30 @@ namespace CloudbassCRUDII.Controllers
             using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
             {
                 // I USED BOTH FOREIGN KEYS HERE BELONG TO CREW TABLE
-                var query = context.BookingCrews.Where(pt => pt.has_RoleId == employeeId && pt.scheduleId == employeeId).Select(pt => new Models.DTO.BookingCrew
+                var query = context.Has_Role.Where(pt => pt.Id == employeeId).Select(pt => new Models.DTO.Has_Role
                 {
-                    scheduleId= pt.scheduleId,
-                    has_RoleId = pt.has_RoleId,
-                   // PlayerID = pt.PlayerID,
-                    start_date = pt.end_date,
-                    end_date = pt.end_date
-                    //Has_Role = pt.Has_Role,
+                    // scheduleId= pt.scheduleId,
+                    Id = pt.Id,
+                    // PlayerID = pt.PlayerID,
+                    start_date = pt.start_date,
+                    end_date = pt.end_date,
+                    roleId = pt.roleId,
+                    employeeId = pt.employeeId,
+                    rate = pt.rate,
+                    totalDays = pt.totalDays,
+                    catId = pt.catId
                     //Schedule = pt.Schedule,
                     //Apps = pt.Apps,
                     //Goals = pt.Goals
-                });
+                }); ;
 
                 total = query.Count();
                 if (page.HasValue && limit.HasValue)
                 {
                     int start = (page.Value - 1) * limit.Value;
-                    records = query.OrderBy(pt => pt.long.Parse(start_date.ToString("")).ToString("11/11/2020").Skip(start).Take(limit.Value).ToList();
+                    records = query.OrderBy(pt => pt.start_date).Skip(start).Take(limit.Value).ToList();
                 }
+
                 else
                 {
                     records = query.ToList();

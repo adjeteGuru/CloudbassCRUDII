@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudbassCRUDII.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,36 +12,47 @@ namespace CloudbassCRUDII.Controllers
         // GET: EmployeesGrouping
         public JsonResult Get(string groupBy, string groupByDirection, int? page, int? limit)
         {
-            List<Models.DTO.Player> records;
+            List<Models.DTO.Employee> records;
             int total;
-            using (ApplicationDbContext context = new ApplicationDbContext())
+            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
             {
-                var query = context.Players.Select(p => new Models.DTO.Player
+                var query = context.Employees.Select(p => new Models.DTO.Employee
                 {
-                    ID = p.ID,
-                    Name = p.Name,
-                    PlaceOfBirth = p.PlaceOfBirth,
-                    DateOfBirth = p.DateOfBirth,
-                    CountryID = p.CountryID,
-                    CountryName = p.Country.Name,
-                    OrderNumber = p.OrderNumber
+                    Id = p.Id,
+                    firstName = p.firstName,
+                    lastName = p.lastName,
+                    fullName = p.fullName,
+                    mobile = p.mobile,
+                    email = p.email,
+                    countyId = p.countyId,
+                    // bared = p.bared,
+                    // CountyName = p.County != null ? p.County.Name : "",
+                     bared = p.bared != null ? p.bared : "",
+                    IsAvailable = p.IsAvailable,
+                    startDate = p.startDate,
+                    note = p.note,
+                    photo = p.photo,
+                    nextOfKin = p.nextOfKin,
+                    alergy = p.alergy,
+                    postNominals = p.postNominals,
+                    // OrderNumber = p.OrderNumber
                 });
 
-                if (groupBy == "CountryName")
+                if (groupBy == "County")
                 {
                     if (groupByDirection.Trim().ToLower() == "asc")
                     {
-                        query = query.OrderBy(q => q.CountryName).ThenBy(q => q.OrderNumber);
+                        query = query.OrderBy(q => q.countyId);
                     }
                     else
                     {
-                        query = query.OrderByDescending(q => q.CountryName).ThenBy(q => q.OrderNumber);
+                        query = query.OrderByDescending(q => q.countyId);
                     }
                 }
-                else
-                {
-                    query = query.OrderBy(q => q.OrderNumber);
-                }
+                //else
+                //{
+                //    query = query.OrderBy(q => q.OrderNumber);
+                //}
 
                 total = query.Count();
                 if (page.HasValue && limit.HasValue)
