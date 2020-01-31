@@ -1,0 +1,1568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CloudbassDBMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminGrp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookingCrew">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="has_RoleId" />
+          </Key>
+          <Property Name="scheduleId" Type="int" Nullable="false" />
+          <Property Name="has_RoleId" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="BookingEquipment">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="equipmentId" />
+          </Key>
+          <Property Name="scheduleId" Type="int" Nullable="false" />
+          <Property Name="equipmentId" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="BookingFleet">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="fleetId" />
+          </Key>
+          <Property Name="scheduleId" Type="int" Nullable="false" />
+          <Property Name="fleetId" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="BookingKit">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="kitId" />
+          </Key>
+          <Property Name="scheduleId" Type="int" Nullable="false" />
+          <Property Name="kitId" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Categ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Tel" Type="varchar" MaxLength="14" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="ToContact" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="County">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="countyId" Type="int" Nullable="false" />
+          <Property Name="bared" Type="varchar" MaxLength="150" />
+          <Property Name="IsAvailable" Type="bit" Nullable="false" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="photo" Type="image" />
+          <Property Name="nextOfKin" Type="varchar" MaxLength="50" />
+          <Property Name="alergy" Type="varchar" MaxLength="100" />
+          <Property Name="note" Type="varchar" MaxLength="250" />
+          <Property Name="postNominals" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="equipmentName" Type="varchar" MaxLength="150" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="equipTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="EquipType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Fleet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FleetName" Type="varchar" MaxLength="50" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fleetTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="FleetType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Has_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeId" Type="int" Nullable="false" />
+          <Property Name="roleId" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="catId" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="scheduleId" Type="int" Nullable="false" />
+          <Property Name="dateGenerated" Type="datetime" />
+          <Property Name="serviceName" Type="varchar" MaxLength="150" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="adminName" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="text" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="TXDate" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="Coordinator" Type="varchar" MaxLength="50" />
+          <Property Name="CommercialLead" Type="varchar" MaxLength="50" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="statusId" Type="int" />
+        </EntityType>
+        <EntityType Name="JobStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kitName" Type="varchar" MaxLength="150" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="kitTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="KitType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="text" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="SchTypeId" Type="int" />
+          <Property Name="JobId" Type="varchar" MaxLength="10" />
+          <Property Name="statusId" Type="int" />
+          <Property Name="AdminId" Type="int" />
+          <Property Name="is_approved" Type="bit" />
+        </EntityType>
+        <EntityType Name="ScheduleStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SchType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BookingEquipment_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingEquipment">
+              <PropertyRef Name="equipmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingEquipment_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingEquipment">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingFleet_Fleet">
+          <End Role="Fleet" Type="Self.Fleet" Multiplicity="1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fleet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingFleet">
+              <PropertyRef Name="fleetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingFleet_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingFleet">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingKit_Kit">
+          <End Role="Kit" Type="Self.Kit" Multiplicity="1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingKit">
+              <PropertyRef Name="kitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingKit_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingKit">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Has_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingCrew">
+              <PropertyRef Name="has_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Crew_dbo_Schedule_ScheduleId">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingCrew">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Employee_dbo_County_CountyId">
+          <End Role="County" Type="Self.County" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="countyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="employeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Has_Role_dbo_Role_RoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Job_dbo_Client_ClientId">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Schedule_dbo_Job_JobId">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_EquipType">
+          <End Role="EquipType" Type="Self.EquipType" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="equipTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fleet_FleetType">
+          <End Role="FleetType" Type="Self.FleetType" Multiplicity="0..1" />
+          <End Role="Fleet" Type="Self.Fleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FleetType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fleet">
+              <PropertyRef Name="fleetTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Has_Role_Categ">
+          <End Role="Categ" Type="Self.Categ" Multiplicity="0..1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="catId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_JobStatus">
+          <End Role="JobStatus" Type="Self.JobStatus" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="statusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kit_KitType">
+          <End Role="KitType" Type="Self.KitType" Multiplicity="0..1" />
+          <End Role="Kit" Type="Self.Kit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KitType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kit">
+              <PropertyRef Name="kitTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_AdminGrp">
+          <End Role="AdminGrp" Type="Self.AdminGrp" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminGrp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_ScheduleStatus">
+          <End Role="ScheduleStatus" Type="Self.ScheduleStatus" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="statusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SchType">
+          <End Role="SchType" Type="Self.SchType" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="SchTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CloudbassDBMSModelStoreContainer">
+          <EntitySet Name="AdminGrp" EntityType="Self.AdminGrp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingCrew" EntityType="Self.BookingCrew" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingEquipment" EntityType="Self.BookingEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingFleet" EntityType="Self.BookingFleet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingKit" EntityType="Self.BookingKit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categ" EntityType="Self.Categ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="County" EntityType="Self.County" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipType" EntityType="Self.EquipType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fleet" EntityType="Self.Fleet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FleetType" EntityType="Self.FleetType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Has_Role" EntityType="Self.Has_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobStatus" EntityType="Self.JobStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kit" EntityType="Self.Kit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KitType" EntityType="Self.KitType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleStatus" EntityType="Self.ScheduleStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchType" EntityType="Self.SchType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BookingEquipment_Equipment" Association="Self.FK_BookingEquipment_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipment_Schedule" Association="Self.FK_BookingEquipment_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Fleet" Association="Self.FK_BookingFleet_Fleet">
+            <End Role="Fleet" EntitySet="Fleet" />
+            <End Role="BookingFleet" EntitySet="BookingFleet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Schedule" Association="Self.FK_BookingFleet_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="BookingFleet" EntitySet="BookingFleet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Kit" Association="Self.FK_BookingKit_Kit">
+            <End Role="Kit" EntitySet="Kit" />
+            <End Role="BookingKit" EntitySet="BookingKit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Schedule" Association="Self.FK_BookingKit_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="BookingKit" EntitySet="BookingKit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId" Association="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
+            <End Role="Has_Role" EntitySet="Has_Role" />
+            <End Role="BookingCrew" EntitySet="BookingCrew" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crew_dbo_Schedule_ScheduleId" Association="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="BookingCrew" EntitySet="BookingCrew" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Employee_dbo_County_CountyId" Association="Self.FK_dbo_Employee_dbo_County_CountyId">
+            <End Role="County" EntitySet="County" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId" Association="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Role_RoleId" Association="Self.FK_dbo_Has_Role_dbo_Role_RoleId">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Job_dbo_Client_ClientId" Association="Self.FK_dbo_Job_dbo_Client_ClientId">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schedule_dbo_Job_JobId" Association="Self.FK_dbo_Schedule_dbo_Job_JobId">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_EquipType" Association="Self.FK_Equipment_EquipType">
+            <End Role="EquipType" EntitySet="EquipType" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fleet_FleetType" Association="Self.FK_Fleet_FleetType">
+            <End Role="FleetType" EntitySet="FleetType" />
+            <End Role="Fleet" EntitySet="Fleet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Has_Role_Categ" Association="Self.FK_Has_Role_Categ">
+            <End Role="Categ" EntitySet="Categ" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Schedule" Association="Self.FK_Invoice_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_JobStatus" Association="Self.FK_Job_JobStatus">
+            <End Role="JobStatus" EntitySet="JobStatus" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kit_KitType" Association="Self.FK_Kit_KitType">
+            <End Role="KitType" EntitySet="KitType" />
+            <End Role="Kit" EntitySet="Kit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_AdminGrp" Association="Self.FK_Schedule_AdminGrp">
+            <End Role="AdminGrp" EntitySet="AdminGrp" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_ScheduleStatus" Association="Self.FK_Schedule_ScheduleStatus">
+            <End Role="ScheduleStatus" EntitySet="ScheduleStatus" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SchType" Association="Self.FK_Schedule_SchType">
+            <End Role="SchType" EntitySet="SchType" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CloudbassDBMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminGrp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_AdminGrp" FromRole="AdminGrp" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="BookingCrew">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="has_RoleId" />
+          </Key>
+          <Property Name="scheduleId" Type="Int32" Nullable="false" />
+          <Property Name="has_RoleId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="BookingCrew" ToRole="Has_Role" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="BookingCrew" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="BookingEquipment">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="equipmentId" />
+          </Key>
+          <Property Name="scheduleId" Type="Int32" Nullable="false" />
+          <Property Name="equipmentId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_BookingEquipment_Equipment" FromRole="BookingEquipment" ToRole="Equipment" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_BookingEquipment_Schedule" FromRole="BookingEquipment" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="BookingFleet">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="fleetId" />
+          </Key>
+          <Property Name="scheduleId" Type="Int32" Nullable="false" />
+          <Property Name="fleetId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <NavigationProperty Name="Fleet" Relationship="Self.FK_BookingFleet_Fleet" FromRole="BookingFleet" ToRole="Fleet" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_BookingFleet_Schedule" FromRole="BookingFleet" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="BookingKit">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="kitId" />
+          </Key>
+          <Property Name="scheduleId" Type="Int32" Nullable="false" />
+          <Property Name="kitId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Kit" Relationship="Self.FK_BookingKit_Kit" FromRole="BookingKit" ToRole="Kit" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_BookingKit_Schedule" FromRole="BookingKit" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="Categ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_Has_Role_Categ" FromRole="Categ" ToRole="Has_Role" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Job_dbo_Client_ClientId" FromRole="Client" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="County">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_dbo_Employee_dbo_County_CountyId" FromRole="County" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="countyId" Type="Int32" Nullable="false" />
+          <Property Name="bared" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nextOfKin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alergy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="postNominals" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="County" Relationship="Self.FK_dbo_Employee_dbo_County_CountyId" FromRole="Employee" ToRole="County" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Employee" ToRole="Has_Role" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="equipmentName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="equipTypeId" Type="Int32" />
+          <NavigationProperty Name="BookingEquipments" Relationship="Self.FK_BookingEquipment_Equipment" FromRole="Equipment" ToRole="BookingEquipment" />
+          <NavigationProperty Name="EquipType" Relationship="Self.FK_Equipment_EquipType" FromRole="Equipment" ToRole="EquipType" />
+        </EntityType>
+        <EntityType Name="EquipType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipments" Relationship="Self.FK_Equipment_EquipType" FromRole="EquipType" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="Fleet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FleetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fleetTypeId" Type="Int32" />
+          <NavigationProperty Name="BookingFleets" Relationship="Self.FK_BookingFleet_Fleet" FromRole="Fleet" ToRole="BookingFleet" />
+          <NavigationProperty Name="FleetType" Relationship="Self.FK_Fleet_FleetType" FromRole="Fleet" ToRole="FleetType" />
+        </EntityType>
+        <EntityType Name="FleetType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fleets" Relationship="Self.FK_Fleet_FleetType" FromRole="FleetType" ToRole="Fleet" />
+        </EntityType>
+        <EntityType Name="Has_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeId" Type="Int32" Nullable="false" />
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="catId" Type="Int32" />
+          <NavigationProperty Name="BookingCrews" Relationship="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="Has_Role" ToRole="BookingCrew" />
+          <NavigationProperty Name="Categ" Relationship="Self.FK_Has_Role_Categ" FromRole="Has_Role" ToRole="Categ" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Has_Role" ToRole="Employee" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Has_Role" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="scheduleId" Type="Int32" Nullable="false" />
+          <Property Name="dateGenerated" Type="DateTime" Precision="3" />
+          <Property Name="serviceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="adminName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Invoice_Schedule" FromRole="Invoice" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="TXDate" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="Coordinator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommercialLead" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="statusId" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_Job_dbo_Client_ClientId" FromRole="Job" ToRole="Client" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Job" ToRole="Schedule" />
+          <NavigationProperty Name="JobStatu" Relationship="Self.FK_Job_JobStatus" FromRole="Job" ToRole="JobStatus" />
+        </EntityType>
+        <EntityType Name="JobStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_JobStatus" FromRole="JobStatus" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Kit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kitName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="kitTypeId" Type="Int32" />
+          <NavigationProperty Name="BookingKits" Relationship="Self.FK_BookingKit_Kit" FromRole="Kit" ToRole="BookingKit" />
+          <NavigationProperty Name="KitType" Relationship="Self.FK_Kit_KitType" FromRole="Kit" ToRole="KitType" />
+        </EntityType>
+        <EntityType Name="KitType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kits" Relationship="Self.FK_Kit_KitType" FromRole="KitType" ToRole="Kit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Role" ToRole="Has_Role" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="SchTypeId" Type="Int32" />
+          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="statusId" Type="Int32" />
+          <Property Name="AdminId" Type="Int32" />
+          <Property Name="is_approved" Type="Boolean" />
+          <NavigationProperty Name="AdminGrp" Relationship="Self.FK_Schedule_AdminGrp" FromRole="Schedule" ToRole="AdminGrp" />
+          <NavigationProperty Name="BookingCrews" Relationship="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="Schedule" ToRole="BookingCrew" />
+          <NavigationProperty Name="BookingEquipments" Relationship="Self.FK_BookingEquipment_Schedule" FromRole="Schedule" ToRole="BookingEquipment" />
+          <NavigationProperty Name="BookingFleets" Relationship="Self.FK_BookingFleet_Schedule" FromRole="Schedule" ToRole="BookingFleet" />
+          <NavigationProperty Name="BookingKits" Relationship="Self.FK_BookingKit_Schedule" FromRole="Schedule" ToRole="BookingKit" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoice_Schedule" FromRole="Schedule" ToRole="Invoice" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Schedule" ToRole="Job" />
+          <NavigationProperty Name="ScheduleStatu" Relationship="Self.FK_Schedule_ScheduleStatus" FromRole="Schedule" ToRole="ScheduleStatus" />
+          <NavigationProperty Name="SchType" Relationship="Self.FK_Schedule_SchType" FromRole="Schedule" ToRole="SchType" />
+        </EntityType>
+        <EntityType Name="ScheduleStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_ScheduleStatus" FromRole="ScheduleStatus" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="SchType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_SchType" FromRole="SchType" ToRole="Schedule" />
+        </EntityType>
+        <Association Name="FK_Schedule_AdminGrp">
+          <End Role="AdminGrp" Type="Self.AdminGrp" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminGrp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Has_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingCrew">
+              <PropertyRef Name="has_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Crew_dbo_Schedule_ScheduleId">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingCrew">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingEquipment_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingEquipment">
+              <PropertyRef Name="equipmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingEquipment_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingEquipment">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingFleet_Fleet">
+          <End Role="Fleet" Type="Self.Fleet" Multiplicity="1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fleet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingFleet">
+              <PropertyRef Name="fleetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingFleet_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingFleet">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingKit_Kit">
+          <End Role="Kit" Type="Self.Kit" Multiplicity="1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingKit">
+              <PropertyRef Name="kitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingKit_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookingKit">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Has_Role_Categ">
+          <End Role="Categ" Type="Self.Categ" Multiplicity="0..1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="catId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Job_dbo_Client_ClientId">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Employee_dbo_County_CountyId">
+          <End Role="County" Type="Self.County" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="countyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="employeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_EquipType">
+          <End Role="EquipType" Type="Self.EquipType" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="equipTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fleet_FleetType">
+          <End Role="FleetType" Type="Self.FleetType" Multiplicity="0..1" />
+          <End Role="Fleet" Type="Self.Fleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FleetType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fleet">
+              <PropertyRef Name="fleetTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Has_Role_dbo_Role_RoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="scheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Schedule_dbo_Job_JobId">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_JobStatus">
+          <End Role="JobStatus" Type="Self.JobStatu" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="statusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kit_KitType">
+          <End Role="KitType" Type="Self.KitType" Multiplicity="0..1" />
+          <End Role="Kit" Type="Self.Kit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KitType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kit">
+              <PropertyRef Name="kitTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_ScheduleStatus">
+          <End Role="ScheduleStatus" Type="Self.ScheduleStatu" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="statusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SchType">
+          <End Role="SchType" Type="Self.SchType" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="SchTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CloudbassDBMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminGrps" EntityType="Self.AdminGrp" />
+          <EntitySet Name="BookingCrews" EntityType="Self.BookingCrew" />
+          <EntitySet Name="BookingEquipments" EntityType="Self.BookingEquipment" />
+          <EntitySet Name="BookingFleets" EntityType="Self.BookingFleet" />
+          <EntitySet Name="BookingKits" EntityType="Self.BookingKit" />
+          <EntitySet Name="Categs" EntityType="Self.Categ" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Counties" EntityType="Self.County" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+          <EntitySet Name="EquipTypes" EntityType="Self.EquipType" />
+          <EntitySet Name="Fleets" EntityType="Self.Fleet" />
+          <EntitySet Name="FleetTypes" EntityType="Self.FleetType" />
+          <EntitySet Name="Has_Role" EntityType="Self.Has_Role" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="JobStatus" EntityType="Self.JobStatu" />
+          <EntitySet Name="Kits" EntityType="Self.Kit" />
+          <EntitySet Name="KitTypes" EntityType="Self.KitType" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+          <EntitySet Name="ScheduleStatus" EntityType="Self.ScheduleStatu" />
+          <EntitySet Name="SchTypes" EntityType="Self.SchType" />
+          <AssociationSet Name="FK_Schedule_AdminGrp" Association="Self.FK_Schedule_AdminGrp">
+            <End Role="AdminGrp" EntitySet="AdminGrps" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId" Association="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
+            <End Role="Has_Role" EntitySet="Has_Role" />
+            <End Role="BookingCrew" EntitySet="BookingCrews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crew_dbo_Schedule_ScheduleId" Association="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="BookingCrew" EntitySet="BookingCrews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipment_Equipment" Association="Self.FK_BookingEquipment_Equipment">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipment_Schedule" Association="Self.FK_BookingEquipment_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Fleet" Association="Self.FK_BookingFleet_Fleet">
+            <End Role="Fleet" EntitySet="Fleets" />
+            <End Role="BookingFleet" EntitySet="BookingFleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Schedule" Association="Self.FK_BookingFleet_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="BookingFleet" EntitySet="BookingFleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Kit" Association="Self.FK_BookingKit_Kit">
+            <End Role="Kit" EntitySet="Kits" />
+            <End Role="BookingKit" EntitySet="BookingKits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Schedule" Association="Self.FK_BookingKit_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="BookingKit" EntitySet="BookingKits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Has_Role_Categ" Association="Self.FK_Has_Role_Categ">
+            <End Role="Categ" EntitySet="Categs" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Job_dbo_Client_ClientId" Association="Self.FK_dbo_Job_dbo_Client_ClientId">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Employee_dbo_County_CountyId" Association="Self.FK_dbo_Employee_dbo_County_CountyId">
+            <End Role="County" EntitySet="Counties" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId" Association="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_EquipType" Association="Self.FK_Equipment_EquipType">
+            <End Role="EquipType" EntitySet="EquipTypes" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fleet_FleetType" Association="Self.FK_Fleet_FleetType">
+            <End Role="FleetType" EntitySet="FleetTypes" />
+            <End Role="Fleet" EntitySet="Fleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Role_RoleId" Association="Self.FK_dbo_Has_Role_dbo_Role_RoleId">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Schedule" Association="Self.FK_Invoice_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schedule_dbo_Job_JobId" Association="Self.FK_dbo_Schedule_dbo_Job_JobId">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_JobStatus" Association="Self.FK_Job_JobStatus">
+            <End Role="JobStatus" EntitySet="JobStatus" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kit_KitType" Association="Self.FK_Kit_KitType">
+            <End Role="KitType" EntitySet="KitTypes" />
+            <End Role="Kit" EntitySet="Kits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_ScheduleStatus" Association="Self.FK_Schedule_ScheduleStatus">
+            <End Role="ScheduleStatus" EntitySet="ScheduleStatus" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SchType" Association="Self.FK_Schedule_SchType">
+            <End Role="SchType" EntitySet="SchTypes" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CloudbassDBMSModelStoreContainer" CdmEntityContainer="CloudbassDBMSEntities">
+          <EntitySetMapping Name="AdminGrps">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.AdminGrp">
+              <MappingFragment StoreEntitySet="AdminGrp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingCrews">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingCrew">
+              <MappingFragment StoreEntitySet="BookingCrew">
+                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+                <ScalarProperty Name="has_RoleId" ColumnName="has_RoleId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingEquipments">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingEquipment">
+              <MappingFragment StoreEntitySet="BookingEquipment">
+                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+                <ScalarProperty Name="equipmentId" ColumnName="equipmentId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingFleets">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingFleet">
+              <MappingFragment StoreEntitySet="BookingFleet">
+                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+                <ScalarProperty Name="fleetId" ColumnName="fleetId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingKits">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingKit">
+              <MappingFragment StoreEntitySet="BookingKit">
+                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+                <ScalarProperty Name="kitId" ColumnName="kitId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categs">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Categ">
+              <MappingFragment StoreEntitySet="Categ">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ToContact" ColumnName="ToContact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counties">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.County">
+              <MappingFragment StoreEntitySet="County">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="countyId" ColumnName="countyId" />
+                <ScalarProperty Name="bared" ColumnName="bared" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="nextOfKin" ColumnName="nextOfKin" />
+                <ScalarProperty Name="alergy" ColumnName="alergy" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="postNominals" ColumnName="postNominals" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="equipmentName" ColumnName="equipmentName" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="equipTypeId" ColumnName="equipTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipTypes">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.EquipType">
+              <MappingFragment StoreEntitySet="EquipType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fleets">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Fleet">
+              <MappingFragment StoreEntitySet="Fleet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FleetName" ColumnName="FleetName" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="fleetTypeId" ColumnName="fleetTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FleetTypes">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.FleetType">
+              <MappingFragment StoreEntitySet="FleetType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Has_Role">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Has_Role">
+              <MappingFragment StoreEntitySet="Has_Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="employeeId" ColumnName="employeeId" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="catId" ColumnName="catId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+                <ScalarProperty Name="dateGenerated" ColumnName="dateGenerated" />
+                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="TXDate" ColumnName="TXDate" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="Coordinator" ColumnName="Coordinator" />
+                <ScalarProperty Name="CommercialLead" ColumnName="CommercialLead" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="statusId" ColumnName="statusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobStatus">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.JobStatu">
+              <MappingFragment StoreEntitySet="JobStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kits">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Kit">
+              <MappingFragment StoreEntitySet="Kit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="kitName" ColumnName="kitName" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="kitTypeId" ColumnName="kitTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KitTypes">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.KitType">
+              <MappingFragment StoreEntitySet="KitType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="SchTypeId" ColumnName="SchTypeId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="statusId" ColumnName="statusId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="is_approved" ColumnName="is_approved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleStatus">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.ScheduleStatu">
+              <MappingFragment StoreEntitySet="ScheduleStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchTypes">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.SchType">
+              <MappingFragment StoreEntitySet="SchType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
