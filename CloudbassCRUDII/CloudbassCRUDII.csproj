@@ -131,13 +131,12 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\SchedulesGroupingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SortHelper.cs" />
-    <Compile Include="Models\AdminGrp.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\BookingCrew.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
@@ -174,7 +173,6 @@
     <Compile Include="Models\County.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DTO\AdminGrp.cs" />
     <Compile Include="Models\DTO\BookingCrew.cs" />
     <Compile Include="Models\DTO\BookingEquipment.cs" />
     <Compile Include="Models\DTO\BookingFleet.cs" />
@@ -258,6 +256,11 @@
     <Content Include="Content\grid\dropdown.min.css" />
     <Content Include="Content\grid\grid.css" />
     <Content Include="Content\grid\grid.min.css" />
+    <Content Include="Examples\Grid\ajax-sourced-data.html" />
+    <Content Include="Examples\Grid\bootstrap-grid-inline-edit.html" />
+    <Content Include="Examples\Grid\connected-jquery-grids.html" />
+    <Content Include="Examples\Grid\grouping.html" />
+    <Content Include="Examples\Grid\nested-jquery-grids.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -326,6 +329,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\EmployeesGrouping\" />
     <Folder Include="Views\Employees\" />
+    <Folder Include="Views\Jobs\" />
+    <Folder Include="Views\SchedulesGrouping\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -26,7 +26,6 @@ namespace CloudbassCRUDII.Models
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public Nullable<decimal> totalDays { get; set; }
-        public Nullable<decimal> rate { get; set; }
         public Nullable<int> catId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

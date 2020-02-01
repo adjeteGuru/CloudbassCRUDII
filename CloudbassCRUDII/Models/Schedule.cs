@@ -31,10 +31,7 @@ namespace CloudbassCRUDII.Models
         public Nullable<int> SchTypeId { get; set; }
         public string JobId { get; set; }
         public Nullable<int> statusId { get; set; }
-        public Nullable<int> AdminId { get; set; }
-        public Nullable<bool> is_approved { get; set; }
     
-        public virtual AdminGrp AdminGrp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingCrew> BookingCrews { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

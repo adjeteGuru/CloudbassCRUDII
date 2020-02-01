@@ -24,6 +24,11 @@ namespace CloudbassCRUDII.Models
         public string text { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
+        public string NameConcatenatLocation
+        {
+            get { return text + " - " + Location; }
+        }
+
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> TXDate { get; set; }
@@ -34,8 +39,8 @@ namespace CloudbassCRUDII.Models
         public Nullable<int> statusId { get; set; }
     
         public virtual Client Client { get; set; }
+        public virtual JobStatu JobStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
-        public virtual JobStatu JobStatu { get; set; }
     }
 }

@@ -7,45 +7,41 @@ using System.Web.Mvc;
 
 namespace CloudbassCRUDII.Controllers
 {
-    public class EmployeesGroupingController : Controller
+    public class SchedulesGroupingController : Controller
     {
-        // GET: EmployeesGrouping
+        // GET: SchedulesGrouping
         public JsonResult Get(string groupBy, string groupByDirection, int? page, int? limit)
         {
-            List<Models.DTO.Employee> records;
+            List<Models.DTO.Job> records;
             int total;
             using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
             {
-                var query = context.Employees.Select(p => new Models.DTO.Employee
+                var query = context.Jobs.Select(p => new Models.DTO.Job
                 {
                     Id = p.Id,
-                    fullName = p.fullName,
-                 
-                    mobile = p.mobile,
-                    email = p.email,
-                    countyId = p.countyId,
-                    bared = p.bared,
-                    // CountyName = p.County != null ? p.County.Name : "",
-                    // bared = p.bared != null ? p.bared : "",
-                    IsAvailable = p.IsAvailable,
-                    startDate = p.startDate,
-                    note = p.note,
-                    photo = p.photo,
-                    nextOfKin = p.nextOfKin,
-                    alergy = p.alergy,
-                    postNominals = p.postNominals,
-                   
+                    text = p.text,
+                    Description = p.Description,
+                    Location = p.Location,
+                    start_date = p.start_date,
+                    DateCreated = p.DateCreated,
+                    end_date = p.end_date,
+                    TXDate = p.TXDate,
+                    Coordinator = p.Coordinator,
+                    CommercialLead = p.CommercialLead,
+                    ClientId = p.ClientId,
+                    //CountryName = p.Country != null ? p.Country.Name : "",
+                    statusId = p.statusId
                 });
 
-                if (groupBy == "County")
+                if (groupBy == "ClientId")
                 {
                     if (groupByDirection.Trim().ToLower() == "asc")
                     {
-                        query = query.OrderBy(q => q.countyId);
+                        query = query.OrderBy(q => q.ClientId);/*.ThenBy(q => q.OrderNumber);*/
                     }
                     else
                     {
-                        query = query.OrderByDescending(q => q.countyId);
+                        query = query.OrderByDescending(q => q.ClientId);/*.ThenBy(q => q.OrderNumber);*/
                     }
                 }
                 //else
@@ -67,6 +63,5 @@ namespace CloudbassCRUDII.Controllers
 
             return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
         }
-
     }
 }
