@@ -24,7 +24,7 @@ namespace CloudbassCRUDII.Models
         public string text { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
-        public string NameConcatenatLocation
+        public string NameConcatenateLocation
         {
             get { return text + " - " + Location; }
         }

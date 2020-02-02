@@ -260,7 +260,7 @@
     <Content Include="Examples\Grid\bootstrap-grid-inline-edit.html" />
     <Content Include="Examples\Grid\connected-jquery-grids.html" />
     <Content Include="Examples\Grid\grouping.html" />
-    <Content Include="Examples\Grid\nested-jquery-grids.html" />
+    <Content Include="Examples\Grid\job.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

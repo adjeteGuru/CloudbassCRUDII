@@ -12,10 +12,16 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var grid = $('#grid').grid({
-                primaryKey: 'ID',
-                dataSource: '/PlayersGrouping/Get',
-                grouping: { groupBy: 'CountryName' },
-                columns: [{ field: 'ID', width: 56 }, { field: 'Name' }, { field: 'PlaceOfBirth' }]
+                primaryKey: 'Id',
+                dataSource: '/SchedulesGrouping/Get',
+                grouping: { groupBy: 'ClientId' },
+                columns: [{ field: 'Id', width: 56 },
+                    { field: 'text' },
+                    //{ field: 'ClientName' },
+                    { field: 'start_date', title: 'Event Location' },
+                    {field: 'end_date', title: 'Coordinator'}
+                    //{ field: 'SchTypeId' },
+                ]
             });
         });
     </script>

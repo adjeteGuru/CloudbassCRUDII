@@ -20,7 +20,7 @@ namespace CloudbassCRUDII.Controllers
                 {
                     Id = p.Id,
                     text = p.text,
-                   // NameConcatenateLocation = p.NameConcatenatLocation,
+                   
                     Description = p.Description,
                     Location = p.Location,
                     start_date = p.start_date,
@@ -30,8 +30,10 @@ namespace CloudbassCRUDII.Controllers
                     Coordinator = p.Coordinator,
                     CommercialLead = p.CommercialLead,
                     ClientId = p.ClientId,
+                    ClientName = p.Client.Name,
               
-                    statusId = p.statusId
+                    statusId = p.statusId,
+                    StatusName = p.JobStatu.title
                  
                 });
 
@@ -143,6 +145,7 @@ namespace CloudbassCRUDII.Controllers
                     {
                         Id = record.Id,
                         text = record.text,
+                        
                         Description = record.Description,
                         Location = record.Location,
                         start_date = record.start_date,
@@ -182,13 +185,16 @@ namespace CloudbassCRUDII.Controllers
                 var query = context.Schedules.Where(pt => pt.JobId == Id).Select(pt => new Models.DTO.Schedule
                 {
                     Id = pt.Id,
-                    JobId = pt.JobId,
-
+                    //JobId = pt.JobId,
+                    //JobName = pt.
                     text = pt.text,
-                    SchTypeId = pt.SchTypeId,
+
+                   // SchTypeId = pt.SchTypeId,
+                    SchTypName = pt.SchType.name,
                     start_date = pt.start_date,
                     end_date = pt.end_date,
-                    statusId = pt.statusId,
+                    //statusId = pt.statusId,
+                    StatusName = pt.ScheduleStatu.title
 
                 });
 

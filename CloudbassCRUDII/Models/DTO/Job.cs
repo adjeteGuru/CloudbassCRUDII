@@ -16,6 +16,7 @@ namespace CloudbassCRUDII.Models.DTO
         {
             get { return text + " - " + Location; }
         }
+
         public string Location { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> start_date { get; set; }
@@ -24,7 +25,11 @@ namespace CloudbassCRUDII.Models.DTO
         public string Coordinator { get; set; }
         public string CommercialLead { get; set; }
         public int ClientId { get; set; }
+
+        public string ClientName { get; set; }
         public Nullable<int> statusId { get; set; }
+
+        public string StatusName { get; set; }
 
 
     }

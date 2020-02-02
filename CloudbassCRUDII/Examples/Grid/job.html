@@ -21,10 +21,12 @@
                 primaryKey: 'Id',
                 dataSource: '/Jobs/Get',
                 columns: [
-                    { field: 'Id', width: 56 },
-                    { field: 'text' },
- 		
-                    { field: 'Location', title: 'Event Location' }
+                    //{ field: 'Id', width: 56 },
+                    { field: 'NameConcatenateLocation', title: 'Job Name' },
+                   
+                    { field: 'ClientName' },
+                    { field: 'Location', title: 'Event Location' },
+                    {field: 'Coordinator', title: 'Coordinator'}
                 ],
                 detailTemplate: '<div><table/></div>'
             });
@@ -33,7 +35,7 @@
                     params: { Id: id },
                     dataSource: '/Jobs/GetSchedules',
                     autoGenerateColumns: true,
-                    pager: { limit: 5 }
+                    pager: { limit: 10 }
                 });
             });
             grid.on('detailCollapse', function (e, $detailWrapper, id) {
