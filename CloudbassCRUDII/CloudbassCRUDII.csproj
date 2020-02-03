@@ -132,7 +132,9 @@
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\SchedRolesController.cs" />
     <Compile Include="Controllers\SchedulesGroupingController.cs" />
+    <Compile Include="Controllers\VewModelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +242,7 @@
     <Compile Include="Models\SchType.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\JobSchedCrewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +263,7 @@
     <Content Include="Examples\Grid\bootstrap-grid-inline-edit.html" />
     <Content Include="Examples\Grid\connected-jquery-grids.html" />
     <Content Include="Examples\Grid\grouping.html" />
+    <Content Include="Examples\Grid\hasrole.html" />
     <Content Include="Examples\Grid\job.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -330,7 +334,9 @@
     <Folder Include="Views\EmployeesGrouping\" />
     <Folder Include="Views\Employees\" />
     <Folder Include="Views\Jobs\" />
+    <Folder Include="Views\SchedRoles\" />
     <Folder Include="Views\SchedulesGrouping\" />
+    <Folder Include="Views\VewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

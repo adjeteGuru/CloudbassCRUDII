@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Job List Grids</title>
+    <title>Role List Grids</title>
     <meta charset="utf-8" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -43,22 +43,22 @@
         $(document).ready(function () {
             var grid = $('#grid').grid({
                 primaryKey: 'Id',
-                dataSource: '/Jobs/Get',
+                dataSource: '/SchedRoles/Get',
                 columns: [
-                    //{ field: 'Id', width: 56 },
-                    { field: 'ClientName', title: 'Client' },
-                    { field: 'NameConcatenateLocation', title: 'Job Name' },
-                   { field: 'Id', title: 'Job Number' },
+                    { field: 'Id', width: 56 },
+                    { field: 'text', title: 'Client' },
+                    { field: 'start_date', title: 'Start' },
+                   { field: 'end_date', title: 'End' },
                                         
-                    { field: 'Coordinator', title: 'Coordinator' },
-                    { field: 'StatusName', title: 'Job Status' }
+                   // { field: '', title: 'Coordinator' },
+                   // { field: 'StatusName', title: 'Job Status' }
                 ],
                 detailTemplate: '<div><table/></div>'
             });
             grid.on('detailExpand', function (e, $detailWrapper, id) {
                 $detailWrapper.find('table').grid({
                     params: { Id: id },
-                    dataSource: '/Jobs/GetSchedules',
+                    dataSource: '/SchedRoles/GetHas_Roles',
                     autoGenerateColumns: true,
                     pager: { limit: 10 }
                 });
@@ -86,7 +86,6 @@
                 grid.reload({ jobname: '', location: '', clientname: ''  });
             });
             //end
-
 
         });
     </script>
