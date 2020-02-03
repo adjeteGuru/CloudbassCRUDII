@@ -1,20 +1,42 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Nested jQuery Grids</title>
+    <title>Job List Grids</title>
     <meta charset="utf-8" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+
+    <!--begin-->
+
     <div class="container-full">
+        <!--b-->
+        <div class="col-9">
+            <form class="form-inline">
+                <input id="txtJobName" type="text" placeholder="Job Name..." class="form-control mb-2 mr-sm-2 mb-sm-0" />
+                <input id="txtLocation" type="text" placeholder="Job Location..." class="form-control mb-2 mr-sm-2 mb-sm-0" />
+                <input id="txtClientName" type="text" placeholder="Client Name..." class="form-control mb-2 mr-sm-2 mb-sm-0" />
+                <button id="btnSearch" type="button" class="btn btn-default">Search</button> &nbsp;
+                <button id="btnClear" type="button" class="btn btn-default">Clear</button>
+            </form>
+        </div>
+
+        <!--e-->
+
         <div class="row">
+
             <div class="col-xs-12">
                 <table id="grid"></table>
             </div>
         </div>
-    </div>
+
+    </div> 
+    <!--end-->
+
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             var grid = $('#grid').grid({
@@ -22,11 +44,12 @@
                 dataSource: '/Jobs/Get',
                 columns: [
                     //{ field: 'Id', width: 56 },
+                    { field: 'ClientName', title: 'Client' },
                     { field: 'NameConcatenateLocation', title: 'Job Name' },
-                   
-                    { field: 'ClientName' },
-                    { field: 'Location', title: 'Event Location' },
-                    {field: 'Coordinator', title: 'Coordinator'}
+                   { field: 'Id', title: 'Job Number' },
+                                        
+                    { field: 'Coordinator', title: 'Coordinator' },
+                    { field: 'StatusName', title: 'Job Status' }
                 ],
                 detailTemplate: '<div><table/></div>'
             });
@@ -41,6 +64,26 @@
             grid.on('detailCollapse', function (e, $detailWrapper, id) {
                 $detailWrapper.find('table').grid('destroy', true, true);
             });
+
+
+            //serch jobname
+             $('#btnSearch').on('click', function () {
+                 grid.reload({
+                     jobname: $('#txtJobName').val(),
+                     location: $('#txtLocation').val(),
+                     clientname: $('#txtClientName').val()
+                 });
+             });
+
+            //clear jobname
+            $('#btnClear').on('click', function () {
+                $('#txtJobName').val('');
+                $('#txtLocation').val('');
+                $('#txtClientName').val('');
+                grid.reload({ jobname: '', location: '', clientname: ''  });
+            });
+            //end
+
         });
     </script>
 </body>
