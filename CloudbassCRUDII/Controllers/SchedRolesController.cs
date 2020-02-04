@@ -97,10 +97,10 @@ namespace CloudbassCRUDII.Controllers
                 {
                     entity = context.Schedules.First(p => p.Id == record.Id);
                     entity.text = record.text;
-                    entity.SchTypeId = record.SchTypeId;
+                    //entity.SchTypeId = record.SchTypeId;
                     //entity.Country = context.Locations.FirstOrDefault(l => l.ID == record.CountryID);
-                    entity.statusId = record.statusId;
-                    entity.JobId = record.JobId;
+                   // entity.statusId = record.statusId;
+                   // entity.JobId = record.JobId;
                    
                     entity.start_date = record.start_date;
                     entity.end_date = record.end_date;
@@ -113,9 +113,9 @@ namespace CloudbassCRUDII.Controllers
                     {
                         Id = record.Id,
                         text = record.text,
-                        statusId = record.statusId,
-                        JobId = record.JobId,
-                        SchTypeId = record.SchTypeId,
+                        //statusId = record.statusId,
+                       // JobId = record.JobId,
+                       // SchTypeId = record.SchTypeId,
                         start_date = record.start_date,
                         end_date = record.end_date,
 

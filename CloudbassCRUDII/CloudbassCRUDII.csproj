@@ -269,6 +269,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Cloudbass-Logo.png" />
     <Content Include="Models\CloudbassDBMS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CloudbassDBMS.Context.cs</LastGenOutput>

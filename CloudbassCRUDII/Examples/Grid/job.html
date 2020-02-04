@@ -8,12 +8,12 @@
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
+       
     <!--begin-->
 
     <div class="container-full">
 
-    
+
         <!--b-->
         <div class="col-9">
             <form class="form-inline">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-    </div> 
+    </div>
     <!--end-->
 
 
@@ -48,8 +48,8 @@
                     //{ field: 'Id', width: 56 },
                     { field: 'ClientName', title: 'Client' },
                     { field: 'NameConcatenateLocation', title: 'Job Name' },
-                   { field: 'Id', title: 'Job Number' },
-                                        
+                    { field: 'Id', title: 'Job Number' },
+
                     { field: 'Coordinator', title: 'Coordinator' },
                     { field: 'StatusName', title: 'Job Status' }
                 ],
@@ -70,20 +70,20 @@
 
 
             //serch jobname
-             $('#btnSearch').on('click', function () {
-                 grid.reload({
-                     jobname: $('#txtJobName').val(),
-                     location: $('#txtLocation').val(),
-                     clientname: $('#txtClientName').val()
-                 });
-             });
+            $('#btnSearch').on('click', function () {
+                grid.reload({
+                    jobname: $('#txtJobName').val(),
+                    location: $('#txtLocation').val(),
+                    clientname: $('#txtClientName').val()
+                });
+            });
 
             //clear jobname
             $('#btnClear').on('click', function () {
                 $('#txtJobName').val('');
                 $('#txtLocation').val('');
                 $('#txtClientName').val('');
-                grid.reload({ jobname: '', location: '', clientname: ''  });
+                grid.reload({ jobname: '', location: '', clientname: '' });
             });
             //end
 

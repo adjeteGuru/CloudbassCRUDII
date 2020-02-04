@@ -7,13 +7,16 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
+
+
 <body>
+
 
     <!--begin-->
 
     <div class="container-full">
 
-    
+       
         <!--b-->
         <div class="col-9">
             <form class="form-inline">
@@ -34,7 +37,7 @@
             </div>
         </div>
 
-    </div> 
+    </div>
     <!--end-->
 
 
@@ -43,22 +46,22 @@
         $(document).ready(function () {
             var grid = $('#grid').grid({
                 primaryKey: 'Id',
-                dataSource: '/SchedRoles/Get',
+                dataSource: '/VewModel/Get',
                 columns: [
                     { field: 'Id', width: 56 },
                     { field: 'text', title: 'Client' },
                     { field: 'start_date', title: 'Start' },
-                   { field: 'end_date', title: 'End' },
-                                        
-                   // { field: '', title: 'Coordinator' },
-                   // { field: 'StatusName', title: 'Job Status' }
+                    { field: 'end_date', title: 'End' },
+
+                    // { field: '', title: 'Coordinator' },
+                    // { field: 'StatusName', title: 'Job Status' }
                 ],
                 detailTemplate: '<div><table/></div>'
             });
             grid.on('detailExpand', function (e, $detailWrapper, id) {
                 $detailWrapper.find('table').grid({
                     params: { Id: id },
-                    dataSource: '/SchedRoles/GetHas_Roles',
+                    dataSource: '/VewModel/GetHas_Roles',
                     autoGenerateColumns: true,
                     pager: { limit: 10 }
                 });
@@ -70,20 +73,20 @@
 
 
             //serch jobname
-             $('#btnSearch').on('click', function () {
-                 grid.reload({
-                     jobname: $('#txtJobName').val(),
-                     location: $('#txtLocation').val(),
-                     clientname: $('#txtClientName').val()
-                 });
-             });
+            $('#btnSearch').on('click', function () {
+                grid.reload({
+                    jobname: $('#txtJobName').val(),
+                    location: $('#txtLocation').val(),
+                    clientname: $('#txtClientName').val()
+                });
+            });
 
             //clear jobname
             $('#btnClear').on('click', function () {
                 $('#txtJobName').val('');
                 $('#txtLocation').val('');
                 $('#txtClientName').val('');
-                grid.reload({ jobname: '', location: '', clientname: ''  });
+                grid.reload({ jobname: '', location: '', clientname: '' });
             });
             //end
 
