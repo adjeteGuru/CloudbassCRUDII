@@ -47,15 +47,12 @@ namespace CloudbassCRUDII.Controllers
                     query = query.Where(q => q.Location.Contains(location));
                 }
 
-                //if (!string.IsNullOrWhiteSpace(clientname))
-                //{
-                //    query = query.Where(q => q.c.Contains(clientname));
-                //}
+                if (!string.IsNullOrWhiteSpace(clientname))
+                {
+                    query = query.Where(q => q.ClientName.Contains(clientname));
+                }
+
                
-                //if (!string.IsNullOrWhiteSpace(location))
-                //{
-                //    query = query.Where(q => q.PlaceOfBirth != null && q.PlaceOfBirth.Contains(location));
-                //}
 
                 if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
                 {
@@ -69,12 +66,10 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderBy(q => q.Location);
                                 break;
-                            //case "placeOfBirth":
-                            //    query = query.OrderBy(q => q.PlaceOfBirth);
-                            //    break;
-                            //case "dateofbirth":
-                            //    query = query.OrderBy(q => q.DateOfBirth);
-                            //    break;
+                            case "placeOfBirth":
+                                query = query.OrderBy(q => q.ClientName);
+                                break;
+                               
                         }
                     }
                     else
@@ -87,19 +82,17 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderByDescending(q => q.Location);
                                 break;
-                            //case "placeOfBirth":
-                            //    query = query.OrderByDescending(q => q.PlaceOfBirth);
-                            //    break;
-                            //case "dateofbirth":
-                            //    query = query.OrderByDescending(q => q.DateOfBirth);
-                            //    break;
+                            case "placeOfBirth":
+                                query = query.OrderByDescending(q => q.ClientName);
+                                break;
+                               
                         }
                     }
                 }
-                //else
-                //{
-                //    query = query.OrderBy(q => q.OrderNumber);
-                //}
+                else
+                {
+                    query = query.OrderBy(q => q.TXDate);
+                }
 
                 total = query.Count();
                 if (page.HasValue && limit.HasValue)
@@ -212,5 +205,7 @@ namespace CloudbassCRUDII.Controllers
 
             return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
         }
+
+        
     }
 }

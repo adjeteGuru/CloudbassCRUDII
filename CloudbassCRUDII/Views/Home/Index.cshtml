@@ -1,80 +1,128 @@
-﻿@*@{
+﻿@{
         ViewBag.Title = "Home Page";
     }
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <img src="~/Images/Cloudbass-Logo.png" alt="..." style="margin-top:0px" height="150" width="900" />
+             
     </div>
 
     <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+
+        <div class="col-md-3">
+            <div class=" thumbnail">
+                <div class=" panel panel-primary" style=" height:450px !important">
+                    <div class=" panel-heading">
+                        <h3 class=" panel-title "> Dashboard</h3>
+                    </div>
+
+                    <i class="fa fa-archive" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:dodgerblue"></i>
+                    <div class=" caption">
+                        <h3>Jobs & Schedules</h3>
+                        @*<p style="text-align :justify">
+                            Here is the click event allowing you to navigate through....<br />
+                        </p>*@
+                        <hr />
+                        <ul>
+                            @*<li><a href="~/examples/grid/ajax-sourced-data.html" target="_blank">Ajax Sourced Data</a></li>*@
+                            @*<li><a href="~/examples/grid/bootstrap-grid-inline-edit.html" target="_blank">Inline Editing</a></li>*@
+                            <li><a href="~/examples/grid/job.html" target="_blank">Job Grids</a></li>
+                            <li><a href="~/examples/grid/hasrole.html" target="_blank">Role Grids</a></li>
+                            @*<li><a href="~/examples/grid/connected-jquery-grids.html" target="_blank">Connected Grids</a></li>
+                            <li><a href="~/examples/grid/grouping.html" target="_blank">Grouping</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+        <div class="col-md-3">
+            <div class=" thumbnail">
+                <div class=" panel panel-primary" style=" height:450px !important">
+                    <div class=" panel-heading">
+                        <h3 class=" panel-title "> Dashboard</h3>
+                    </div>
+                    <i class="fa fa-group" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:red"></i>
+                    <div class=" caption">
+                        <h3>Users Management</h3>
+                        @*<p style="text-align :justify">
+                            Here is the click event allowing you to navigate through....<br />
+                        </p>*@
+                        <hr />
+                        <ul>
+                            <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
+                            <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
+                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+
+
+        <div class="col-md-3">
+            <div class=" thumbnail">
+                <div class=" panel panel-primary" style=" height:450px !important">
+                    <div class=" panel-heading">
+                        <h3 class=" panel-title "> Dashboard</h3>
+                    </div>
+                    <i class="	fa fa-bus" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:darkblue"></i>
+                    <div class=" caption">
+                        <h3>Fleets Management</h3>
+                        @*<p style="text-align :justify">
+                            Here is the click event allowing you to navigate through....<br />
+                        </p>*@
+                        <hr />
+                        <ul>
+                            <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
+                            <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
+                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-    </div>*@
 
 
-@{
-    ViewBag.Title = "Home";
-}
+        <div class="col-md-3">
+            <div class=" thumbnail">
+                <div class=" panel panel-primary" style=" height:450px !important">
+                    <div class=" panel-heading">
+                        <h3 class=" panel-title "> Dashboard</h3>
+                    </div>
+                    <i class="fa fa-bed" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:black"></i>
+                    <div class=" caption">
+                        <h3>Hotel Management</h3>
+                        @*<p style="text-align :justify">
+                            Here is the click event allowing you to navigate through....<br />
+                        </p>*@
+                        <hr />
+                        <ul>
+                            <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
+                            <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
+                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-@*<html>
-<head>
-    <title>Getting Started with jQuery Grid</title>
-    <meta charset="utf-8" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-</head>
-<body>
-    <table id="grid"></table>
-    <script type="text/javascript">
-$(document).ready(function () {
-            var grid = $('#grid').grid({
-                dataSource: '/Jobs/Get',
-                columns: [
-                    { field: 'Id', width: 56 },
-                    { field: 'text', sortable: true },
-                    { field: 'Location', title: 'Event Location', sortable: true },
-                    { field: 'TXDate', title: 'Transmission Date', type: 'date', width: 150 }
-                ],
-                pager: { limit: 5 }
-            });
-        });</script>
-</body>
-</html>*@
+            </div>
+
+        </div>
+
+    </div>
 
 
-<h2>Grid</h2>
-    <ul>
-        <li><a href="~/examples/grid/ajax-sourced-data.html" target="_blank">Ajax Sourced Data</a></li>
-        <li><a href="~/examples/grid/bootstrap-grid-inline-edit.html" target="_blank">Inline Editing</a></li>
-        <li><a href="~/examples/grid/job.html" target="_blank">Job Grids</a></li>
-        <li><a href="~/examples/grid/connected-jquery-grids.html" target="_blank">Connected Grids</a></li>
-        <li><a href="~/examples/grid/grouping.html" target="_blank">Grouping</a></li>
-    </ul>
 
-    <h2>Tree</h2>
-    <ul>
-        <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
-        <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
-        <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
-    </ul>
+
+
+
+
+    
