@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,11 +134,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingCrewDController.cs" />
+    <Compile Include="Controllers\ClientDController.cs" />
+    <Compile Include="Controllers\EmployeeDController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
+    <Compile Include="Controllers\Has_RoleDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\RoleDController.cs" />
     <Compile Include="Controllers\SchedRolesController.cs" />
+    <Compile Include="Controllers\ScheduleDController.cs" />
     <Compile Include="Controllers\SchedulesGroupingController.cs" />
     <Compile Include="Controllers\VewModelController.cs" />
     <Compile Include="Global.asax.cs">
@@ -259,6 +271,7 @@
     <Content Include="Content\grid\dropdown.min.css" />
     <Content Include="Content\grid\grid.css" />
     <Content Include="Content\grid\grid.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Examples\Grid\ajax-sourced-data.html" />
     <Content Include="Examples\Grid\bootstrap-grid-inline-edit.html" />
     <Content Include="Examples\Grid\connected-jquery-grids.html" />
@@ -329,6 +342,37 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\EmployeeD\Create.cshtml" />
+    <Content Include="Views\EmployeeD\Delete.cshtml" />
+    <Content Include="Views\EmployeeD\Details.cshtml" />
+    <Content Include="Views\EmployeeD\Edit.cshtml" />
+    <Content Include="Views\EmployeeD\Index.cshtml" />
+    <Content Include="Views\BookingCrewD\Create.cshtml" />
+    <Content Include="Views\BookingCrewD\Delete.cshtml" />
+    <Content Include="Views\BookingCrewD\Details.cshtml" />
+    <Content Include="Views\BookingCrewD\Edit.cshtml" />
+    <Content Include="Views\BookingCrewD\Index.cshtml" />
+    <Content Include="Views\Has_RoleD\Create.cshtml" />
+    <Content Include="Views\Has_RoleD\Delete.cshtml" />
+    <Content Include="Views\Has_RoleD\Details.cshtml" />
+    <Content Include="Views\Has_RoleD\Edit.cshtml" />
+    <Content Include="Views\Has_RoleD\Index.cshtml" />
+    <Content Include="Views\RoleD\Create.cshtml" />
+    <Content Include="Views\RoleD\Delete.cshtml" />
+    <Content Include="Views\RoleD\Details.cshtml" />
+    <Content Include="Views\RoleD\Edit.cshtml" />
+    <Content Include="Views\RoleD\Index.cshtml" />
+    <Content Include="Views\ClientD\Create.cshtml" />
+    <Content Include="Views\ClientD\Delete.cshtml" />
+    <Content Include="Views\ClientD\Details.cshtml" />
+    <Content Include="Views\ClientD\Edit.cshtml" />
+    <Content Include="Views\ClientD\Index.cshtml" />
+    <Content Include="Views\ScheduleD\Create.cshtml" />
+    <Content Include="Views\ScheduleD\Delete.cshtml" />
+    <Content Include="Views\ScheduleD\Details.cshtml" />
+    <Content Include="Views\ScheduleD\Edit.cshtml" />
+    <Content Include="Views\ScheduleD\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
