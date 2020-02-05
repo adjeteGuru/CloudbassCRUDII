@@ -28,7 +28,7 @@ namespace CloudbassCRUDII.Models
         public string bared { get; set; }
         public bool IsAvailable { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
-        public byte[] photo { get; set; }
+        public string photo { get; set; }
         public string nextOfKin { get; set; }
         public string alergy { get; set; }
         public string note { get; set; }

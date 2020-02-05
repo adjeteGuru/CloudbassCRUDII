@@ -44,8 +44,8 @@ namespace CloudbassCRUDII.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<ScheduleStatu> ScheduleStatus { get; set; }
         public virtual DbSet<SchType> SchTypes { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Has_Role> Has_Role { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
     }
 }

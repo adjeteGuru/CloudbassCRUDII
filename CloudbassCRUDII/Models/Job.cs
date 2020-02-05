@@ -24,11 +24,6 @@ namespace CloudbassCRUDII.Models
         public string text { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
-        public string NameConcatenateLocation
-        {
-            get { return text + " - " + Location; }
-        }
-
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> TXDate { get; set; }

@@ -90,7 +90,7 @@
           <Property Name="bared" Type="varchar" MaxLength="150" />
           <Property Name="IsAvailable" Type="bit" Nullable="false" />
           <Property Name="startDate" Type="datetime" />
-          <Property Name="photo" Type="image" />
+          <Property Name="photo" Type="varchar" MaxLength="500" />
           <Property Name="nextOfKin" Type="varchar" MaxLength="50" />
           <Property Name="alergy" Type="varchar" MaxLength="100" />
           <Property Name="note" Type="varchar" MaxLength="250" />
@@ -953,7 +953,6 @@
             <End Role="KitType" EntitySet="KitTypes" />
             <End Role="Kit" EntitySet="Kits" />
           </AssociationSet>
-          <EntitySet Name="Employees" EntityType="CloudbassDBMSModel.Employee" />
           <EntitySet Name="Has_Role" EntityType="CloudbassDBMSModel.Has_Role" />
           <EntitySet Name="Schedules" EntityType="CloudbassDBMSModel.Schedule" />
           <AssociationSet Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId" Association="CloudbassDBMSModel.FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
@@ -980,14 +979,6 @@
             <End Role="Categ" EntitySet="Categs" />
             <End Role="Has_Role" EntitySet="Has_Role" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Employee_dbo_County_CountyId" Association="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId">
-            <End Role="County" EntitySet="Counties" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId" Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Has_Role" EntitySet="Has_Role" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_Has_Role_dbo_Role_RoleId" Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId">
             <End Role="Role" EntitySet="Roles" />
             <End Role="Has_Role" EntitySet="Has_Role" />
@@ -1008,27 +999,16 @@
             <End Role="SchType" EntitySet="SchTypes" />
             <End Role="Schedule" EntitySet="Schedules" />
           </AssociationSet>
+          <EntitySet Name="Employees" EntityType="CloudbassDBMSModel.Employee" />
+          <AssociationSet Name="FK_dbo_Employee_dbo_County_CountyId" Association="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId">
+            <End Role="County" EntitySet="Counties" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId" Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
           </EntityContainer>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="countyId" Type="Int32" Nullable="false" />
-          <Property Name="bared" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="startDate" Type="DateTime" Precision="3" />
-          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="nextOfKin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="alergy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="note" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="postNominals" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="County" Relationship="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" FromRole="Employee" ToRole="County" />
-          <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Employee" ToRole="Has_Role" />
-        </EntityType>
         <EntityType Name="Has_Role">
           <Key>
             <PropertyRef Name="Id" />
@@ -1042,8 +1022,8 @@
           <Property Name="catId" Type="Int32" />
           <NavigationProperty Name="BookingCrews" Relationship="CloudbassDBMSModel.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="Has_Role" ToRole="BookingCrew" />
           <NavigationProperty Name="Categ" Relationship="CloudbassDBMSModel.FK_Has_Role_Categ" FromRole="Has_Role" ToRole="Categ" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Has_Role" ToRole="Employee" />
           <NavigationProperty Name="Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Has_Role" ToRole="Role" />
+          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Has_Role" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -1141,32 +1121,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Employee_dbo_County_CountyId">
-          <End Type="CloudbassDBMSModel.County" Role="County" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="County">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="countyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Has_Role">
-              <PropertyRef Name="employeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_Has_Role_dbo_Role_RoleId">
           <End Type="CloudbassDBMSModel.Role" Role="Role" Multiplicity="1" />
           <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="*" />
@@ -1224,6 +1178,52 @@
             </Principal>
             <Dependent Role="Schedule">
               <PropertyRef Name="SchTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="countyId" Type="Int32" Nullable="false" />
+          <Property Name="bared" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="photo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="nextOfKin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alergy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="postNominals" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="County" Relationship="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" FromRole="Employee" ToRole="County" />
+          <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Employee" ToRole="Has_Role" />
+        </EntityType>
+        <Association Name="FK_dbo_Employee_dbo_County_CountyId">
+          <End Type="CloudbassDBMSModel.County" Role="County" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="countyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Has_Role">
+              <PropertyRef Name="employeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1426,25 +1426,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="postNominals" ColumnName="postNominals" />
-                <ScalarProperty Name="note" ColumnName="note" />
-                <ScalarProperty Name="alergy" ColumnName="alergy" />
-                <ScalarProperty Name="nextOfKin" ColumnName="nextOfKin" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="startDate" ColumnName="startDate" />
-                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
-                <ScalarProperty Name="bared" ColumnName="bared" />
-                <ScalarProperty Name="countyId" ColumnName="countyId" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="mobile" ColumnName="mobile" />
-                <ScalarProperty Name="fullName" ColumnName="fullName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Has_Role">
             <EntityTypeMapping TypeName="CloudbassDBMSModel.Has_Role">
               <MappingFragment StoreEntitySet="Has_Role">
@@ -1467,6 +1448,25 @@
                 <ScalarProperty Name="end_date" ColumnName="end_date" />
                 <ScalarProperty Name="start_date" ColumnName="start_date" />
                 <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="postNominals" ColumnName="postNominals" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="alergy" ColumnName="alergy" />
+                <ScalarProperty Name="nextOfKin" ColumnName="nextOfKin" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="bared" ColumnName="bared" />
+                <ScalarProperty Name="countyId" ColumnName="countyId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

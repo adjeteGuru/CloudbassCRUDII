@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CloudbassCRUDII.Models;
+using PagedList;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
@@ -7,8 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using CloudbassCRUDII.Models;
-using PagedList;
 
 namespace CloudbassCRUDII.Controllers
 {
@@ -50,8 +49,8 @@ namespace CloudbassCRUDII.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                employees = employees.Where(e => e.fullName.Contains(searchString)
-                    || e.fullName.Contains(searchString));
+                employees = employees.Where(e => e.fullName.Contains(searchString));
+                    //|| e.fullName.Contains(searchString));
             }
 
             switch (sortEvent)
@@ -63,7 +62,7 @@ namespace CloudbassCRUDII.Controllers
 
 
                 default: // name ascending
-                    employees = employees.OrderBy(e => e.fullName);
+                    employees = employees.OrderBy(e => e.countyId);
                     break;
 
             }
@@ -102,35 +101,73 @@ namespace CloudbassCRUDII.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,fullName,mobile,email,countyId,bared,IsAvailable,startDate,photo,nextOfKin,alergy,note,postNominals")] Employee employee, HttpPostedFileBase ImageData)
+        public ActionResult Create([Bind(Include = "Id,fullName,mobile,email,countyId,bared,IsAvailable,startDate,photo,nextOfKin,alergy,note,postNominals")] Employee employee, HttpPostedFileBase file)
         {
-            //if (ModelState.IsValid)
-            //{
-                //to convert the user photo as Byte Array before save tp DB
-                //string convert = hdnImage.Replace("data:image/png;imageData,", String.Empty);
-
-                //var imageParts = model.ImageAsString.Split(',').ToList<string>();
-                //Exclude the header from base64 by taking second element in List.
-
-
-                // Byte[] imageData = Convert.FromBase64String(imageParts[1]);
-                //if (Request.Files.Count> 0)
+       
+            string filename = Path.GetFileName(file.FileName);
+            string _filename = DateTime.Now.ToString("yymmssfff") + filename;
+            string extension = Path.GetExtension(file.FileName);
+            string path = Path.Combine(Server.MapPath("~/Images/"), _filename);
+            employee.photo = "~/Images/" + _filename;
+            if (extension.ToLower() ==".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png")
+            {
+                //if (file.ContentLength <= 1000000)
                 //{
-                  // HttpPostedFileBase ImageData = Request.Files["ImageData"];
-                //    ContentRepository service = new ContentRepository();
-                //    int i = service.UploadImageInDataBase(file, employee);
+                    db.Employees.Add(employee);
+                    //db.Employees.Add(employee);
+                     db.SaveChanges();
+                     return RedirectToAction("Index");
+            }
 
-                //    using (var binary = new BinaryReader(poImgFile.InputStream))
-                //    {
-                //        imageData = binary.ReadBytes(poImgFile.ContentLength);
-                //    }
+                    ViewBag.countyId = new SelectList(db.Counties, "Id", "Name", employee.countyId);
+                    return View(employee);
+
+                    //NEW BEGINNING
+
+                    //        if (db.SaveChanges() > 0)
+                    //        {
+                    //            file.SaveAs(path);
+                    //            ViewBag.photo = "Record Added";
+                    //            ModelState.Clear();
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        ViewBag.photo = "Size is not valid";
+                    //    }
+                    //}
+                    //return View();
+
+                    //END NEW
+
+
+                    //if (ModelState.IsValid)
+                    //{
+                    //to convert the user photo as Byte Array before save tp DB
+                    //string convert = hdnImage.Replace("data:image/png;imageData,", String.Empty);
+
+                    //var imageParts = model.ImageAsString.Split(',').ToList<string>();
+                    //Exclude the header from base64 by taking second element in List.
+
+
+                    // Byte[] imageData = Convert.FromBase64String(imageParts[1]);
+                    //if (Request.Files.Count> 0)
+                    //{
+                    // HttpPostedFileBase ImageData = Request.Files["ImageData"];
+                    //    ContentRepository service = new ContentRepository();
+                    //    int i = service.UploadImageInDataBase(file, employee);
+
+                    //    using (var binary = new BinaryReader(poImgFile.InputStream))
+                    //    {
+                    //        imageData = binary.ReadBytes(poImgFile.ContentLength);
+                    //    }
+                    //}
+
+                //    int i = UploadImageInDataBase(ImageData, employee);
+                //if (i == 1)
+                //{
+                //    return RedirectToAction("Index");
                 //}
-
-                int i = UploadImageInDataBase(ImageData, employee);
-                if (i == 1)
-                {
-                    return RedirectToAction("Index");
-                }
                 //return View(employee);
             //}
 
@@ -140,13 +177,13 @@ namespace CloudbassCRUDII.Controllers
             //    return RedirectToAction("Index");
             //}
 
-            ViewBag.countyId = new SelectList(db.Counties, "Id", "Name", employee.countyId);
-            return View(employee);
+            //ViewBag.countyId = new SelectList(db.Counties, "Id", "Name", employee.countyId);
+            //return View(employee);
         }
 
-        public int UploadImageInDataBase(HttpPostedFileBase file, Employee employee)
-        {
-            employee.photo = ConvertToBytes(file);// store the image bytes to database directly
+        //public int UploadImageInDataBase(HttpPostedFileBase file, Employee employee)
+        //{
+           // employee.photo = ConvertToBytes(file);// store the image bytes to database directly
             //var Content = new Content
             //{
             //    Title = contentViewModel.Title,
@@ -163,28 +200,28 @@ namespace CloudbassCRUDII.Controllers
             //    db.SaveChanges();
             //    return RedirectToAction("Index");
 
-            db.Employees.Add(employee);
-            int i = db.SaveChanges();
+        //    db.Employees.Add(employee);
+        //    int i = db.SaveChanges();
          
 
-            if (i == 1)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+        //    if (i == 1)
+        //    {
+        //        return 1;
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
 
-        }
+        //}
 
-        public byte[] ConvertToBytes(HttpPostedFileBase image)
-        {
-            byte[] imageBytes = null;
-            BinaryReader reader = new BinaryReader(image.InputStream);
-            imageBytes = reader.ReadBytes((int)image.ContentLength);
-            return imageBytes;
-        }
+        //public byte[] ConvertToBytes(HttpPostedFileBase image)
+        //{
+        //    byte[] imageBytes = null;
+        //    BinaryReader reader = new BinaryReader(image.InputStream);
+        //    imageBytes = reader.ReadBytes((int)image.ContentLength);
+        //    return imageBytes;
+        //}
 
         // GET: EmployeeD/Edit/5
         public ActionResult Edit(int? id)

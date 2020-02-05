@@ -32,7 +32,6 @@
         <AssociationConnector Association="CloudbassDBMSModel.FK_Fleet_FleetType" ManuallyRouted="false" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_Job_JobStatus" ManuallyRouted="false" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_Kit_KitType" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CloudbassDBMSModel.Employee" Width="1.5" PointX="3" PointY="20.625" />
         <EntityTypeShape EntityType="CloudbassDBMSModel.Has_Role" Width="1.5" PointX="5.25" PointY="21" />
         <EntityTypeShape EntityType="CloudbassDBMSModel.Schedule" Width="1.5" PointX="5.25" PointY="10.125" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" />
@@ -41,13 +40,14 @@
         <AssociationConnector Association="CloudbassDBMSModel.FK_BookingFleet_Schedule" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_BookingKit_Schedule" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_Has_Role_Categ" />
-        <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" />
-        <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_Invoice_Schedule" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_Schedule_ScheduleStatus" />
         <AssociationConnector Association="CloudbassDBMSModel.FK_Schedule_SchType" />
+        <EntityTypeShape EntityType="CloudbassDBMSModel.Employee" Width="1.5" PointX="3" PointY="20.625" />
+        <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" />
+        <AssociationConnector Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
