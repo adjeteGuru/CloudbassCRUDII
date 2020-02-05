@@ -17,7 +17,13 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
+            this.BookingCrews = new HashSet<BookingCrew>();
+            this.BookingEquipments = new HashSet<BookingEquipment>();
+            this.BookingFleets = new HashSet<BookingFleet>();
+            this.BookingHotels = new HashSet<BookingHotel>();
+            this.BookingKits = new HashSet<BookingKit>();
             this.Has_Role = new HashSet<Has_Role>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public int Id { get; set; }
@@ -28,7 +34,7 @@ namespace CloudbassCRUDII.Models
         public string bared { get; set; }
         public bool IsAvailable { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
-        public byte[] photo { get; set; }
+        public string photo { get; set; }
         public string nextOfKin { get; set; }
         public string alergy { get; set; }
         public string note { get; set; }
@@ -36,6 +42,18 @@ namespace CloudbassCRUDII.Models
     
         public virtual County County { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingCrew> BookingCrews { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingEquipment> BookingEquipments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingFleet> BookingFleets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingHotel> BookingHotels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingKit> BookingKits { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Has_Role> Has_Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

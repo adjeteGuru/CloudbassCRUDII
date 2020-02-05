@@ -18,10 +18,6 @@ namespace CloudbassCRUDII.Models
         public Schedule()
         {
             this.BookingCrews = new HashSet<BookingCrew>();
-            this.BookingEquipments = new HashSet<BookingEquipment>();
-            this.BookingFleets = new HashSet<BookingFleet>();
-            this.BookingKits = new HashSet<BookingKit>();
-            this.Invoices = new HashSet<Invoice>();
         }
     
         public int Id { get; set; }
@@ -32,18 +28,10 @@ namespace CloudbassCRUDII.Models
         public string JobId { get; set; }
         public Nullable<int> statusId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingCrew> BookingCrews { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingEquipment> BookingEquipments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingFleet> BookingFleets { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingKit> BookingKits { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
-        public virtual Job Job { get; set; }
         public virtual ScheduleStatu ScheduleStatu { get; set; }
         public virtual SchType SchType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingCrew> BookingCrews { get; set; }
+        public virtual Job Job { get; set; }
     }
 }

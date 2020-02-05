@@ -1,0 +1,66 @@
+﻿@model CloudbassCRUDII.Models.Has_Role
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Has_Role</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categ.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categ.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

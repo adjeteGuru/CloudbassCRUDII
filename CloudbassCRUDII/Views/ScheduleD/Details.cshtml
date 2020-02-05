@@ -1,0 +1,66 @@
+﻿@model CloudbassCRUDII.Models.Schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Job.text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job.text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleStatu.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleStatu.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchType.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchType.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -15,13 +15,13 @@ namespace CloudbassCRUDII.Models
     public partial class Invoice
     {
         public int Id { get; set; }
-        public int scheduleId { get; set; }
+        public string JobId { get; set; }
         public Nullable<System.DateTime> dateGenerated { get; set; }
-        public string serviceName { get; set; }
         public Nullable<decimal> rate { get; set; }
         public Nullable<decimal> totalDays { get; set; }
-        public string adminName { get; set; }
+        public Nullable<int> createdBy { get; set; }
     
-        public virtual Schedule Schedule { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Job Job { get; set; }
     }
 }

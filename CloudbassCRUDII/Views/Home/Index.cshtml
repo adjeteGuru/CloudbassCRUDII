@@ -20,17 +20,14 @@
                     <i class="fa fa-archive" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:dodgerblue"></i>
                     <div class=" caption">
                         <h3>Jobs & Schedules</h3>
-                        @*<p style="text-align :justify">
-                            Here is the click event allowing you to navigate through....<br />
-                        </p>*@
-                        <hr />
+                      <hr />
                         <ul>
                             @*<li><a href="~/examples/grid/ajax-sourced-data.html" target="_blank">Ajax Sourced Data</a></li>*@
                             @*<li><a href="~/examples/grid/bootstrap-grid-inline-edit.html" target="_blank">Inline Editing</a></li>*@
-                            <li><a href="~/examples/grid/job.html" target="_blank">Job Grids</a></li>
-                            <li><a href="~/examples/grid/hasrole.html" target="_blank">Role Grids</a></li>
-                            @*<li><a href="~/examples/grid/connected-jquery-grids.html" target="_blank">Connected Grids</a></li>
-                            <li><a href="~/examples/grid/grouping.html" target="_blank">Grouping</a></li>*@
+                            <li><a href="~/examples/grid/job.html" @*class="fa fa-exclamation-circle"*@ target="_blank">Job Grids</a></li>
+                            <li><a href="~/examples/grid/hasrole.html" @*class="fa fa-exclamation-circle"*@ target="_blank">Role Grids</a></li>
+                            <li> <a href="@Url.Action("Index", "Job")"target="_blank"> Add New Job</a></li>
+                            <li> <a href="@Url.Action("Index", "Schedule")" target="_blank"> Add New Schedule</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,11 +45,11 @@
                     <i class="fa fa-group" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:red"></i>
                     <div class=" caption">
                         <h3>Users Management</h3>
-                        @*<p style="text-align :justify">
-                            Here is the click event allowing you to navigate through....<br />
-                        </p>*@
+                        
                         <hr />
                         <ul>
+                            <li> <a href="@Url.Action("Index", "EmployeeD")" target="_blank"> Employee Grids</a></li>
+                            @*<li> <a href="@Url.Action("Index", "JobD")" target="_blank"> Add New Job</a></li>*@
                             <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
                             <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
                             <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
@@ -75,14 +72,13 @@
                     <i class="	fa fa-bus" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:darkblue"></i>
                     <div class=" caption">
                         <h3>Fleets Management</h3>
-                        @*<p style="text-align :justify">
-                            Here is the click event allowing you to navigate through....<br />
-                        </p>*@
+                       
                         <hr />
                         <ul>
-                            <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
+                            <li> <a href="@Url.Action("Index", "FleetBookingD")" @*class="fa fa-exclamation-circle"*@ target="_blank"> Fleets Grids</a></li>
+                            @*<li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
                             <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
-                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
+                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>*@
                         </ul>
                     </div>
                 </div>
@@ -100,15 +96,14 @@
                     </div>
                     <i class="fa fa-bed" style=" margin-top: 20px; margin-left :30%; font-size:100px; color:black"></i>
                     <div class=" caption">
-                        <h3>Hotel Management</h3>
-                        @*<p style="text-align :justify">
-                            Here is the click event allowing you to navigate through....<br />
-                        </p>*@
+                        <h3>Hotel Booking</h3>
+                       
                         <hr />
                         <ul>
-                            <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
+                            <li> <a href="@Url.Action("Index", "HotelBookingD")" @*class="fa fa-exclamation-circle"*@ target="_blank"> Hotel Grids</a></li>
+                            @*<li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
                             <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
-                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>
+                            <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>*@
                         </ul>
                     </div>
                 </div>

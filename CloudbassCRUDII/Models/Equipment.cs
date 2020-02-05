@@ -22,6 +22,7 @@ namespace CloudbassCRUDII.Models
     
         public int Id { get; set; }
         public string equipmentName { get; set; }
+        public string model { get; set; }
         public Nullable<decimal> rate { get; set; }
         public Nullable<int> equipTypeId { get; set; }
     

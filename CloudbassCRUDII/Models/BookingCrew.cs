@@ -20,7 +20,9 @@ namespace CloudbassCRUDII.Models
         public Nullable<System.DateTime> end_date { get; set; }
         public Nullable<decimal> totalDays { get; set; }
         public Nullable<decimal> rate { get; set; }
+        public Nullable<int> createdBy { get; set; }
     
+        public virtual Employee Employee { get; set; }
         public virtual Has_Role Has_Role { get; set; }
         public virtual Schedule Schedule { get; set; }
     }
