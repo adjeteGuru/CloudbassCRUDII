@@ -8,9 +8,8 @@ namespace CloudbassCRUDII.Models.DTO
     public class Employee
     {
 
+
         public int Id { get; set; }
-       
-       
         public string fullName { get; set; }
         public string mobile { get; set; }
         public string email { get; set; }
@@ -24,6 +23,6 @@ namespace CloudbassCRUDII.Models.DTO
         public string note { get; set; }
         public string postNominals { get; set; }
 
-       
+
     }
 }
