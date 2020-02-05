@@ -134,7 +134,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ClientDController.cs" />
     <Compile Include="Controllers\EmployeeDController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
@@ -290,8 +289,8 @@
     <Content Include="Images\Cloudbass-Logo.png" />
     <Content Include="Models\CloudbassDBMS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CloudbassDBMS.Context.cs</LastGenOutput>
       <DependentUpon>CloudbassDBMS.edmx</DependentUpon>
+      <LastGenOutput>CloudbassDBMS.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\CloudbassDBMS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

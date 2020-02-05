@@ -14,7 +14,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Employee> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.Employees.Select(p => new Models.DTO.Employee
                 {
@@ -123,7 +123,7 @@ namespace CloudbassCRUDII.Controllers
         public JsonResult Save(Models.DTO.Employee record)
         {
             Employee entity;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 if (record.Id > 0)
                 {
@@ -174,7 +174,7 @@ namespace CloudbassCRUDII.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 Employee entity = context.Employees.First(p => p.Id == id);
                 context.Employees.Remove(entity);
@@ -187,7 +187,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Has_Role> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 // I USED BOTH FOREIGN KEYS HERE BELONG TO CREW TABLE
                 var query = context.Has_Role.Where(pt => pt.Id == employeeId ).Select(pt => new Models.DTO.Has_Role

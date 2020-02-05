@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CloudbassDBMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="cloudbassDBMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BookingCrew">
           <Key>
             <PropertyRef Name="scheduleId" />
@@ -12,8 +12,8 @@
           </Key>
           <Property Name="scheduleId" Type="int" Nullable="false" />
           <Property Name="has_RoleId" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="createdBy" Type="int" />
@@ -25,8 +25,8 @@
           </Key>
           <Property Name="JobId" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="equipmentId" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="createdBy" Type="int" />
@@ -38,8 +38,8 @@
           </Key>
           <Property Name="JobId" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="fleetId" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="createdBy" Type="int" />
@@ -51,8 +51,8 @@
           </Key>
           <Property Name="JobId" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="hotelId" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="end_time" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="end_time" Type="smalldatetime" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="cost" Type="decimal" Precision="8" Scale="2" />
           <Property Name="createdBy" Type="int" />
@@ -64,8 +64,8 @@
           </Key>
           <Property Name="JobId" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="kitId" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="createdBy" Type="int" />
@@ -106,7 +106,7 @@
           <Property Name="countyId" Type="int" Nullable="false" />
           <Property Name="bared" Type="varchar" MaxLength="150" />
           <Property Name="IsAvailable" Type="bit" Nullable="false" />
-          <Property Name="startDate" Type="datetime" />
+          <Property Name="startDate" Type="smalldatetime" />
           <Property Name="photo" Type="varchar" MaxLength="500" />
           <Property Name="nextOfKin" Type="varchar" MaxLength="50" />
           <Property Name="alergy" Type="varchar" MaxLength="100" />
@@ -154,8 +154,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="employeeId" Type="int" Nullable="false" />
           <Property Name="roleId" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="catId" Type="int" />
         </EntityType>
@@ -177,7 +177,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="JobId" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="dateGenerated" Type="datetime" />
+          <Property Name="dateGenerated" Type="smalldatetime" />
           <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
           <Property Name="createdBy" Type="int" />
@@ -190,10 +190,10 @@
           <Property Name="text" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="250" />
           <Property Name="Location" Type="varchar" MaxLength="50" />
-          <Property Name="DateCreated" Type="datetime" />
-          <Property Name="start_date" Type="datetime" />
-          <Property Name="TXDate" Type="datetime" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="DateCreated" Type="smalldatetime" />
+          <Property Name="start_date" Type="smalldatetime" />
+          <Property Name="TXDate" Type="smalldatetime" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="Coordinator" Type="varchar" MaxLength="50" />
           <Property Name="CommercialLead" Type="varchar" MaxLength="50" />
           <Property Name="ClientId" Type="int" Nullable="false" />
@@ -236,8 +236,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="text" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="start_date" Type="datetime" Nullable="false" />
-          <Property Name="end_date" Type="datetime" />
+          <Property Name="start_date" Type="smalldatetime" Nullable="false" />
+          <Property Name="end_date" Type="smalldatetime" />
           <Property Name="SchTypeId" Type="int" />
           <Property Name="JobId" Type="varchar" MaxLength="10" />
           <Property Name="statusId" Type="int" />
@@ -612,7 +612,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CloudbassDBMSModelStoreContainer">
+        <EntityContainer Name="cloudbassDBMSModelStoreContainer">
           <EntitySet Name="BookingCrew" EntityType="Self.BookingCrew" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingEquipment" EntityType="Self.BookingEquipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingFleet" EntityType="Self.BookingFleet" Schema="dbo" store:Type="Tables" />
@@ -757,14 +757,94 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CloudbassDBMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="cloudbassDBMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookingCrew">
+          <Key>
+            <PropertyRef Name="scheduleId" />
+            <PropertyRef Name="has_RoleId" />
+          </Key>
+          <Property Name="scheduleId" Type="Int32" Nullable="false" />
+          <Property Name="has_RoleId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="createdBy" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_BookingCrew_Employee" FromRole="BookingCrew" ToRole="Employee" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="BookingCrew" ToRole="Has_Role" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="BookingCrew" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="BookingEquipment">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="equipmentId" />
+          </Key>
+          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="equipmentId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="createdBy" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_BookingEquipment_Employee" FromRole="BookingEquipment" ToRole="Employee" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_BookingEquipment_Equipment" FromRole="BookingEquipment" ToRole="Equipment" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_BookingEquipment_Job" FromRole="BookingEquipment" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="BookingFleet">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="fleetId" />
+          </Key>
+          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fleetId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="createdBy" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_BookingFleet_Employee" FromRole="BookingFleet" ToRole="Employee" />
+          <NavigationProperty Name="Fleet" Relationship="Self.FK_BookingFleet_Fleet" FromRole="BookingFleet" ToRole="Fleet" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_BookingFleet_Job" FromRole="BookingFleet" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="BookingHotel">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="hotelId" />
+          </Key>
+          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hotelId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_time" Type="DateTime" Precision="0" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="cost" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="createdBy" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_BookingHotel_Employee" FromRole="BookingHotel" ToRole="Employee" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_BookingHotel_Hotel" FromRole="BookingHotel" ToRole="Hotel" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_BookingHotel_Job" FromRole="BookingHotel" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="BookingKit">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="kitId" />
+          </Key>
+          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kitId" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="createdBy" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_BookingKit_Employee" FromRole="BookingKit" ToRole="Employee" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_BookingKit_Job" FromRole="BookingKit" ToRole="Job" />
+          <NavigationProperty Name="Kit" Relationship="Self.FK_BookingKit_Kit" FromRole="BookingKit" ToRole="Kit" />
+        </EntityType>
         <EntityType Name="Categ">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_Has_Role_Categ" FromRole="Categ" ToRole="Has_Role" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_Has_Role_Categ" FromRole="Categ" ToRole="Has_Role" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -776,7 +856,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ToContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Jobs" Relationship="CloudbassDBMSModel.FK_dbo_Job_dbo_Client_ClientId" FromRole="Client" ToRole="Job" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Job_dbo_Client_ClientId" FromRole="Client" ToRole="Job" />
         </EntityType>
         <EntityType Name="County">
           <Key>
@@ -784,246 +864,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employees" Relationship="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" FromRole="County" ToRole="Employee" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_dbo_Employee_dbo_County_CountyId" FromRole="County" ToRole="Employee" />
         </EntityType>
-        <EntityType Name="EquipType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Equipments" Relationship="CloudbassDBMSModel.FK_Equipment_EquipType" FromRole="EquipType" ToRole="Equipment" />
-        </EntityType>
-        <EntityType Name="FleetType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Fleets" Relationship="CloudbassDBMSModel.FK_Fleet_FleetType" FromRole="FleetType" ToRole="Fleet" />
-        </EntityType>
-        <EntityType Name="JobStatu">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Jobs" Relationship="CloudbassDBMSModel.FK_Job_JobStatus" FromRole="JobStatu" ToRole="Job" />
-        </EntityType>
-        <EntityType Name="KitType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Kits" Relationship="CloudbassDBMSModel.FK_Kit_KitType" FromRole="KitType" ToRole="Kit" />
-        </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Role" ToRole="Has_Role" />
-        </EntityType>
-        <EntityType Name="ScheduleStatu">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Schedules" Relationship="CloudbassDBMSModel.FK_Schedule_ScheduleStatus" FromRole="ScheduleStatu" ToRole="Schedule" />
-        </EntityType>
-        <EntityType Name="SchType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Schedules" Relationship="CloudbassDBMSModel.FK_Schedule_SchType" FromRole="SchType" ToRole="Schedule" />
-        </EntityType>
-        <EntityContainer Name="CloudbassDBMSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categs" EntityType="Self.Categ" />
-          <EntitySet Name="Clients" EntityType="Self.Client" />
-          <EntitySet Name="Counties" EntityType="Self.County" />
-          <EntitySet Name="EquipTypes" EntityType="Self.EquipType" />
-          <EntitySet Name="FleetTypes" EntityType="Self.FleetType" />
-          <EntitySet Name="JobStatus" EntityType="Self.JobStatu" />
-          <EntitySet Name="KitTypes" EntityType="Self.KitType" />
-          <EntitySet Name="Roles" EntityType="Self.Role" />
-          <EntitySet Name="ScheduleStatus" EntityType="Self.ScheduleStatu" />
-          <EntitySet Name="SchTypes" EntityType="Self.SchType" />
-          <EntitySet Name="Schedules" EntityType="CloudbassDBMSModel.Schedule" />
-          <AssociationSet Name="FK_Schedule_ScheduleStatus" Association="CloudbassDBMSModel.FK_Schedule_ScheduleStatus">
-            <End Role="ScheduleStatu" EntitySet="ScheduleStatus" />
-            <End Role="Schedule" EntitySet="Schedules" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_SchType" Association="CloudbassDBMSModel.FK_Schedule_SchType">
-            <End Role="SchType" EntitySet="SchTypes" />
-            <End Role="Schedule" EntitySet="Schedules" />
-          </AssociationSet>
-          <EntitySet Name="Employees" EntityType="CloudbassDBMSModel.Employee" />
-          <AssociationSet Name="FK_dbo_Employee_dbo_County_CountyId" Association="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId">
-            <End Role="County" EntitySet="Counties" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
-          <EntitySet Name="BookingCrews" EntityType="CloudbassDBMSModel.BookingCrew" />
-          <EntitySet Name="BookingEquipments" EntityType="CloudbassDBMSModel.BookingEquipment" />
-          <EntitySet Name="BookingFleets" EntityType="CloudbassDBMSModel.BookingFleet" />
-          <EntitySet Name="BookingHotels" EntityType="CloudbassDBMSModel.BookingHotel" />
-          <EntitySet Name="BookingKits" EntityType="CloudbassDBMSModel.BookingKit" />
-          <EntitySet Name="Equipments" EntityType="CloudbassDBMSModel.Equipment" />
-          <EntitySet Name="Fleets" EntityType="CloudbassDBMSModel.Fleet" />
-          <EntitySet Name="Has_Role" EntityType="CloudbassDBMSModel.Has_Role" />
-          <EntitySet Name="Hotels" EntityType="CloudbassDBMSModel.Hotel" />
-          <EntitySet Name="Jobs" EntityType="CloudbassDBMSModel.Job" />
-          <EntitySet Name="Kits" EntityType="CloudbassDBMSModel.Kit" />
-          <AssociationSet Name="FK_BookingCrew_Employee" Association="CloudbassDBMSModel.FK_BookingCrew_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="BookingCrew" EntitySet="BookingCrews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId" Association="CloudbassDBMSModel.FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
-            <End Role="Has_Role" EntitySet="Has_Role" />
-            <End Role="BookingCrew" EntitySet="BookingCrews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Crew_dbo_Schedule_ScheduleId" Association="CloudbassDBMSModel.FK_dbo_Crew_dbo_Schedule_ScheduleId">
-            <End Role="Schedule" EntitySet="Schedules" />
-            <End Role="BookingCrew" EntitySet="BookingCrews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingEquipment_Employee" Association="CloudbassDBMSModel.FK_BookingEquipment_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingEquipment_Equipment" Association="CloudbassDBMSModel.FK_BookingEquipment_Equipment">
-            <End Role="Equipment" EntitySet="Equipments" />
-            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingEquipment_Job" Association="CloudbassDBMSModel.FK_BookingEquipment_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingFleet_Employee" Association="CloudbassDBMSModel.FK_BookingFleet_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="BookingFleet" EntitySet="BookingFleets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingFleet_Fleet" Association="CloudbassDBMSModel.FK_BookingFleet_Fleet">
-            <End Role="Fleet" EntitySet="Fleets" />
-            <End Role="BookingFleet" EntitySet="BookingFleets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingFleet_Job" Association="CloudbassDBMSModel.FK_BookingFleet_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="BookingFleet" EntitySet="BookingFleets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingHotel_Employee" Association="CloudbassDBMSModel.FK_BookingHotel_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="BookingHotel" EntitySet="BookingHotels" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingHotel_Hotel" Association="CloudbassDBMSModel.FK_BookingHotel_Hotel">
-            <End Role="Hotel" EntitySet="Hotels" />
-            <End Role="BookingHotel" EntitySet="BookingHotels" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingHotel_Job" Association="CloudbassDBMSModel.FK_BookingHotel_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="BookingHotel" EntitySet="BookingHotels" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingKit_Employee" Association="CloudbassDBMSModel.FK_BookingKit_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="BookingKit" EntitySet="BookingKits" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingKit_Job" Association="CloudbassDBMSModel.FK_BookingKit_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="BookingKit" EntitySet="BookingKits" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BookingKit_Kit" Association="CloudbassDBMSModel.FK_BookingKit_Kit">
-            <End Role="Kit" EntitySet="Kits" />
-            <End Role="BookingKit" EntitySet="BookingKits" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Has_Role_Categ" Association="CloudbassDBMSModel.FK_Has_Role_Categ">
-            <End Role="Categ" EntitySet="Categs" />
-            <End Role="Has_Role" EntitySet="Has_Role" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Job_dbo_Client_ClientId" Association="CloudbassDBMSModel.FK_dbo_Job_dbo_Client_ClientId">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="Job" EntitySet="Jobs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId" Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Has_Role" EntitySet="Has_Role" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Equipment_EquipType" Association="CloudbassDBMSModel.FK_Equipment_EquipType">
-            <End Role="EquipType" EntitySet="EquipTypes" />
-            <End Role="Equipment" EntitySet="Equipments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fleet_FleetType" Association="CloudbassDBMSModel.FK_Fleet_FleetType">
-            <End Role="FleetType" EntitySet="FleetTypes" />
-            <End Role="Fleet" EntitySet="Fleets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Has_Role_dbo_Role_RoleId" Association="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId">
-            <End Role="Role" EntitySet="Roles" />
-            <End Role="Has_Role" EntitySet="Has_Role" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Schedule_dbo_Job_JobId" Association="CloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="Schedule" EntitySet="Schedules" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Job_JobStatus" Association="CloudbassDBMSModel.FK_Job_JobStatus">
-            <End Role="JobStatu" EntitySet="JobStatus" />
-            <End Role="Job" EntitySet="Jobs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Kit_KitType" Association="CloudbassDBMSModel.FK_Kit_KitType">
-            <End Role="KitType" EntitySet="KitTypes" />
-            <End Role="Kit" EntitySet="Kits" />
-          </AssociationSet>
-          <EntitySet Name="Invoices" EntityType="CloudbassDBMSModel.Invoice" />
-          <AssociationSet Name="FK_Invoice_Employee" Association="CloudbassDBMSModel.FK_Invoice_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Invoice_Job" Association="CloudbassDBMSModel.FK_Invoice_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Schedule">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="text" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="SchTypeId" Type="Int32" />
-          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="statusId" Type="Int32" />
-          <NavigationProperty Name="ScheduleStatu" Relationship="CloudbassDBMSModel.FK_Schedule_ScheduleStatus" FromRole="Schedule" ToRole="ScheduleStatu" />
-          <NavigationProperty Name="SchType" Relationship="CloudbassDBMSModel.FK_Schedule_SchType" FromRole="Schedule" ToRole="SchType" />
-          <NavigationProperty Name="BookingCrews" Relationship="CloudbassDBMSModel.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="Schedule" ToRole="BookingCrew" />
-          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Schedule" ToRole="Job" />
-        </EntityType>
-        <Association Name="FK_Schedule_ScheduleStatus">
-          <End Type="CloudbassDBMSModel.ScheduleStatu" Role="ScheduleStatu" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Schedule" Role="Schedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ScheduleStatu">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Schedule">
-              <PropertyRef Name="statusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Schedule_SchType">
-          <End Type="CloudbassDBMSModel.SchType" Role="SchType" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Schedule" Role="Schedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SchType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Schedule">
-              <PropertyRef Name="SchTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
@@ -1035,114 +877,20 @@
           <Property Name="countyId" Type="Int32" Nullable="false" />
           <Property Name="bared" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
           <Property Name="photo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="nextOfKin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="alergy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="note" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="postNominals" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="County" Relationship="CloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" FromRole="Employee" ToRole="County" />
-          <NavigationProperty Name="BookingCrews" Relationship="CloudbassDBMSModel.FK_BookingCrew_Employee" FromRole="Employee" ToRole="BookingCrew" />
-          <NavigationProperty Name="BookingEquipments" Relationship="CloudbassDBMSModel.FK_BookingEquipment_Employee" FromRole="Employee" ToRole="BookingEquipment" />
-          <NavigationProperty Name="BookingFleets" Relationship="CloudbassDBMSModel.FK_BookingFleet_Employee" FromRole="Employee" ToRole="BookingFleet" />
-          <NavigationProperty Name="BookingHotels" Relationship="CloudbassDBMSModel.FK_BookingHotel_Employee" FromRole="Employee" ToRole="BookingHotel" />
-          <NavigationProperty Name="BookingKits" Relationship="CloudbassDBMSModel.FK_BookingKit_Employee" FromRole="Employee" ToRole="BookingKit" />
-          <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Employee" ToRole="Has_Role" />
-          <NavigationProperty Name="Invoices" Relationship="CloudbassDBMSModel.FK_Invoice_Employee" FromRole="Employee" ToRole="Invoice" />
-        </EntityType>
-        <Association Name="FK_dbo_Employee_dbo_County_CountyId">
-          <End Type="CloudbassDBMSModel.County" Role="County" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="County">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="countyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="BookingCrew">
-          <Key>
-            <PropertyRef Name="scheduleId" />
-            <PropertyRef Name="has_RoleId" />
-          </Key>
-          <Property Name="scheduleId" Type="Int32" Nullable="false" />
-          <Property Name="has_RoleId" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
-          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="createdBy" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_BookingCrew_Employee" FromRole="BookingCrew" ToRole="Employee" />
-          <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="BookingCrew" ToRole="Has_Role" />
-          <NavigationProperty Name="Schedule" Relationship="CloudbassDBMSModel.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="BookingCrew" ToRole="Schedule" />
-        </EntityType>
-        <EntityType Name="BookingEquipment">
-          <Key>
-            <PropertyRef Name="JobId" />
-            <PropertyRef Name="equipmentId" />
-          </Key>
-          <Property Name="JobId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="equipmentId" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
-          <Property Name="createdBy" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_BookingEquipment_Employee" FromRole="BookingEquipment" ToRole="Employee" />
-          <NavigationProperty Name="Equipment" Relationship="CloudbassDBMSModel.FK_BookingEquipment_Equipment" FromRole="BookingEquipment" ToRole="Equipment" />
-          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_BookingEquipment_Job" FromRole="BookingEquipment" ToRole="Job" />
-        </EntityType>
-        <EntityType Name="BookingFleet">
-          <Key>
-            <PropertyRef Name="JobId" />
-            <PropertyRef Name="fleetId" />
-          </Key>
-          <Property Name="JobId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="fleetId" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
-          <Property Name="createdBy" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_BookingFleet_Employee" FromRole="BookingFleet" ToRole="Employee" />
-          <NavigationProperty Name="Fleet" Relationship="CloudbassDBMSModel.FK_BookingFleet_Fleet" FromRole="BookingFleet" ToRole="Fleet" />
-          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_BookingFleet_Job" FromRole="BookingFleet" ToRole="Job" />
-        </EntityType>
-        <EntityType Name="BookingHotel">
-          <Key>
-            <PropertyRef Name="JobId" />
-            <PropertyRef Name="hotelId" />
-          </Key>
-          <Property Name="JobId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="hotelId" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="end_time" Type="DateTime" Precision="3" />
-          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
-          <Property Name="cost" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="createdBy" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_BookingHotel_Employee" FromRole="BookingHotel" ToRole="Employee" />
-          <NavigationProperty Name="Hotel" Relationship="CloudbassDBMSModel.FK_BookingHotel_Hotel" FromRole="BookingHotel" ToRole="Hotel" />
-          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_BookingHotel_Job" FromRole="BookingHotel" ToRole="Job" />
-        </EntityType>
-        <EntityType Name="BookingKit">
-          <Key>
-            <PropertyRef Name="JobId" />
-            <PropertyRef Name="kitId" />
-          </Key>
-          <Property Name="JobId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="kitId" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
-          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="createdBy" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_BookingKit_Employee" FromRole="BookingKit" ToRole="Employee" />
-          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_BookingKit_Job" FromRole="BookingKit" ToRole="Job" />
-          <NavigationProperty Name="Kit" Relationship="CloudbassDBMSModel.FK_BookingKit_Kit" FromRole="BookingKit" ToRole="Kit" />
+          <NavigationProperty Name="BookingCrews" Relationship="Self.FK_BookingCrew_Employee" FromRole="Employee" ToRole="BookingCrew" />
+          <NavigationProperty Name="BookingEquipments" Relationship="Self.FK_BookingEquipment_Employee" FromRole="Employee" ToRole="BookingEquipment" />
+          <NavigationProperty Name="BookingFleets" Relationship="Self.FK_BookingFleet_Employee" FromRole="Employee" ToRole="BookingFleet" />
+          <NavigationProperty Name="BookingHotels" Relationship="Self.FK_BookingHotel_Employee" FromRole="Employee" ToRole="BookingHotel" />
+          <NavigationProperty Name="BookingKits" Relationship="Self.FK_BookingKit_Employee" FromRole="Employee" ToRole="BookingKit" />
+          <NavigationProperty Name="County" Relationship="Self.FK_dbo_Employee_dbo_County_CountyId" FromRole="Employee" ToRole="County" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Employee" ToRole="Has_Role" />
+          <NavigationProperty Name="Invoices" Relationship="cloudbassDBMSModel.FK_Invoice_Employee" FromRole="Employee" ToRole="Invoice" />
         </EntityType>
         <EntityType Name="Equipment">
           <Key>
@@ -1153,8 +901,8 @@
           <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="equipTypeId" Type="Int32" />
-          <NavigationProperty Name="BookingEquipments" Relationship="CloudbassDBMSModel.FK_BookingEquipment_Equipment" FromRole="Equipment" ToRole="BookingEquipment" />
-          <NavigationProperty Name="EquipType" Relationship="CloudbassDBMSModel.FK_Equipment_EquipType" FromRole="Equipment" ToRole="EquipType" />
+          <NavigationProperty Name="BookingEquipments" Relationship="Self.FK_BookingEquipment_Equipment" FromRole="Equipment" ToRole="BookingEquipment" />
+          <NavigationProperty Name="EquipType" Relationship="cloudbassDBMSModel.FK_Equipment_EquipType" FromRole="Equipment" ToRole="EquipType" />
         </EntityType>
         <EntityType Name="Fleet">
           <Key>
@@ -1165,8 +913,8 @@
           <Property Name="reg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="fleetTypeId" Type="Int32" />
-          <NavigationProperty Name="BookingFleets" Relationship="CloudbassDBMSModel.FK_BookingFleet_Fleet" FromRole="Fleet" ToRole="BookingFleet" />
-          <NavigationProperty Name="FleetType" Relationship="CloudbassDBMSModel.FK_Fleet_FleetType" FromRole="Fleet" ToRole="FleetType" />
+          <NavigationProperty Name="BookingFleets" Relationship="Self.FK_BookingFleet_Fleet" FromRole="Fleet" ToRole="BookingFleet" />
+          <NavigationProperty Name="FleetType" Relationship="cloudbassDBMSModel.FK_Fleet_FleetType" FromRole="Fleet" ToRole="FleetType" />
         </EntityType>
         <EntityType Name="Has_Role">
           <Key>
@@ -1175,14 +923,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="employeeId" Type="Int32" Nullable="false" />
           <Property Name="roleId" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
           <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
           <Property Name="catId" Type="Int32" />
-          <NavigationProperty Name="BookingCrews" Relationship="CloudbassDBMSModel.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="Has_Role" ToRole="BookingCrew" />
-          <NavigationProperty Name="Categ" Relationship="CloudbassDBMSModel.FK_Has_Role_Categ" FromRole="Has_Role" ToRole="Categ" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Has_Role" ToRole="Employee" />
-          <NavigationProperty Name="Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Has_Role" ToRole="Role" />
+          <NavigationProperty Name="BookingCrews" Relationship="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId" FromRole="Has_Role" ToRole="BookingCrew" />
+          <NavigationProperty Name="Categ" Relationship="Self.FK_Has_Role_Categ" FromRole="Has_Role" ToRole="Categ" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Has_Role" ToRole="Employee" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Has_Role" ToRole="Role" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
@@ -1195,32 +943,40 @@
           <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="county" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="roomNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BookingHotels" Relationship="CloudbassDBMSModel.FK_BookingHotel_Hotel" FromRole="Hotel" ToRole="BookingHotel" />
+          <NavigationProperty Name="BookingHotels" Relationship="Self.FK_BookingHotel_Hotel" FromRole="Hotel" ToRole="BookingHotel" />
         </EntityType>
         <EntityType Name="Job">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="start_date" Type="DateTime" Precision="3" />
-          <Property Name="TXDate" Type="DateTime" Precision="3" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="TXDate" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
           <Property Name="Coordinator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CommercialLead" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ClientId" Type="Int32" Nullable="false" />
           <Property Name="statusId" Type="Int32" />
-          <NavigationProperty Name="BookingEquipments" Relationship="CloudbassDBMSModel.FK_BookingEquipment_Job" FromRole="Job" ToRole="BookingEquipment" />
-          <NavigationProperty Name="BookingFleets" Relationship="CloudbassDBMSModel.FK_BookingFleet_Job" FromRole="Job" ToRole="BookingFleet" />
-          <NavigationProperty Name="BookingHotels" Relationship="CloudbassDBMSModel.FK_BookingHotel_Job" FromRole="Job" ToRole="BookingHotel" />
-          <NavigationProperty Name="BookingKits" Relationship="CloudbassDBMSModel.FK_BookingKit_Job" FromRole="Job" ToRole="BookingKit" />
-          <NavigationProperty Name="Client" Relationship="CloudbassDBMSModel.FK_dbo_Job_dbo_Client_ClientId" FromRole="Job" ToRole="Client" />
-          <NavigationProperty Name="Schedules" Relationship="CloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Job" ToRole="Schedule" />
-          <NavigationProperty Name="JobStatu" Relationship="CloudbassDBMSModel.FK_Job_JobStatus" FromRole="Job" ToRole="JobStatu" />
-          <NavigationProperty Name="Invoices" Relationship="CloudbassDBMSModel.FK_Invoice_Job" FromRole="Job" ToRole="Invoice" />
+          <NavigationProperty Name="BookingEquipments" Relationship="Self.FK_BookingEquipment_Job" FromRole="Job" ToRole="BookingEquipment" />
+          <NavigationProperty Name="BookingFleets" Relationship="Self.FK_BookingFleet_Job" FromRole="Job" ToRole="BookingFleet" />
+          <NavigationProperty Name="BookingHotels" Relationship="Self.FK_BookingHotel_Job" FromRole="Job" ToRole="BookingHotel" />
+          <NavigationProperty Name="BookingKits" Relationship="Self.FK_BookingKit_Job" FromRole="Job" ToRole="BookingKit" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_Job_dbo_Client_ClientId" FromRole="Job" ToRole="Client" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Job" ToRole="Schedule" />
+          <NavigationProperty Name="JobStatu" Relationship="Self.FK_Job_JobStatus" FromRole="Job" ToRole="JobStatus" />
+          <NavigationProperty Name="Invoices" Relationship="cloudbassDBMSModel.FK_Invoice_Job" FromRole="Job" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="JobStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_JobStatus" FromRole="JobStatus" ToRole="Job" />
         </EntityType>
         <EntityType Name="Kit">
           <Key>
@@ -1231,12 +987,52 @@
           <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="kitTypeId" Type="Int32" />
-          <NavigationProperty Name="BookingKits" Relationship="CloudbassDBMSModel.FK_BookingKit_Kit" FromRole="Kit" ToRole="BookingKit" />
-          <NavigationProperty Name="KitType" Relationship="CloudbassDBMSModel.FK_Kit_KitType" FromRole="Kit" ToRole="KitType" />
+          <NavigationProperty Name="BookingKits" Relationship="Self.FK_BookingKit_Kit" FromRole="Kit" ToRole="BookingKit" />
+          <NavigationProperty Name="KitType" Relationship="cloudbassDBMSModel.FK_Kit_KitType" FromRole="Kit" ToRole="KitType" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Has_Role" Relationship="Self.FK_dbo_Has_Role_dbo_Role_RoleId" FromRole="Role" ToRole="Has_Role" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="SchTypeId" Type="Int32" />
+          <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="statusId" Type="Int32" />
+          <NavigationProperty Name="BookingCrews" Relationship="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="Schedule" ToRole="BookingCrew" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Schedule" ToRole="Job" />
+          <NavigationProperty Name="ScheduleStatu" Relationship="Self.FK_Schedule_ScheduleStatus" FromRole="Schedule" ToRole="ScheduleStatus" />
+          <NavigationProperty Name="SchType" Relationship="Self.FK_Schedule_SchType" FromRole="Schedule" ToRole="SchType" />
+        </EntityType>
+        <EntityType Name="ScheduleStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_ScheduleStatus" FromRole="ScheduleStatus" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="SchType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_SchType" FromRole="SchType" ToRole="Schedule" />
         </EntityType>
         <Association Name="FK_BookingCrew_Employee">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.BookingCrew" Role="BookingCrew" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1247,10 +1043,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
-          <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="1">
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CloudbassDBMSModel.BookingCrew" Role="BookingCrew" Multiplicity="*" />
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Has_Role">
               <PropertyRef Name="Id" />
@@ -1261,10 +1057,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Crew_dbo_Schedule_ScheduleId">
-          <End Type="CloudbassDBMSModel.Schedule" Role="Schedule" Multiplicity="1">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CloudbassDBMSModel.BookingCrew" Role="BookingCrew" Multiplicity="*" />
+          <End Role="BookingCrew" Type="Self.BookingCrew" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Schedule">
               <PropertyRef Name="Id" />
@@ -1275,8 +1071,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingEquipment_Employee">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.BookingEquipment" Role="BookingEquipment" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1287,8 +1083,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingEquipment_Equipment">
-          <End Type="CloudbassDBMSModel.Equipment" Role="Equipment" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingEquipment" Role="BookingEquipment" Multiplicity="*" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="Id" />
@@ -1299,8 +1095,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingEquipment_Job">
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingEquipment" Role="BookingEquipment" Multiplicity="*" />
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="BookingEquipment" Type="Self.BookingEquipment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
               <PropertyRef Name="Id" />
@@ -1311,8 +1107,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingFleet_Employee">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.BookingFleet" Role="BookingFleet" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1323,8 +1119,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingFleet_Fleet">
-          <End Type="CloudbassDBMSModel.Fleet" Role="Fleet" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingFleet" Role="BookingFleet" Multiplicity="*" />
+          <End Role="Fleet" Type="Self.Fleet" Multiplicity="1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Fleet">
               <PropertyRef Name="Id" />
@@ -1335,8 +1131,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingFleet_Job">
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingFleet" Role="BookingFleet" Multiplicity="*" />
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="BookingFleet" Type="Self.BookingFleet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
               <PropertyRef Name="Id" />
@@ -1347,8 +1143,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingHotel_Employee">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.BookingHotel" Role="BookingHotel" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="BookingHotel" Type="Self.BookingHotel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1359,8 +1155,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingHotel_Hotel">
-          <End Type="CloudbassDBMSModel.Hotel" Role="Hotel" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingHotel" Role="BookingHotel" Multiplicity="*" />
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="BookingHotel" Type="Self.BookingHotel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
               <PropertyRef Name="Id" />
@@ -1371,8 +1167,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingHotel_Job">
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingHotel" Role="BookingHotel" Multiplicity="*" />
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="BookingHotel" Type="Self.BookingHotel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
               <PropertyRef Name="Id" />
@@ -1383,8 +1179,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingKit_Employee">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.BookingKit" Role="BookingKit" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1395,8 +1191,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingKit_Job">
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingKit" Role="BookingKit" Multiplicity="*" />
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
               <PropertyRef Name="Id" />
@@ -1407,8 +1203,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BookingKit_Kit">
-          <End Type="CloudbassDBMSModel.Kit" Role="Kit" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.BookingKit" Role="BookingKit" Multiplicity="*" />
+          <End Role="Kit" Type="Self.Kit" Multiplicity="1" />
+          <End Role="BookingKit" Type="Self.BookingKit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kit">
               <PropertyRef Name="Id" />
@@ -1419,8 +1215,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Has_Role_Categ">
-          <End Type="CloudbassDBMSModel.Categ" Role="Categ" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="*" />
+          <End Role="Categ" Type="Self.Categ" Multiplicity="0..1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categ">
               <PropertyRef Name="Id" />
@@ -1431,10 +1227,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Job_dbo_Client_ClientId">
-          <End Type="CloudbassDBMSModel.Client" Role="Client" Multiplicity="1">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="*" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="Id" />
@@ -1444,9 +1240,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_Employee_dbo_County_CountyId">
+          <End Role="County" Type="Self.County" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="countyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1456,33 +1266,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Equipment_EquipType">
-          <End Type="CloudbassDBMSModel.EquipType" Role="EquipType" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Equipment" Role="Equipment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EquipType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Equipment">
-              <PropertyRef Name="equipTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fleet_FleetType">
-          <End Type="CloudbassDBMSModel.FleetType" Role="FleetType" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Fleet" Role="Fleet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FleetType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Fleet">
-              <PropertyRef Name="fleetTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_Has_Role_dbo_Role_RoleId">
-          <End Type="CloudbassDBMSModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.Has_Role" Role="Has_Role" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Has_Role" Type="Self.Has_Role" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="Id" />
@@ -1493,8 +1279,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Schedule_dbo_Job_JobId">
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
               <PropertyRef Name="Id" />
@@ -1505,10 +1291,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Job_JobStatus">
-          <End Type="CloudbassDBMSModel.JobStatu" Role="JobStatu" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="*" />
+          <End Role="JobStatus" Type="Self.JobStatu" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="JobStatu">
+            <Principal Role="JobStatus">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Job">
@@ -1516,9 +1302,223 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_ScheduleStatus">
+          <End Role="ScheduleStatus" Type="Self.ScheduleStatu" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="statusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SchType">
+          <End Role="SchType" Type="Self.SchType" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="SchTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cloudbassDBMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookingCrews" EntityType="Self.BookingCrew" />
+          <EntitySet Name="BookingEquipments" EntityType="Self.BookingEquipment" />
+          <EntitySet Name="BookingFleets" EntityType="Self.BookingFleet" />
+          <EntitySet Name="BookingHotels" EntityType="Self.BookingHotel" />
+          <EntitySet Name="BookingKits" EntityType="Self.BookingKit" />
+          <EntitySet Name="Categs" EntityType="Self.Categ" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Counties" EntityType="Self.County" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+          <EntitySet Name="Fleets" EntityType="Self.Fleet" />
+          <EntitySet Name="Has_Role" EntityType="Self.Has_Role" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotel" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="JobStatus" EntityType="Self.JobStatu" />
+          <EntitySet Name="Kits" EntityType="Self.Kit" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+          <EntitySet Name="ScheduleStatus" EntityType="Self.ScheduleStatu" />
+          <EntitySet Name="SchTypes" EntityType="Self.SchType" />
+          <AssociationSet Name="FK_BookingCrew_Employee" Association="Self.FK_BookingCrew_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="BookingCrew" EntitySet="BookingCrews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crew_dbo_Has_Role_Has_RoleId" Association="Self.FK_dbo_Crew_dbo_Has_Role_Has_RoleId">
+            <End Role="Has_Role" EntitySet="Has_Role" />
+            <End Role="BookingCrew" EntitySet="BookingCrews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crew_dbo_Schedule_ScheduleId" Association="Self.FK_dbo_Crew_dbo_Schedule_ScheduleId">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="BookingCrew" EntitySet="BookingCrews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipment_Employee" Association="Self.FK_BookingEquipment_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipment_Equipment" Association="Self.FK_BookingEquipment_Equipment">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipment_Job" Association="Self.FK_BookingEquipment_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="BookingEquipment" EntitySet="BookingEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Employee" Association="Self.FK_BookingFleet_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="BookingFleet" EntitySet="BookingFleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Fleet" Association="Self.FK_BookingFleet_Fleet">
+            <End Role="Fleet" EntitySet="Fleets" />
+            <End Role="BookingFleet" EntitySet="BookingFleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingFleet_Job" Association="Self.FK_BookingFleet_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="BookingFleet" EntitySet="BookingFleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingHotel_Employee" Association="Self.FK_BookingHotel_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="BookingHotel" EntitySet="BookingHotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingHotel_Hotel" Association="Self.FK_BookingHotel_Hotel">
+            <End Role="Hotel" EntitySet="Hotels" />
+            <End Role="BookingHotel" EntitySet="BookingHotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingHotel_Job" Association="Self.FK_BookingHotel_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="BookingHotel" EntitySet="BookingHotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Employee" Association="Self.FK_BookingKit_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="BookingKit" EntitySet="BookingKits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Job" Association="Self.FK_BookingKit_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="BookingKit" EntitySet="BookingKits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingKit_Kit" Association="Self.FK_BookingKit_Kit">
+            <End Role="Kit" EntitySet="Kits" />
+            <End Role="BookingKit" EntitySet="BookingKits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Has_Role_Categ" Association="Self.FK_Has_Role_Categ">
+            <End Role="Categ" EntitySet="Categs" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Job_dbo_Client_ClientId" Association="Self.FK_dbo_Job_dbo_Client_ClientId">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Employee_dbo_County_CountyId" Association="Self.FK_dbo_Employee_dbo_County_CountyId">
+            <End Role="County" EntitySet="Counties" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Employee_EmployeeId" Association="Self.FK_dbo_Has_Role_dbo_Employee_EmployeeId">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Has_Role_dbo_Role_RoleId" Association="Self.FK_dbo_Has_Role_dbo_Role_RoleId">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Has_Role" EntitySet="Has_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schedule_dbo_Job_JobId" Association="Self.FK_dbo_Schedule_dbo_Job_JobId">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_JobStatus" Association="Self.FK_Job_JobStatus">
+            <End Role="JobStatus" EntitySet="JobStatus" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_ScheduleStatus" Association="Self.FK_Schedule_ScheduleStatus">
+            <End Role="ScheduleStatus" EntitySet="ScheduleStatus" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SchType" Association="Self.FK_Schedule_SchType">
+            <End Role="SchType" EntitySet="SchTypes" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <EntitySet Name="EquipTypes" EntityType="cloudbassDBMSModel.EquipType" />
+          <EntitySet Name="FleetTypes" EntityType="cloudbassDBMSModel.FleetType" />
+          <EntitySet Name="KitTypes" EntityType="cloudbassDBMSModel.KitType" />
+          <AssociationSet Name="FK_Equipment_EquipType" Association="cloudbassDBMSModel.FK_Equipment_EquipType">
+            <End Role="EquipType" EntitySet="EquipTypes" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fleet_FleetType" Association="cloudbassDBMSModel.FK_Fleet_FleetType">
+            <End Role="FleetType" EntitySet="FleetTypes" />
+            <End Role="Fleet" EntitySet="Fleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kit_KitType" Association="cloudbassDBMSModel.FK_Kit_KitType">
+            <End Role="KitType" EntitySet="KitTypes" />
+            <End Role="Kit" EntitySet="Kits" />
+          </AssociationSet>
+          <EntitySet Name="Invoices" EntityType="cloudbassDBMSModel.Invoice" />
+          <AssociationSet Name="FK_Invoice_Employee" Association="cloudbassDBMSModel.FK_Invoice_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Job" Association="cloudbassDBMSModel.FK_Invoice_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EquipType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipments" Relationship="cloudbassDBMSModel.FK_Equipment_EquipType" FromRole="EquipType" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="FleetType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fleets" Relationship="cloudbassDBMSModel.FK_Fleet_FleetType" FromRole="FleetType" ToRole="Fleet" />
+        </EntityType>
+        <EntityType Name="KitType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kits" Relationship="cloudbassDBMSModel.FK_Kit_KitType" FromRole="KitType" ToRole="Kit" />
+        </EntityType>
+        <Association Name="FK_Equipment_EquipType">
+          <End Type="cloudbassDBMSModel.EquipType" Role="EquipType" Multiplicity="0..1" />
+          <End Type="cloudbassDBMSModel.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="equipTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fleet_FleetType">
+          <End Type="cloudbassDBMSModel.FleetType" Role="FleetType" Multiplicity="0..1" />
+          <End Type="cloudbassDBMSModel.Fleet" Role="Fleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FleetType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fleet">
+              <PropertyRef Name="fleetTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Kit_KitType">
-          <End Type="CloudbassDBMSModel.KitType" Role="KitType" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Kit" Role="Kit" Multiplicity="*" />
+          <End Type="cloudbassDBMSModel.KitType" Role="KitType" Multiplicity="0..1" />
+          <End Type="cloudbassDBMSModel.Kit" Role="Kit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KitType">
               <PropertyRef Name="Id" />
@@ -1534,16 +1534,16 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="JobId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="dateGenerated" Type="DateTime" Precision="3" />
+          <Property Name="dateGenerated" Type="DateTime" Precision="0" />
           <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
           <Property Name="createdBy" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_Invoice_Employee" FromRole="Invoice" ToRole="Employee" />
-          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_Invoice_Job" FromRole="Invoice" ToRole="Job" />
+          <NavigationProperty Name="Employee" Relationship="cloudbassDBMSModel.FK_Invoice_Employee" FromRole="Invoice" ToRole="Employee" />
+          <NavigationProperty Name="Job" Relationship="cloudbassDBMSModel.FK_Invoice_Job" FromRole="Invoice" ToRole="Job" />
         </EntityType>
         <Association Name="FK_Invoice_Employee">
-          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="CloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <End Type="cloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="cloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1554,8 +1554,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Invoice_Job">
-          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <End Type="cloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
+          <End Type="cloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
               <PropertyRef Name="Id" />
@@ -1570,9 +1570,74 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CloudbassDBMSModelStoreContainer" CdmEntityContainer="CloudbassDBMSEntities">
+        <EntityContainerMapping StorageEntityContainer="cloudbassDBMSModelStoreContainer" CdmEntityContainer="cloudbassDBMSEntities">
+          <EntitySetMapping Name="BookingCrews">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.BookingCrew">
+              <MappingFragment StoreEntitySet="BookingCrew">
+                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+                <ScalarProperty Name="has_RoleId" ColumnName="has_RoleId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingEquipments">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.BookingEquipment">
+              <MappingFragment StoreEntitySet="BookingEquipment">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="equipmentId" ColumnName="equipmentId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingFleets">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.BookingFleet">
+              <MappingFragment StoreEntitySet="BookingFleet">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="fleetId" ColumnName="fleetId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingHotels">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.BookingHotel">
+              <MappingFragment StoreEntitySet="BookingHotel">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="hotelId" ColumnName="hotelId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingKits">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.BookingKit">
+              <MappingFragment StoreEntitySet="BookingKit">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="kitId" ColumnName="kitId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Categs">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Categ">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Categ">
               <MappingFragment StoreEntitySet="Categ">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1580,7 +1645,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Client">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1592,55 +1657,140 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Counties">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.County">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.County">
               <MappingFragment StoreEntitySet="County">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EquipTypes">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.EquipType">
-              <MappingFragment StoreEntitySet="EquipType">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="countyId" ColumnName="countyId" />
+                <ScalarProperty Name="bared" ColumnName="bared" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="nextOfKin" ColumnName="nextOfKin" />
+                <ScalarProperty Name="alergy" ColumnName="alergy" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="postNominals" ColumnName="postNominals" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FleetTypes">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.FleetType">
-              <MappingFragment StoreEntitySet="FleetType">
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="equipmentName" ColumnName="equipmentName" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="equipTypeId" ColumnName="equipTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fleets">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Fleet">
+              <MappingFragment StoreEntitySet="Fleet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fleetName" ColumnName="fleetName" />
+                <ScalarProperty Name="reg" ColumnName="reg" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="fleetTypeId" ColumnName="fleetTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Has_Role">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Has_Role">
+              <MappingFragment StoreEntitySet="Has_Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="employeeId" ColumnName="employeeId" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="catId" ColumnName="catId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotels">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Hotel">
+              <MappingFragment StoreEntitySet="Hotel">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="county" ColumnName="county" />
+                <ScalarProperty Name="roomNo" ColumnName="roomNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="TXDate" ColumnName="TXDate" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="Coordinator" ColumnName="Coordinator" />
+                <ScalarProperty Name="CommercialLead" ColumnName="CommercialLead" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="statusId" ColumnName="statusId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobStatus">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.JobStatu">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.JobStatu">
               <MappingFragment StoreEntitySet="JobStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="title" ColumnName="title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KitTypes">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.KitType">
-              <MappingFragment StoreEntitySet="KitType">
+          <EntitySetMapping Name="Kits">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Kit">
+              <MappingFragment StoreEntitySet="Kit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="kitName" ColumnName="kitName" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="kitTypeId" ColumnName="kitTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Role">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="SchTypeId" ColumnName="SchTypeId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="statusId" ColumnName="statusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ScheduleStatus">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.ScheduleStatu">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.ScheduleStatu">
               <MappingFragment StoreEntitySet="ScheduleStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -1648,189 +1798,39 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SchTypes">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.SchType">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.SchType">
               <MappingFragment StoreEntitySet="SchType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Schedules">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Schedule">
-              <MappingFragment StoreEntitySet="Schedule">
-                <ScalarProperty Name="statusId" ColumnName="statusId" />
-                <ScalarProperty Name="JobId" ColumnName="JobId" />
-                <ScalarProperty Name="SchTypeId" ColumnName="SchTypeId" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="postNominals" ColumnName="postNominals" />
-                <ScalarProperty Name="note" ColumnName="note" />
-                <ScalarProperty Name="alergy" ColumnName="alergy" />
-                <ScalarProperty Name="nextOfKin" ColumnName="nextOfKin" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="startDate" ColumnName="startDate" />
-                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
-                <ScalarProperty Name="bared" ColumnName="bared" />
-                <ScalarProperty Name="countyId" ColumnName="countyId" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="mobile" ColumnName="mobile" />
-                <ScalarProperty Name="fullName" ColumnName="fullName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookingCrews">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingCrew">
-              <MappingFragment StoreEntitySet="BookingCrew">
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="has_RoleId" ColumnName="has_RoleId" />
-                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookingEquipments">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingEquipment">
-              <MappingFragment StoreEntitySet="BookingEquipment">
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="equipmentId" ColumnName="equipmentId" />
-                <ScalarProperty Name="JobId" ColumnName="JobId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookingFleets">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingFleet">
-              <MappingFragment StoreEntitySet="BookingFleet">
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="fleetId" ColumnName="fleetId" />
-                <ScalarProperty Name="JobId" ColumnName="JobId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookingHotels">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingHotel">
-              <MappingFragment StoreEntitySet="BookingHotel">
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="end_time" ColumnName="end_time" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="hotelId" ColumnName="hotelId" />
-                <ScalarProperty Name="JobId" ColumnName="JobId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookingKits">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.BookingKit">
-              <MappingFragment StoreEntitySet="BookingKit">
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="kitId" ColumnName="kitId" />
-                <ScalarProperty Name="JobId" ColumnName="JobId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Equipments">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Equipment">
-              <MappingFragment StoreEntitySet="Equipment">
-                <ScalarProperty Name="equipTypeId" ColumnName="equipTypeId" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="equipmentName" ColumnName="equipmentName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Fleets">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Fleet">
-              <MappingFragment StoreEntitySet="Fleet">
-                <ScalarProperty Name="fleetTypeId" ColumnName="fleetTypeId" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="reg" ColumnName="reg" />
-                <ScalarProperty Name="fleetName" ColumnName="fleetName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Has_Role">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Has_Role">
-              <MappingFragment StoreEntitySet="Has_Role">
-                <ScalarProperty Name="catId" ColumnName="catId" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="roleId" ColumnName="roleId" />
-                <ScalarProperty Name="employeeId" ColumnName="employeeId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Hotels">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Hotel">
-              <MappingFragment StoreEntitySet="Hotel">
-                <ScalarProperty Name="roomNo" ColumnName="roomNo" />
-                <ScalarProperty Name="county" ColumnName="county" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="postcode" ColumnName="postcode" />
-                <ScalarProperty Name="location" ColumnName="location" />
+          <EntitySetMapping Name="EquipTypes">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.EquipType">
+              <MappingFragment StoreEntitySet="EquipType">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Jobs">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Job">
-              <MappingFragment StoreEntitySet="Job">
-                <ScalarProperty Name="statusId" ColumnName="statusId" />
-                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
-                <ScalarProperty Name="CommercialLead" ColumnName="CommercialLead" />
-                <ScalarProperty Name="Coordinator" ColumnName="Coordinator" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="TXDate" ColumnName="TXDate" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="text" ColumnName="text" />
+          <EntitySetMapping Name="FleetTypes">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.FleetType">
+              <MappingFragment StoreEntitySet="FleetType">
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kits">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Kit">
-              <MappingFragment StoreEntitySet="Kit">
-                <ScalarProperty Name="kitTypeId" ColumnName="kitTypeId" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="kitName" ColumnName="kitName" />
+          <EntitySetMapping Name="KitTypes">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.KitType">
+              <MappingFragment StoreEntitySet="KitType">
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Invoice">
+            <EntityTypeMapping TypeName="cloudbassDBMSModel.Invoice">
               <MappingFragment StoreEntitySet="Invoice">
                 <ScalarProperty Name="createdBy" ColumnName="createdBy" />
                 <ScalarProperty Name="totalDays" ColumnName="totalDays" />

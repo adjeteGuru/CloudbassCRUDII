@@ -14,7 +14,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Employee> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.Employees.Select(p => new Models.DTO.Employee
                 {

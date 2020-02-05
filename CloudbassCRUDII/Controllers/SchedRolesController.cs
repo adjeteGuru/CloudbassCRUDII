@@ -9,7 +9,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class SchedRolesController : Controller
     {
-        private CloudbassDBMSEntities context = new CloudbassDBMSEntities();
+        private cloudbassDBMSEntities context = new cloudbassDBMSEntities();
         // GET: SchedRoles
        public JsonResult Get(int? page, int? limit, string sortBy, string direction, string schedname)
         {
@@ -17,7 +17,7 @@ namespace CloudbassCRUDII.Controllers
             int total;
 
            
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.Schedules.Select(p => new Models.DTO.Schedule
                 {
@@ -91,7 +91,7 @@ namespace CloudbassCRUDII.Controllers
         public JsonResult Save(Models.DTO.Schedule record)
         {
             Schedule entity;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 if (record.Id == 0)
                 {
@@ -130,7 +130,7 @@ namespace CloudbassCRUDII.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 Schedule entity = context.Schedules.First(p => p.Id == id);
                 context.Schedules.Remove(entity);
@@ -143,7 +143,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.BookingCrew> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.BookingCrews.Where(pt => pt.has_RoleId == Id && pt.scheduleId==Id).Select(pt => new Models.DTO.BookingCrew
                 {

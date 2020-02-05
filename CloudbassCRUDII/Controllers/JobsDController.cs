@@ -12,7 +12,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class JobsDController : Controller
     {
-        private CloudbassDBMSEntities db = new CloudbassDBMSEntities();
+        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
 
         // GET: JobsD
         public ActionResult Index()

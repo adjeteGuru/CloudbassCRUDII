@@ -14,7 +14,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Job> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.Jobs.Select(p => new Models.DTO.Job
                 {
@@ -113,7 +113,7 @@ namespace CloudbassCRUDII.Controllers
         public JsonResult Save(Models.DTO.Job record)
         {
             Job entity;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 if (record.Id.Length == 0)
                 {
@@ -160,7 +160,7 @@ namespace CloudbassCRUDII.Controllers
         [HttpPost]
         public JsonResult Delete(string id)
         {
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 Job entity = context.Jobs.First(p => p.Id == id);
                 context.Jobs.Remove(entity);
@@ -173,7 +173,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Schedule> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.Schedules.Where(pt => pt.JobId == Id).Select(pt => new Models.DTO.Schedule
                 {

@@ -170,7 +170,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.ViewModel.JobSchedCrewViewModel> records;
             int total;
-            using (CloudbassDBMSEntities context = new CloudbassDBMSEntities())
+            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
                 var query = context.BookingCrews.Where(pt => pt.has_RoleId == Id && pt.scheduleId == Id).Select(pt => new Models.ViewModel.JobSchedCrewViewModel
                 {

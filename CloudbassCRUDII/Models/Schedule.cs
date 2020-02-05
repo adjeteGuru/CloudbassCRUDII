@@ -28,10 +28,10 @@ namespace CloudbassCRUDII.Models
         public string JobId { get; set; }
         public Nullable<int> statusId { get; set; }
     
-        public virtual ScheduleStatu ScheduleStatu { get; set; }
-        public virtual SchType SchType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingCrew> BookingCrews { get; set; }
         public virtual Job Job { get; set; }
+        public virtual ScheduleStatu ScheduleStatu { get; set; }
+        public virtual SchType SchType { get; set; }
     }
 }

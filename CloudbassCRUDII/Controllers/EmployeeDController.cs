@@ -13,7 +13,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class EmployeeDController : Controller
     {
-        private CloudbassDBMSEntities db = new CloudbassDBMSEntities();
+        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
             
 
         public ViewResult Index(string sortEvent, string currentFilter, string searchString, int? page)

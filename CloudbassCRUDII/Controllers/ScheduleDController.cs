@@ -12,7 +12,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class ScheduleDController : Controller
     {
-        private CloudbassDBMSEntities db = new CloudbassDBMSEntities();
+        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
 
         // GET: ScheduleD
         public ActionResult Index()
