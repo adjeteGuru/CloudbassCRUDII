@@ -26,8 +26,8 @@
                             @*<li><a href="~/examples/grid/bootstrap-grid-inline-edit.html" target="_blank">Inline Editing</a></li>*@
                             <li><a href="~/examples/grid/job.html" @*class="fa fa-exclamation-circle"*@ target="_blank">Job Grids</a></li>
                             <li><a href="~/examples/grid/hasrole.html" @*class="fa fa-exclamation-circle"*@ target="_blank">Role Grids</a></li>
-                            <li> <a href="@Url.Action("Index", "JobD")" @*class="fa fa-exclamation-circle"*@ target="_blank"> Add New Job</a></li>
-                            <li> <a href="@Url.Action("Index", "ScheduleD")" @*class="fa fa-exclamation-circle"*@ target="_blank"> Add New Schedule</a></li>
+                            <li> <a href="@Url.Action("Index", "Job")"target="_blank"> Add New Job</a></li>
+                            <li> <a href="@Url.Action("Index", "Schedule")" target="_blank"> Add New Schedule</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,7 +48,8 @@
                         
                         <hr />
                         <ul>
-                            <li> <a href="@Url.Action("Index", "EmployeeD")" @*class="fa fa-exclamation-circle"*@ target="_blank"> Employee Grids</a></li>
+                            <li> <a href="@Url.Action("Index", "EmployeeD")" target="_blank"> Employee Grids</a></li>
+                            @*<li> <a href="@Url.Action("Index", "JobD")" target="_blank"> Add New Job</a></li>*@
                             <li><a href="~/examples/tree/bootstrap-treeview-checkbox.html" target="_blank">Checkboxes</a></li>
                             <li><a href="~/examples/tree/treeview-drag-and-drop.html" target="_blank">Drag And Drop</a></li>
                             <li><a href="~/examples/tree/treeview-lazy-loading.html" target="_blank">Lazy Loading</a></li>

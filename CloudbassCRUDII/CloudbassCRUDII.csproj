@@ -140,6 +140,7 @@
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\JobsDController.cs" />
     <Compile Include="Controllers\RoleDController.cs" />
     <Compile Include="Controllers\SchedRolesController.cs" />
     <Compile Include="Controllers\ScheduleDController.cs" />
@@ -377,6 +378,11 @@
     <Content Include="Views\ScheduleD\Edit.cshtml" />
     <Content Include="Views\ScheduleD\Index.cshtml" />
     <Content Include="Views\Shared\_PartialPage.cshtml" />
+    <Content Include="Views\JobsD\Create.cshtml" />
+    <Content Include="Views\JobsD\Delete.cshtml" />
+    <Content Include="Views\JobsD\Details.cshtml" />
+    <Content Include="Views\JobsD\Edit.cshtml" />
+    <Content Include="Views\JobsD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

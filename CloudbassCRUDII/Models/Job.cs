@@ -22,6 +22,7 @@ namespace CloudbassCRUDII.Models
             this.BookingHotels = new HashSet<BookingHotel>();
             this.BookingKits = new HashSet<BookingKit>();
             this.Schedules = new HashSet<Schedule>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public string Id { get; set; }
@@ -49,5 +50,7 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
         public virtual JobStatu JobStatu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

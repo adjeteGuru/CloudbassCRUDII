@@ -17,7 +17,6 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Schedule()
         {
-            this.Invoices = new HashSet<Invoice>();
             this.BookingCrews = new HashSet<BookingCrew>();
         }
     
@@ -29,8 +28,6 @@ namespace CloudbassCRUDII.Models
         public string JobId { get; set; }
         public Nullable<int> statusId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
         public virtual ScheduleStatu ScheduleStatu { get; set; }
         public virtual SchType SchType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

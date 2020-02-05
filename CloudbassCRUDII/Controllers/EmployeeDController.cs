@@ -14,13 +14,7 @@ namespace CloudbassCRUDII.Controllers
     public class EmployeeDController : Controller
     {
         private CloudbassDBMSEntities db = new CloudbassDBMSEntities();
-
-        // GET: EmployeeD
-        //public ActionResult Index()
-        //{
-        //    var employees = db.Employees.Include(e => e.County);
-        //    return View(employees.ToList());
-        //}
+            
 
         public ViewResult Index(string sortEvent, string currentFilter, string searchString, int? page)
         {

@@ -176,12 +176,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="scheduleId" Type="int" Nullable="false" />
+          <Property Name="JobId" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="dateGenerated" Type="datetime" />
-          <Property Name="serviceName" Type="varchar" MaxLength="150" />
           <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="totalDays" Type="decimal" Precision="3" Scale="2" />
-          <Property Name="adminName" Type="varchar" MaxLength="150" />
+          <Property Name="createdBy" Type="int" />
         </EntityType>
         <EntityType Name="Job">
           <Key>
@@ -541,15 +540,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Invoice_Schedule">
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+        <Association Name="FK_Invoice_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Schedule">
+            <Principal Role="Employee">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Invoice">
-              <PropertyRef Name="scheduleId" />
+              <PropertyRef Name="createdBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Job">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="JobId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -718,8 +729,12 @@
             <End Role="Categ" EntitySet="Categ" />
             <End Role="Has_Role" EntitySet="Has_Role" />
           </AssociationSet>
-          <AssociationSet Name="FK_Invoice_Schedule" Association="Self.FK_Invoice_Schedule">
-            <End Role="Schedule" EntitySet="Schedule" />
+          <AssociationSet Name="FK_Invoice_Employee" Association="Self.FK_Invoice_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Job" Association="Self.FK_Invoice_Job">
+            <End Role="Job" EntitySet="Job" />
             <End Role="Invoice" EntitySet="Invoice" />
           </AssociationSet>
           <AssociationSet Name="FK_Job_JobStatus" Association="Self.FK_Job_JobStatus">
@@ -787,19 +802,6 @@
           <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Fleets" Relationship="CloudbassDBMSModel.FK_Fleet_FleetType" FromRole="FleetType" ToRole="Fleet" />
         </EntityType>
-        <EntityType Name="Invoice">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="scheduleId" Type="Int32" Nullable="false" />
-          <Property Name="dateGenerated" Type="DateTime" Precision="3" />
-          <Property Name="serviceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
-          <Property Name="adminName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Schedule" Relationship="CloudbassDBMSModel.FK_Invoice_Schedule" FromRole="Invoice" ToRole="Schedule" />
-        </EntityType>
         <EntityType Name="JobStatu">
           <Key>
             <PropertyRef Name="Id" />
@@ -846,17 +848,12 @@
           <EntitySet Name="Counties" EntityType="Self.County" />
           <EntitySet Name="EquipTypes" EntityType="Self.EquipType" />
           <EntitySet Name="FleetTypes" EntityType="Self.FleetType" />
-          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
           <EntitySet Name="JobStatus" EntityType="Self.JobStatu" />
           <EntitySet Name="KitTypes" EntityType="Self.KitType" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="ScheduleStatus" EntityType="Self.ScheduleStatu" />
           <EntitySet Name="SchTypes" EntityType="Self.SchType" />
           <EntitySet Name="Schedules" EntityType="CloudbassDBMSModel.Schedule" />
-          <AssociationSet Name="FK_Invoice_Schedule" Association="CloudbassDBMSModel.FK_Invoice_Schedule">
-            <End Role="Schedule" EntitySet="Schedules" />
-            <End Role="Invoice" EntitySet="Invoices" />
-          </AssociationSet>
           <AssociationSet Name="FK_Schedule_ScheduleStatus" Association="CloudbassDBMSModel.FK_Schedule_ScheduleStatus">
             <End Role="ScheduleStatu" EntitySet="ScheduleStatus" />
             <End Role="Schedule" EntitySet="Schedules" />
@@ -977,6 +974,15 @@
             <End Role="KitType" EntitySet="KitTypes" />
             <End Role="Kit" EntitySet="Kits" />
           </AssociationSet>
+          <EntitySet Name="Invoices" EntityType="CloudbassDBMSModel.Invoice" />
+          <AssociationSet Name="FK_Invoice_Employee" Association="CloudbassDBMSModel.FK_Invoice_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Job" Association="CloudbassDBMSModel.FK_Invoice_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Schedule">
           <Key>
@@ -989,24 +995,11 @@
           <Property Name="SchTypeId" Type="Int32" />
           <Property Name="JobId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="statusId" Type="Int32" />
-          <NavigationProperty Name="Invoices" Relationship="CloudbassDBMSModel.FK_Invoice_Schedule" FromRole="Schedule" ToRole="Invoice" />
           <NavigationProperty Name="ScheduleStatu" Relationship="CloudbassDBMSModel.FK_Schedule_ScheduleStatus" FromRole="Schedule" ToRole="ScheduleStatu" />
           <NavigationProperty Name="SchType" Relationship="CloudbassDBMSModel.FK_Schedule_SchType" FromRole="Schedule" ToRole="SchType" />
           <NavigationProperty Name="BookingCrews" Relationship="CloudbassDBMSModel.FK_dbo_Crew_dbo_Schedule_ScheduleId" FromRole="Schedule" ToRole="BookingCrew" />
           <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Schedule" ToRole="Job" />
         </EntityType>
-        <Association Name="FK_Invoice_Schedule">
-          <End Type="CloudbassDBMSModel.Schedule" Role="Schedule" Multiplicity="1" />
-          <End Type="CloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Schedule">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="scheduleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Schedule_ScheduleStatus">
           <End Type="CloudbassDBMSModel.ScheduleStatu" Role="ScheduleStatu" Multiplicity="0..1" />
           <End Type="CloudbassDBMSModel.Schedule" Role="Schedule" Multiplicity="*" />
@@ -1055,6 +1048,7 @@
           <NavigationProperty Name="BookingHotels" Relationship="CloudbassDBMSModel.FK_BookingHotel_Employee" FromRole="Employee" ToRole="BookingHotel" />
           <NavigationProperty Name="BookingKits" Relationship="CloudbassDBMSModel.FK_BookingKit_Employee" FromRole="Employee" ToRole="BookingKit" />
           <NavigationProperty Name="Has_Role" Relationship="CloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" FromRole="Employee" ToRole="Has_Role" />
+          <NavigationProperty Name="Invoices" Relationship="CloudbassDBMSModel.FK_Invoice_Employee" FromRole="Employee" ToRole="Invoice" />
         </EntityType>
         <Association Name="FK_dbo_Employee_dbo_County_CountyId">
           <End Type="CloudbassDBMSModel.County" Role="County" Multiplicity="1">
@@ -1226,6 +1220,7 @@
           <NavigationProperty Name="Client" Relationship="CloudbassDBMSModel.FK_dbo_Job_dbo_Client_ClientId" FromRole="Job" ToRole="Client" />
           <NavigationProperty Name="Schedules" Relationship="CloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" FromRole="Job" ToRole="Schedule" />
           <NavigationProperty Name="JobStatu" Relationship="CloudbassDBMSModel.FK_Job_JobStatus" FromRole="Job" ToRole="JobStatu" />
+          <NavigationProperty Name="Invoices" Relationship="CloudbassDBMSModel.FK_Invoice_Job" FromRole="Job" ToRole="Invoice" />
         </EntityType>
         <EntityType Name="Kit">
           <Key>
@@ -1533,6 +1528,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dateGenerated" Type="DateTime" Precision="3" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="totalDays" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="createdBy" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="CloudbassDBMSModel.FK_Invoice_Employee" FromRole="Invoice" ToRole="Employee" />
+          <NavigationProperty Name="Job" Relationship="CloudbassDBMSModel.FK_Invoice_Job" FromRole="Invoice" ToRole="Job" />
+        </EntityType>
+        <Association Name="FK_Invoice_Employee">
+          <End Type="CloudbassDBMSModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="CloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="createdBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Job">
+          <End Type="CloudbassDBMSModel.Job" Role="Job" Multiplicity="1" />
+          <End Type="CloudbassDBMSModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1580,19 +1612,6 @@
               <MappingFragment StoreEntitySet="FleetType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="CloudbassDBMSModel.Invoice">
-              <MappingFragment StoreEntitySet="Invoice">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
-                <ScalarProperty Name="dateGenerated" ColumnName="dateGenerated" />
-                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
-                <ScalarProperty Name="adminName" ColumnName="adminName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1806,6 +1825,18 @@
                 <ScalarProperty Name="rate" ColumnName="rate" />
                 <ScalarProperty Name="model" ColumnName="model" />
                 <ScalarProperty Name="kitName" ColumnName="kitName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="CloudbassDBMSModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="totalDays" ColumnName="totalDays" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="dateGenerated" ColumnName="dateGenerated" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
