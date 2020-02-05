@@ -10,18 +10,18 @@ using CloudbassCRUDII.Models;
 
 namespace CloudbassCRUDII.Controllers
 {
-    public class JobsDController : Controller
+    public class JobDController : Controller
     {
         private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
 
-        // GET: JobsD
+        // GET: JobD
         public ActionResult Index()
         {
             var jobs = db.Jobs.Include(j => j.Client).Include(j => j.JobStatu);
             return View(jobs.ToList());
         }
 
-        // GET: JobsD/Details/5
+        // GET: JobD/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace CloudbassCRUDII.Controllers
             return View(job);
         }
 
-        // GET: JobsD/Create
+        // GET: JobD/Create
         public ActionResult Create()
         {
             ViewBag.ClientId = new SelectList(db.Clients, "Id", "Name");
@@ -44,7 +44,7 @@ namespace CloudbassCRUDII.Controllers
             return View();
         }
 
-        // POST: JobsD/Create
+        // POST: JobD/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -63,7 +63,7 @@ namespace CloudbassCRUDII.Controllers
             return View(job);
         }
 
-        // GET: JobsD/Edit/5
+        // GET: JobD/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace CloudbassCRUDII.Controllers
             return View(job);
         }
 
-        // POST: JobsD/Edit/5
+        // POST: JobD/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -98,7 +98,7 @@ namespace CloudbassCRUDII.Controllers
             return View(job);
         }
 
-        // GET: JobsD/Delete/5
+        // GET: JobD/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -113,7 +113,7 @@ namespace CloudbassCRUDII.Controllers
             return View(job);
         }
 
-        // POST: JobsD/Delete/5
+        // POST: JobD/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

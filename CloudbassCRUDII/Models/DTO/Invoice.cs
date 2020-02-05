@@ -8,11 +8,10 @@ namespace CloudbassCRUDII.Models.DTO
     public class Invoice
     {
         public int Id { get; set; }
-        public int scheduleId { get; set; }
-        public DateTime dateGenerated { get; set; }
-        public string serviceName { get; set; }
-        public decimal rate { get; set; }
-        public decimal totalDays { get; set; }
-        public string adminName { get; set; }
+        public string JobId { get; set; }
+        public Nullable<System.DateTime> dateGenerated { get; set; }
+        public Nullable<decimal> rate { get; set; }
+        public Nullable<decimal> totalDays { get; set; }
+        public Nullable<int> createdBy { get; set; }
     }
 }
