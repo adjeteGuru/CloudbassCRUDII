@@ -31,7 +31,7 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingCrew> BookingCrews { get; set; }
         public virtual Categ Categ { get; set; }
-        public virtual Role Role { get; set; }
         public virtual Employee Employee { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

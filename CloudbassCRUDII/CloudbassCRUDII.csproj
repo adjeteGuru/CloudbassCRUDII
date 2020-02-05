@@ -134,12 +134,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BookingCrewDController.cs" />
     <Compile Include="Controllers\ClientDController.cs" />
     <Compile Include="Controllers\EmployeeDController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
-    <Compile Include="Controllers\Has_RoleDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\RoleDController.cs" />
@@ -158,6 +156,9 @@
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BookingFleet.cs">
+      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingHotel.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BookingKit.cs">
@@ -225,6 +226,9 @@
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Has_Role.cs">
+      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hotel.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Invoice.cs">

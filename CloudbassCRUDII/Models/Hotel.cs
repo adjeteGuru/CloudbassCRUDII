@@ -12,22 +12,23 @@ namespace CloudbassCRUDII.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Equipment
+    public partial class Hotel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Equipment()
+        public Hotel()
         {
-            this.BookingEquipments = new HashSet<BookingEquipment>();
+            this.BookingHotels = new HashSet<BookingHotel>();
         }
     
         public int Id { get; set; }
-        public string equipmentName { get; set; }
-        public string model { get; set; }
-        public Nullable<decimal> rate { get; set; }
-        public Nullable<int> equipTypeId { get; set; }
+        public string name { get; set; }
+        public string location { get; set; }
+        public string postcode { get; set; }
+        public string city { get; set; }
+        public string county { get; set; }
+        public string roomNo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingEquipment> BookingEquipments { get; set; }
-        public virtual EquipType EquipType { get; set; }
+        public virtual ICollection<BookingHotel> BookingHotels { get; set; }
     }
 }

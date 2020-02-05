@@ -12,18 +12,18 @@ namespace CloudbassCRUDII.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class BookingCrew
+    public partial class BookingHotel
     {
-        public int scheduleId { get; set; }
-        public int has_RoleId { get; set; }
+        public string JobId { get; set; }
+        public int hotelId { get; set; }
         public Nullable<System.DateTime> start_date { get; set; }
-        public Nullable<System.DateTime> end_date { get; set; }
+        public Nullable<System.DateTime> end_time { get; set; }
         public Nullable<decimal> totalDays { get; set; }
-        public Nullable<decimal> rate { get; set; }
+        public Nullable<decimal> cost { get; set; }
         public Nullable<int> createdBy { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual Has_Role Has_Role { get; set; }
-        public virtual Schedule Schedule { get; set; }
+        public virtual Hotel Hotel { get; set; }
+        public virtual Job Job { get; set; }
     }
 }

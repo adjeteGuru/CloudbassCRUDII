@@ -17,6 +17,10 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Job()
         {
+            this.BookingEquipments = new HashSet<BookingEquipment>();
+            this.BookingFleets = new HashSet<BookingFleet>();
+            this.BookingHotels = new HashSet<BookingHotel>();
+            this.BookingKits = new HashSet<BookingKit>();
             this.Schedules = new HashSet<Schedule>();
         }
     
@@ -33,9 +37,17 @@ namespace CloudbassCRUDII.Models
         public int ClientId { get; set; }
         public Nullable<int> statusId { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingEquipment> BookingEquipments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingFleet> BookingFleets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingHotel> BookingHotels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookingKit> BookingKits { get; set; }
         public virtual Client Client { get; set; }
-        public virtual JobStatu JobStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual JobStatu JobStatu { get; set; }
     }
 }
