@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingCrewDController.cs" />
     <Compile Include="Controllers\ClientDController.cs" />
     <Compile Include="Controllers\EmployeeDController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -191,27 +192,37 @@
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DTO\BookingCrew.cs" />
+    <Compile Include="Models\DTO\BookingCrewEdit.cs" />
+    <Compile Include="Models\DTO\BookingCrewListView.cs" />
     <Compile Include="Models\DTO\BookingEquipment.cs" />
     <Compile Include="Models\DTO\BookingFleet.cs" />
     <Compile Include="Models\DTO\BookingHotel.cs" />
     <Compile Include="Models\DTO\BookingKit.cs" />
+    <Compile Include="Models\DTO\BookingType.cs" />
     <Compile Include="Models\DTO\Categ.cs" />
     <Compile Include="Models\DTO\Client.cs" />
     <Compile Include="Models\DTO\County.cs" />
     <Compile Include="Models\DTO\Employee.cs" />
+    <Compile Include="Models\DTO\EmployeeEdit.cs" />
+    <Compile Include="Models\DTO\EmployeeListView.cs" />
     <Compile Include="Models\DTO\Equipment.cs" />
     <Compile Include="Models\DTO\EquipType.cs" />
     <Compile Include="Models\DTO\Fleet.cs" />
     <Compile Include="Models\DTO\FleetType.cs" />
     <Compile Include="Models\DTO\Has_Role.cs" />
+    <Compile Include="Models\DTO\Has_RoleEdit.cs" />
+    <Compile Include="Models\DTO\Has_RoleListView.cs" />
     <Compile Include="Models\DTO\Hotel.cs" />
     <Compile Include="Models\DTO\Invoice.cs" />
     <Compile Include="Models\DTO\Job.cs" />
+    <Compile Include="Models\DTO\JobEdit.cs" />
     <Compile Include="Models\DTO\JobStatu.cs" />
     <Compile Include="Models\DTO\Kit.cs" />
     <Compile Include="Models\DTO\KitType.cs" />
     <Compile Include="Models\DTO\Role.cs" />
     <Compile Include="Models\DTO\Schedule.cs" />
+    <Compile Include="Models\DTO\ScheduleEdit.cs" />
+    <Compile Include="Models\DTO\ScheduleListView.cs" />
     <Compile Include="Models\DTO\ScheduleStatu.cs" />
     <Compile Include="Models\DTO\SchType.cs" />
     <Compile Include="Models\Employee.cs">
@@ -381,6 +392,11 @@
     <Content Include="Views\RoleD\Details.cshtml" />
     <Content Include="Views\RoleD\Edit.cshtml" />
     <Content Include="Views\RoleD\Index.cshtml" />
+    <Content Include="Views\BookingCrewD\Create.cshtml" />
+    <Content Include="Views\BookingCrewD\Delete.cshtml" />
+    <Content Include="Views\BookingCrewD\Details.cshtml" />
+    <Content Include="Views\BookingCrewD\Edit.cshtml" />
+    <Content Include="Views\BookingCrewD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

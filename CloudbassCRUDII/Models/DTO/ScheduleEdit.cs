@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CloudbassCRUDII.Models.DTO
 {
-    public class Schedule
+    public class ScheduleEdit
     {
         [Display(Name = "Sched ID")]
         public int Id { get; set; }
 
         [Display(Name = "Type")]
-        public string SchTypName { get; set; }
+        public string SelectedSchTyp { get; set; }
+        public IEnumerable<SelectListItem> SchType { get; set; }
 
         [Display(Name = "Job Title")]
         public string text { get; set; }
@@ -29,10 +31,7 @@ namespace CloudbassCRUDII.Models.DTO
         // public Nullable<int> statusId { get; set; }
 
         [Display(Name = "Status")]
-        public string StatusName { get; set; }
-
-
-
-
+        public string SelectedStatus { get; set; }
+        public IEnumerable<SelectListItem> ScheduleStatu { get; set; }
     }
 }

@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CloudbassCRUDII.Models.DTO
 {
-    public class BookingCrew
+    public class BookingCrewEdit
     {
+
         [Display(Name = "Sched ID")]
         public int scheduleId { get; set; }
-
-        [Display(Name = "Schedule Name")]
-        public int scheduleName { get; set; }
+               
 
         [Display(Name = "HasRoleID")]
 
         public int has_RoleId { get; set; }
-
-        [Display(Name = "Role Name")]
-        public string roleName { get; set; }
+               
 
         [Display(Name = "Start Date")]
         public Nullable<System.DateTime> start_date { get; set; }
@@ -34,6 +32,7 @@ namespace CloudbassCRUDII.Models.DTO
         public Nullable<decimal> rate { get; set; }
 
         [Display(Name = "Edited By")]
-        public string EmployeeName { get; set; }
+        public string SelectedEmployee { get; set; }
+        public IEnumerable<SelectListItem> Employees { get; set; }
     }
 }
