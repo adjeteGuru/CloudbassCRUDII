@@ -44,16 +44,16 @@ namespace CloudbassCRUDII.Models.DTO
         [Display(Name = "Commercial Lead")]
         public string CommercialLead { get; set; }
 
-        //public int ClientId { get; set; }
+       // public int ClientId { get; set; }
 
         [Display(Name = "Client Name")]
-        public string SelectedClient { get; set; }
+        public int SelectedClient { get; set; }
 
         public IEnumerable<SelectListItem> Client { get; set; }
 
         [Display(Name = "Status")]
 
-        public string SelectedStatus { get; set; }
+        public int SelectedStatus { get; set; }
         public IEnumerable<SelectListItem> JobStatu { get; set; }
 
     }
