@@ -175,60 +175,50 @@ namespace CloudbassCRUDII.Controllers
                        
                         return PartialView("CreateCrewPartial", crewModel);
 
-                    case "Fleet":
+                    case "BookinFleet":
                         var fleetModel = new Models.DTO.BookingFleet()
                         {
                             JobId = model.JobId
                         };
-                        var fleetTypeRepo = new FleetTypeRepository();
-                        fleetModel. = fleetTypeRepo.GetFleetTypes();
-                        var regionsRepo = new RegionsRepository();
-                        postalAddressModel.Regions = regionsRepo.GetRegions();
-                        return PartialView("CreatePostalAddressPartial", fleetModel);
+                        //var fleetTypeRepo = new FleetTypeRepository();
+                        //fleetModel. = fleetTypeRepo.GetFleetTypes();
+                        //var regionsRepo = new RegionsRepository();
+                        //postalAddressModel.Regions = regionsRepo.GetRegions();
+                        return PartialView("CreateBookingFleetPartial", fleetModel);
 
-                    case "Hotel":
+                    case "BookingHotel":
                         var hotelModel = new Models.DTO.BookingHotel()
                         {
                             JobId = model.JobId
                         };
-                        var countriesRepo = new CountriesRepository();
-                        postalAddressModel.Countries = countriesRepo.GetCountries();
-                        var regionsRepo = new RegionsRepository();
-                        postalAddressModel.Regions = regionsRepo.GetRegions();
-                        return PartialView("CreatePostalAddressPartial", hotelModel);
+                        //var countriesRepo = new CountriesRepository();
+                        //postalAddressModel.Countries = countriesRepo.GetCountries();
+                        //var regionsRepo = new RegionsRepository();
+                        //postalAddressModel.Regions = regionsRepo.GetRegions();
+                        return PartialView("CreateBookingHotelPartial", hotelModel);
 
-                    case "Kit":
+                    case "BookingKit":
                         var kitModel = new Models.DTO.BookingKit()
                         {
                             JobId = model.JobId
                         };
-                        var countriesRepo = new CountriesRepository();
-                        postalAddressModel.Countries = countriesRepo.GetCountries();
-                        var regionsRepo = new RegionsRepository();
-                        postalAddressModel.Regions = regionsRepo.GetRegions();
-                        return PartialView("CreatePostalAddressPartial", kitModel);
+                        //var countriesRepo = new CountriesRepository();
+                        //postalAddressModel.Countries = countriesRepo.GetCountries();
+                        //var regionsRepo = new RegionsRepository();
+                        //postalAddressModel.Regions = regionsRepo.GetRegions();
+                        return PartialView("CreateBookingKitPartial", kitModel);
 
-                    //case "Hiring":
-                    //    var schedule = new Models.DTO.Schedule()
-                    //    {
-                    //        CustomerID = model.CustomerID
-                    //    };
-                    //    var countriesRepo = new CountriesRepository();
-                    //    postalAddressModel.Countries = countriesRepo.GetCountries();
-                    //    var regionsRepo = new RegionsRepository();
-                    //    postalAddressModel.Regions = regionsRepo.GetRegions();
-                    //    return PartialView("CreatePostalAddressPartial", postalAddressModel);
 
-                    case "Equipment":
-                        var schedule = new Models.DTO.BookingEquipment()
+                    case "BookingEquipment":
+                        var equipmentModel = new Models.DTO.BookingEquipment()
                         {
                             JobId = model.JobId
                         };
-                        var countriesRepo = new CountriesRepository();
-                        postalAddressModel.Countries = countriesRepo.GetCountries();
-                        var regionsRepo = new RegionsRepository();
-                        postalAddressModel.Regions = regionsRepo.GetRegions();
-                        return PartialView("CreatePostalAddressPartial", postalAddressModel);
+                        //var countriesRepo = new CountriesRepository();
+                        //postalAddressModel.Countries = countriesRepo.GetCountries();
+                        //var regionsRepo = new RegionsRepository();
+                        //postalAddressModel.Regions = regionsRepo.GetRegions();
+                        return PartialView("CreateBookingPartial", equipmentModel);
 
                     default:
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -237,13 +227,116 @@ namespace CloudbassCRUDII.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
-        // GET: Customer/Delete/5
+
+        // NEW STARTED
+
+        [HttpPost] //THIS IS has worked
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSchedulePartial(Models.DTO.ScheduleEdit model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new JobRepository();
+                var updatedModel = repo.SaveSchedule(model);
+                if (updatedModel != null)
+                {
+                    return RedirectToAction("Edit", new { id = model.JobId });
+                }
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookingFleetPartial(Models.DTO.BookingFleetEdit model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new JobRepository();
+                var updatedModel = repo.SaveBookingFleet(model);
+                if (updatedModel != null)
+                {
+                    return RedirectToAction("Edit", new { id = model.JobId });
+                }
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookingEquipmentPartial(Models.DTO.BookingEquipmentEdit model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new JobRepository();
+                var updatedModel = repo.SaveBookingEquipment(model);
+                if (updatedModel != null)
+                {
+                    return RedirectToAction("Edit", new { id = model.JobId });
+                }
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookingKitPartial(Models.DTO.BookingKitEdit model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new JobRepository();
+                var updatedModel = repo.SaveBookingKit(model);
+                if (updatedModel != null)
+                {
+                    return RedirectToAction("Edit", new { id = model.JobId });
+                }
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookingHotelPartial(Models.DTO.BookingHotelEdit model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new JobRepository();
+                var updatedModel = repo.SaveBookingHotel(model);
+                if (updatedModel != null)
+                {
+                    return RedirectToAction("Edit", new { id = model.JobId });
+                }
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateCrewPartial(Models.DTO.CrewEdit model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new JobRepository();
+                var updatedModel = repo.SaveCrew(model);
+                if (updatedModel != null)
+                {
+                    return RedirectToAction("Edit", new { id = model.JobId });
+                }
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        //NEW ENDED 
+
+        // GET: Job/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Customer/Delete/5
+        // POST: job/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
