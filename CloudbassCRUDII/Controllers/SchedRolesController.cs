@@ -141,11 +141,11 @@ namespace CloudbassCRUDII.Controllers
 
         public JsonResult GetHas_Roles(int Id, int? page, int? limit)
         {
-            List<Models.DTO.BookingCrew> records;
+            List<Models.DTO.Crew> records;
             int total;
             using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
-                var query = context.BookingCrews.Where(pt => pt.has_RoleId == Id && pt.scheduleId==Id).Select(pt => new Models.DTO.BookingCrew
+                var query = context.BookingCrews.Where(pt => pt.has_RoleId == Id && pt.scheduleId==Id).Select(pt => new Models.DTO.Crew
                 {
                     has_RoleId = pt.has_RoleId,
                     scheduleId = pt.scheduleId,

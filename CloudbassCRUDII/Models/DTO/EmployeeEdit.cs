@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CloudbassCRUDII.Models.DTO
 {
-    public class Employee
+    public class EmployeeEdit
     {
 
         [Display(Name = "Emplyee ID")]
@@ -22,8 +23,9 @@ namespace CloudbassCRUDII.Models.DTO
         public string email { get; set; }
 
         [Display(Name = "County")]
-        //public int countyId { get; set; }
-        public string countyName { get; set; }
+        // public int countyId { get; set; }
+        public string SelectedCounty { get; set; }
+        public IEnumerable<SelectListItem> Counties { get; set; }
 
         [Display(Name = "Avoid Job")]
         public string bared { get; set; }
@@ -48,7 +50,5 @@ namespace CloudbassCRUDII.Models.DTO
 
         [Display(Name = "Post Nominals")]
         public string postNominals { get; set; }
-
-
     }
 }

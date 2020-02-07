@@ -12,16 +12,8 @@ namespace CloudbassCRUDII.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class BookingType
     {
-        public int Id { get; set; }
-        public string JobId { get; set; }
-        public Nullable<System.DateTime> dateGenerated { get; set; }
-        public Nullable<decimal> rate { get; set; }
-        public Nullable<decimal> totalDays { get; set; }
-        public Nullable<int> createdBy { get; set; }
-    
-        public virtual Job Job { get; set; }
-        public virtual Employee Employee { get; set; }
+        public string bookingTypeId { get; set; }
     }
 }
