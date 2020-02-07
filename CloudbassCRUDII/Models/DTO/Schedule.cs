@@ -11,8 +11,14 @@ namespace CloudbassCRUDII.Models.DTO
         [Display(Name = "Sched ID")]
         public int Id { get; set; }
 
+        [Display(Name = "Job ID")]
+        public string JobId { get; set; }
+
         [Display(Name = "Type")]
         public string SchTypName { get; set; }
+
+        //[Display(Name = "Type")]
+        //public Nullable<int> SchTypeId { get; set; }
 
         [Display(Name = "Job Title")]
         public string text { get; set; }

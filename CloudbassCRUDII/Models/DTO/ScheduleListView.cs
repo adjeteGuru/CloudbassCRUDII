@@ -9,6 +9,8 @@ namespace CloudbassCRUDII.Models.DTO
     {
       
         public string JobId { get; set; }
+       
+       public Nullable<int> SchTypeId { get; set; }
 
         public ICollection<Schedule> Schedules { get; set; }
     }
