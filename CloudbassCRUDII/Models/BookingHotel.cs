@@ -22,8 +22,8 @@ namespace CloudbassCRUDII.Models
         public Nullable<decimal> cost { get; set; }
         public Nullable<int> createdBy { get; set; }
     
-        public virtual Employee Employee { get; set; }
         public virtual Hotel Hotel { get; set; }
         public virtual Job Job { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

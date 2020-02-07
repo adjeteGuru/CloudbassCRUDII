@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CloudbassCRUDII.Repository
 {
-    public class BookingCrewRepository
+    public class CrewRepository
     {
     }
 }

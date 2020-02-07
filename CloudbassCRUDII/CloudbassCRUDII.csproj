@@ -152,9 +152,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SortHelper.cs" />
-    <Compile Include="Models\BookingCrew.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\BookingEquipment.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
@@ -165,6 +162,9 @@
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BookingKit.cs">
+      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingType.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Categ.cs">
@@ -191,9 +191,20 @@
     <Compile Include="Models\County.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DTO\BookingCrew.cs" />
-    <Compile Include="Models\DTO\BookingCrewEdit.cs" />
-    <Compile Include="Models\DTO\BookingCrewListView.cs" />
+    <Compile Include="Models\Crew.cs">
+      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DTO\BookingEquipmentEdit.cs" />
+    <Compile Include="Models\DTO\BookingEquipmentListView.cs" />
+    <Compile Include="Models\DTO\BookingFleetEdit.cs" />
+    <Compile Include="Models\DTO\BookingFleetListView.cs" />
+    <Compile Include="Models\DTO\BookingHotelEdit.cs" />
+    <Compile Include="Models\DTO\BookingHotelListView.cs" />
+    <Compile Include="Models\DTO\BookingKitEdit.cs" />
+    <Compile Include="Models\DTO\BookingKitListView.cs" />
+    <Compile Include="Models\DTO\Crew.cs" />
+    <Compile Include="Models\DTO\CrewEdit.cs" />
+    <Compile Include="Models\DTO\CrewListView.cs" />
     <Compile Include="Models\DTO\BookingEquipment.cs" />
     <Compile Include="Models\DTO\BookingFleet.cs" />
     <Compile Include="Models\DTO\BookingHotel.cs" />
@@ -275,14 +286,18 @@
     </Compile>
     <Compile Include="Models\ViewModel\JobSchedCrewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BookingCrewRepository.cs" />
     <Compile Include="Repository\CategRepository.cs" />
     <Compile Include="Repository\ClientRepository.cs" />
     <Compile Include="Repository\CountyRepository.cs" />
+    <Compile Include="Repository\CrewRepository.cs" />
     <Compile Include="Repository\EmployeeRepository.cs" />
+    <Compile Include="Repository\EquipmentTypeRepository.cs" />
+    <Compile Include="Repository\FleetTypeRepository.cs" />
     <Compile Include="Repository\Has_RoleRepository.cs" />
     <Compile Include="Repository\JobRepository.cs" />
     <Compile Include="Repository\JobStatuRepository.cs" />
+    <Compile Include="Repository\KitTypeRepository.cs" />
+    <Compile Include="Repository\MetadataRepository.cs" />
     <Compile Include="Repository\RoleRepository.cs" />
     <Compile Include="Repository\ScheduleRepository.cs" />
     <Compile Include="Repository\ScheduleStatuRepository.cs" />

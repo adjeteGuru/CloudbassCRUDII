@@ -17,7 +17,7 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Has_Role()
         {
-            this.BookingCrews = new HashSet<BookingCrew>();
+            this.Crews = new HashSet<Crew>();
         }
     
         public int Id { get; set; }
@@ -28,9 +28,9 @@ namespace CloudbassCRUDII.Models
         public Nullable<decimal> totalDays { get; set; }
         public Nullable<int> catId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingCrew> BookingCrews { get; set; }
         public virtual Categ Categ { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Crew> Crews { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Role Role { get; set; }
     }

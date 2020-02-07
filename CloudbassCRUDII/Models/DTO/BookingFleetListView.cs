@@ -5,13 +5,10 @@ using System.Web;
 
 namespace CloudbassCRUDII.Models.DTO
 {
-    public class ScheduleListView
+    public class BookingFleetListView
     {
-      
         public string JobId { get; set; }
-       
-      // public Nullable<int> SchTypeId { get; set; }
 
-        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<BookingFleet> BookingFleets { get; set; }
     }
 }

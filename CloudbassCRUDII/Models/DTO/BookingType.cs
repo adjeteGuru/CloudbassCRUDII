@@ -9,7 +9,7 @@ namespace CloudbassCRUDII.Models.DTO
 {
     public class BookingType
     {
-        public string CustomerID { get; set; } // Carries the value in POST action.
+        public string JobId { get; set; } // Carries the value in POST action.
 
         [Display(Name = "Booking Type")]
         public string SelectedBookingType { get; set; }
