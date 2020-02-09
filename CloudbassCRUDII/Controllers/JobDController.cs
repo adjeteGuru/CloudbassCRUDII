@@ -81,8 +81,8 @@ namespace CloudbassCRUDII.Controllers
         {
             if (!String.IsNullOrWhiteSpace(id))
             {
-                bool isGuid = Guid.TryParse(id, out Guid jobId);
-                if (isGuid && jobId != Guid.Empty)
+               // bool isGuid = Guid.TryParse(id, out Guid jobId);
+                //if (isGuid && jobId != Guid.Empty)
                 {
                     return View();
                 }
@@ -97,13 +97,14 @@ namespace CloudbassCRUDII.Controllers
         {
             if (!String.IsNullOrWhiteSpace(id))
             {
-                bool isGuid = Guid.TryParse(id, out Guid jobId);
-                if (isGuid && jobId != Guid.Empty)
-                {
+               // bool isGuid = Guid.TryParse(id, out Guid jobId);
+               // if (isGuid && jobId != Guid.Empty)
+                //{
                     var repo = new JobRepository();
-                    var model = repo.GetJob(jobId.ToString());
+                    var model = repo.GetJob(id);
+                   
                     return View(model);
-                }
+                //}
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
@@ -118,12 +119,12 @@ namespace CloudbassCRUDII.Controllers
                 bool saved = repo.SaveJob(model);
                 if (saved)
                 {
-                    bool isGuid = Guid.TryParse(model.Id, out Guid jobId);
-                    if (isGuid)
-                    {
-                        var modelUpdate = repo.GetJob(jobId.ToString());
+                   // bool isGuid = Guid.TryParse(model.Id, out Guid jobId);
+                   // if (isGuid)
+                    //{
+                        var modelUpdate = repo.GetJob(model.Id);
                         return PartialView(modelUpdate);
-                    }
+                    //}
                 }
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -135,9 +136,9 @@ namespace CloudbassCRUDII.Controllers
         {
             if (!String.IsNullOrWhiteSpace(id))
             {
-                bool isGuid = Guid.TryParse(id, out Guid jobId);
-                if (isGuid && jobId != Guid.Empty)
-                {
+                //bool isGuid = Guid.TryParse(id, out Guid jobId);
+                //if (isGuid && jobId != Guid.Empty)
+                //{
                     var repo = new MetadataRepository();
                     var model = new Models.DTO.BookingType()
                     {
@@ -145,7 +146,7 @@ namespace CloudbassCRUDII.Controllers
                         BookingTypes = repo.GetBookingTypes()
                     };
                     return PartialView("BookingTypePartial", model);
-                }
+                //}
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
@@ -245,6 +246,9 @@ namespace CloudbassCRUDII.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
+
+
+
 
         //BUILD BOOKINGFLEET-REPOSITORY FIRST
 
@@ -468,29 +472,34 @@ namespace CloudbassCRUDII.Controllers
         //    return View(job);
         //}
 
-        //// GET: JobD/Delete/5
+        // GET: JobD/Delete/5
         //public ActionResult Delete(string id)
         //{
         //    if (id == null)
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-        //    Job job = db.Jobs.Find(id);
-        //    if (job == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(job);
+            // Models.DTO.Job job = ;
+            //if (job == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(job);
+
+        //    return View();
         //}
 
-        //// POST: JobD/Delete/5
+        // POST: JobD/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public ActionResult DeleteConfirmed(string id)
         //{
-        //    Job job = db.Jobs.Find(id);
-        //    db.Jobs.Remove(job);
-        //    db.SaveChanges();
+        //    var repo = new JobRepository();
+        //    //var repo1 = Models.DTO.JobEdit();
+        //   // var model = repo.GetJob(id);
+        //   // Models.Job job = repo.GetJobs();
+        //    // model.Id.Remove();
+        //   // model.SaveChanges(model);
         //    return RedirectToAction("Index");
         //}
 
@@ -498,9 +507,31 @@ namespace CloudbassCRUDII.Controllers
         //{
         //    if (disposing)
         //    {
-        //        db.Dispose();
+        //        .Dispose();
         //    }
         //    base.Dispose(disposing);
         //}
+
+        // GET: job/Delete/5
+        public ActionResult Delete(string id)
+        {
+            return View();
+        }
+
+        // POST: job/Delete/5
+        [HttpPost]
+        public ActionResult Delete(string id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
