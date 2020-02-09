@@ -33,7 +33,7 @@ namespace CloudbassCRUDII.Repository
                             DateCreated = j.DateCreated,
                             Location = j.Location,
                             Coordinator = j.Coordinator,
-                            ClientName = j.Client.Name,
+                            ClientId = j.ClientId,
 
                             start_date = j.start_date,
                             TXDate = j.TXDate,

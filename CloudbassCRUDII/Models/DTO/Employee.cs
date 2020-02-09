@@ -22,8 +22,8 @@ namespace CloudbassCRUDII.Models.DTO
         public string email { get; set; }
 
         [Display(Name = "County")]
-        //public int countyId { get; set; }
-        public string countyName { get; set; }
+        public int countyId { get; set; }
+        //public string countyName { get; set; }
 
         [Display(Name = "Avoid Job")]
         public string bared { get; set; }

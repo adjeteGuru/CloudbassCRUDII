@@ -37,11 +37,11 @@ namespace CloudbassCRUDII.Controllers
                 {
                     if (groupByDirection.Trim().ToLower() == "asc")
                     {
-                        query = query.OrderBy(q => q.ClientName);/*.ThenBy(q => q.OrderNumber);*/
+                        query = query.OrderBy(q => q.ClientId);/*.ThenBy(q => q.OrderNumber);*/
                     }
                     else
                     {
-                        query = query.OrderByDescending(q => q.ClientName);/*.ThenBy(q => q.OrderNumber);*/
+                        query = query.OrderByDescending(q => q.ClientId);/*.ThenBy(q => q.OrderNumber);*/
                     }
                 }
                 //else

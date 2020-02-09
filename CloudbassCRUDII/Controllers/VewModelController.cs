@@ -172,10 +172,10 @@ namespace CloudbassCRUDII.Controllers
             int total;
             using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
             {
-                var query = context.BookingCrews.Where(pt => pt.has_RoleId == Id && pt.scheduleId == Id).Select(pt => new Models.ViewModel.JobSchedCrewViewModel
+                var query = context.Crews.Where(pt => pt.has_roleId == Id && pt.has_roleId == Id).Select(pt => new Models.ViewModel.JobSchedCrewViewModel
                 {
-                    has_RoleId = pt.has_RoleId,
-                    scheduleId = pt.scheduleId,
+                    has_RoleId = pt.has_roleId,
+                    JobId = pt.JobId,
                     //JobName = pt.
                     RoleName = pt.Has_Role.Role.Name,
 

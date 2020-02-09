@@ -53,7 +53,7 @@ namespace CloudbassCRUDII.Controllers
 
         // POST: Job/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Id, text,Description, SelectedClientId, DateCreated, Location, Coordinator,start_date, TXDate, end_date, CommercialLead,status")] JobEditViewModel model)
+        public ActionResult Create([Bind(Include = "Id, text,Description, SelectedClientId, DateCreated, Location, Coordinator,start_date, TXDate, end_date, CommercialLead,status")] JobEdit model)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace CloudbassCRUDII.Controllers
                 if (isGuid && jobId != Guid.Empty)
                 {
                     var repo = new JobRepository();
-                    var model = repo.GetJob(jobId);
+                    var model = repo.GetJob(jobId.ToString());
                     return View(model);
                 }
             }
@@ -121,7 +121,7 @@ namespace CloudbassCRUDII.Controllers
                     bool isGuid = Guid.TryParse(model.Id, out Guid jobId);
                     if (isGuid)
                     {
-                        var modelUpdate = repo.GetJob(jobId);
+                        var modelUpdate = repo.GetJob(jobId.ToString());
                         return PartialView(modelUpdate);
                     }
                 }
@@ -246,111 +246,113 @@ namespace CloudbassCRUDII.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateBookingFleetPartial(Models.DTO.BookingFleetEdit model)
-        {
-            if (ModelState.IsValid)
-            {
-                var repo = new JobRepository();
-                var updatedModel = repo.SaveBookingFleet(model);
-                if (updatedModel != null)
-                {
-                    return RedirectToAction("Edit", new { id = model.JobId });
-                }
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        }
+        //BUILD BOOKINGFLEET-REPOSITORY FIRST
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateBookingFleetPartial(Models.DTO.BookingFleetEdit model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var repo = new JobRepository();
+        //        var updatedModel = repo.SaveBookingFleet(model);
+        //        if (updatedModel != null)
+        //        {
+        //            return RedirectToAction("Edit", new { id = model.JobId });
+        //        }
+        //    }
+        //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //}
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateBookingEquipmentPartial(Models.DTO.BookingEquipmentEdit model)
-        {
-            if (ModelState.IsValid)
-            {
-                var repo = new JobRepository();
-                var updatedModel = repo.SaveBookingEquipment(model);
-                if (updatedModel != null)
-                {
-                    return RedirectToAction("Edit", new { id = model.JobId });
-                }
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateBookingEquipmentPartial(Models.DTO.BookingEquipmentEdit model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var repo = new JobRepository();
+        //        var updatedModel = repo.SaveBookingEquipment(model);
+        //        if (updatedModel != null)
+        //        {
+        //            return RedirectToAction("Edit", new { id = model.JobId });
+        //        }
+        //    }
+        //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //}
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateBookingKitPartial(Models.DTO.BookingKitEdit model)
-        {
-            if (ModelState.IsValid)
-            {
-                var repo = new JobRepository();
-                var updatedModel = repo.SaveBookingKit(model);
-                if (updatedModel != null)
-                {
-                    return RedirectToAction("Edit", new { id = model.JobId });
-                }
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateBookingKitPartial(Models.DTO.BookingKitEdit model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var repo = new JobRepository();
+        //        var updatedModel = repo.SaveBookingKit(model);
+        //        if (updatedModel != null)
+        //        {
+        //            return RedirectToAction("Edit", new { id = model.JobId });
+        //        }
+        //    }
+        //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateBookingHotelPartial(Models.DTO.BookingHotelEdit model)
-        {
-            if (ModelState.IsValid)
-            {
-                var repo = new JobRepository();
-                var updatedModel = repo.SaveBookingHotel(model);
-                if (updatedModel != null)
-                {
-                    return RedirectToAction("Edit", new { id = model.JobId });
-                }
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateBookingHotelPartial(Models.DTO.BookingHotelEdit model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var repo = new JobRepository();
+        //        var updatedModel = repo.SaveBookingHotel(model);
+        //        if (updatedModel != null)
+        //        {
+        //            return RedirectToAction("Edit", new { id = model.JobId });
+        //        }
+        //    }
+        //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateCrewPartial(Models.DTO.CrewEdit model)
-        {
-            if (ModelState.IsValid)
-            {
-                var repo = new JobRepository();
-                var updatedModel = repo.SaveCrew(model);
-                if (updatedModel != null)
-                {
-                    return RedirectToAction("Edit", new { id = model.JobId });
-                }
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateCrewPartial(Models.DTO.CrewEdit model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var repo = new JobRepository();
+        //        var updatedModel = repo.SaveCrew(model);
+        //        if (updatedModel != null)
+        //        {
+        //            return RedirectToAction("Edit", new { id = model.JobId });
+        //        }
+        //    }
+        //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //}
 
-        //NEW ENDED 
+        ////NEW ENDED 
 
-        // GET: Job/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //// GET: Job/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: job/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //// POST: job/Delete/5
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
 
 

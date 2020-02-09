@@ -30,10 +30,10 @@ namespace CloudbassCRUDII.Controllers
                     Coordinator = p.Coordinator,
                     CommercialLead = p.CommercialLead,
                     ClientId = p.ClientId,
-                    ClientName = p.Client.Name,
+                    //ClientName = p.Client.Name,
               
                     statusId = p.statusId,
-                    StatusName = p.JobStatu.title
+                    //StatusName = p.JobStatu.title
                  
                 });
 
@@ -47,10 +47,10 @@ namespace CloudbassCRUDII.Controllers
                     query = query.Where(q => q.Location.Contains(location));
                 }
 
-                if (!string.IsNullOrWhiteSpace(clientname))
-                {
-                    query = query.Where(q => q.ClientName.Contains(clientname));
-                }
+                //if (!string.IsNullOrWhiteSpace(clientname))
+                //{
+                //    query = query.Where(q => q.ClientId.Contains(clientname));
+                //}
 
                
 
@@ -66,9 +66,9 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderBy(q => q.Location);
                                 break;
-                            case "placeOfBirth":
-                                query = query.OrderBy(q => q.ClientName);
-                                break;
+                            //case "clientname":
+                            //    query = query.OrderBy(q => q.ClientName);
+                            //    break;
                                
                         }
                     }
@@ -82,10 +82,10 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderByDescending(q => q.Location);
                                 break;
-                            case "placeOfBirth":
-                                query = query.OrderByDescending(q => q.ClientName);
-                                break;
-                               
+                                //case "clientname":
+                                //    query = query.OrderByDescending(q => q.ClientName);
+                                //    break;
+
                         }
                     }
                 }

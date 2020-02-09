@@ -134,8 +134,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BookingCrewDController.cs" />
     <Compile Include="Controllers\ClientDController.cs" />
+    <Compile Include="Controllers\CrewDController.cs" />
     <Compile Include="Controllers\EmployeeDController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
@@ -419,11 +419,11 @@
     <Content Include="Views\RoleD\Details.cshtml" />
     <Content Include="Views\RoleD\Edit.cshtml" />
     <Content Include="Views\RoleD\Index.cshtml" />
-    <Content Include="Views\BookingCrewD\Create.cshtml" />
-    <Content Include="Views\BookingCrewD\Delete.cshtml" />
-    <Content Include="Views\BookingCrewD\Details.cshtml" />
-    <Content Include="Views\BookingCrewD\Edit.cshtml" />
-    <Content Include="Views\BookingCrewD\Index.cshtml" />
+    <Content Include="Views\CrewD\Create.cshtml" />
+    <Content Include="Views\CrewD\Delete.cshtml" />
+    <Content Include="Views\CrewD\Details.cshtml" />
+    <Content Include="Views\CrewD\Edit.cshtml" />
+    <Content Include="Views\CrewD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
