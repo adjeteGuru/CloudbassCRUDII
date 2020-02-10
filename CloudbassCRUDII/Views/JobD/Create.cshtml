@@ -136,9 +136,9 @@
                 //clientsSelect.empty();
 
 
-                    $.getJSON('@Url.Action("GetClients")', { id: selectedClient }, function (clients) {
-                        if (clients != null && !jQuery.isEmptyObject(clients))
-                        {
+                    $.getJSON('@Url.Action("GetClients")',/* { id: selectedClient },*/ function (clients) {
+                        //if (clients != null && !jQuery.isEmptyObject(clients))
+                        //{
                             //clientsSelect.append($('<option/>', {
                             //    value: null,
                             //    text: ""
@@ -150,7 +150,7 @@
                                     text: client.Text
                                 }));
                             });
-                        };
+                        //};
                     });
                 
             });

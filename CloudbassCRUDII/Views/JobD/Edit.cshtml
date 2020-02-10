@@ -54,7 +54,7 @@
         });
 
             function addClient(selectedClient) {
-            $.getJSON('@Url.Action("GetClients")', { id: selectedClient }, function (clients) {
+            $.getJSON('@Url.Action("GetClients")', /*{ id: selectedClient },*/ function (clients) {
            
                     $.each(clients, function (index, client) {
                         selectedClient.append($('<option/>', {

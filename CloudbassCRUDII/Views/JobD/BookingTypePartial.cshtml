@@ -1,4 +1,4 @@
-﻿@model CloudbassCRUDII.Models.DTO.Job
+﻿@model CloudbassCRUDII.Models.DTO.BookingType
 
 @using (Ajax.BeginForm("BookingTypePartial", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "CreateBooking", InsertionMode = InsertionMode.Replace }))
 {
@@ -6,9 +6,9 @@
 
     <div class="form-horizontal">
         <hr />
-        <h4>Select a booking type to add</h4>
+        <h4>Select an address type to add</h4>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.JobId)
         <div class="form-group">
             @Html.LabelFor(model => model.SelectedBookingType, htmlAttributes: new { @class = "control-label col-md-2", id = "BookingTypeLabel" })
             <div class="col-md-10">
@@ -24,4 +24,5 @@
         </div>
     </div>
 }
+
 

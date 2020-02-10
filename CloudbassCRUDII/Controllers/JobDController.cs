@@ -79,23 +79,23 @@ namespace CloudbassCRUDII.Controllers
   
         public ActionResult Edit(string id)
         {
-            if (!String.IsNullOrWhiteSpace(id))
+            if (id == null)
             {
-               // bool isGuid = Guid.TryParse(id, out Guid jobId);
-                //if (isGuid && jobId != Guid.Empty)
-                {
-                    return View();
-                }
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var repo = new JobRepository();
+            var model = repo.GetJob(id);
 
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                       
+            return View(model);
+
+
+
         }
 
         [ChildActionOnly]
         public ActionResult EditJobPartial(string id)
         {
-            if (!String.IsNullOrWhiteSpace(id))
+            if (id != null)
             {
                // bool isGuid = Guid.TryParse(id, out Guid jobId);
                // if (isGuid && jobId != Guid.Empty)
