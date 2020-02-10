@@ -42,19 +42,22 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var selectedClient = $("#Client").val();
-
+           // var SelectedStatus = $("#JobStatu").val();
             addClient(selectedClient);
-
+            
         });
 
 
         $("#Client").change(function () {
             var selectedClient = $("#Client").val();
-
+            if (selectedCountry != null && selectedCountry != '') {
+                  addClient(selectedClient);
+            }
+         
         });
 
-            function addClient(selectedClient) {
-            $.getJSON('@Url.Action("GetClients")', /*{ id: selectedClient },*/ function (clients) {
+            @*function addClient(selectedClient) {
+            $.getJSON('@Url.Action("GetClients")', { id: selectedClient }, function (clients) {
 
                     $.each(clients, function (index, client) {
                         selectedClient.append($('<option/>', {
@@ -64,7 +67,7 @@
                     });
 
             });
-        }
+             }*@
 
        
     </script>

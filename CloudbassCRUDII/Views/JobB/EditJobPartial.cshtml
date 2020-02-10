@@ -97,17 +97,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => Model.SelectedClient, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedClient, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.DropDownListFor(x => Model.SelectedClient, new SelectList(Model.Client, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Client" })
-                @Html.ValidationMessageFor(x => x.SelectedClient, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedClient, new SelectList(Model.Client, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Client" })
+                @Html.ValidationMessageFor(model => model.SelectedClient, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => Model.SelectedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.DropDownListFor(x => Model.SelectedStatus, new SelectList(Model.JobStatu, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "JobStatu" })
+                @Html.DropDownListFor(model => model.SelectedStatus, new SelectList(Model.JobStatu, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "JobStatu" })
                 @Html.ValidationMessageFor(model => model.SelectedStatus, "", new { @class = "text-danger" })
             </div>
         </div>
