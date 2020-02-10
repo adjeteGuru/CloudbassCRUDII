@@ -1,0 +1,75 @@
+﻿@*Models are in partial views.*@
+
+@section header {
+
+}
+
+@{
+    ViewBag.Title = "Edit Job Information";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Edit Job Information</h2>
+    </div>
+</div>
+
+<div id="EditJobPartial">
+    @Html.Action("EditJobPartial", new { id = Url.RequestContext.RouteData.Values["id"] })
+</div>
+
+<div id="SelectBookingTypePartial">
+    @Html.Action("BookingTypePartial", new { id = Url.RequestContext.RouteData.Values["id"] })
+</div>
+
+<div id="CreateSchedule"></div>
+
+<div class="row">
+    <div class="form-group">
+        <div class="col-md-12">
+            <hr />
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryunobtrusive") @*For unobtrusive-ajax*@
+    @Scripts.Render("~/bundles/jqueryval") @*For validate and validate-unobtrusive*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var selectedClient = $("#Client").val();
+
+            addClient(selectedClient);
+
+        });
+
+
+        $("#Client").change(function () {
+            var selectedClient = $("#Client").val();
+
+        });
+
+            function addClient(selectedClient) {
+            $.getJSON('@Url.Action("GetClients")', /*{ id: selectedClient },*/ function (clients) {
+
+                    $.each(clients, function (index, client) {
+                        selectedClient.append($('<option/>', {
+                            value: client.Value,
+                            text: client.Text
+                        }));
+                    });
+
+            });
+        }
+
+       
+    </script>
+}
+
+
+
+

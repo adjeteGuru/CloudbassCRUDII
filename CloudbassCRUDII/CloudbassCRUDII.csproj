@@ -141,6 +141,7 @@
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
     <Compile Include="Controllers\Has_RoleDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobBController.cs" />
     <Compile Include="Controllers\JobDController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\RoleDController.cs" />
@@ -425,6 +426,12 @@
     <Content Include="Views\JobD\EditJobPartial.cshtml" />
     <Content Include="Views\JobD\CreateSchedulePartial.cshtml" />
     <Content Include="Views\JobD\BookingTypePartial.cshtml" />
+    <Content Include="Views\JobB\Index.cshtml" />
+    <Content Include="Views\JobB\Create.cshtml" />
+    <Content Include="Views\JobB\Edit.cshtml" />
+    <Content Include="Views\JobB\EditJobPartial.cshtml" />
+    <Content Include="Views\JobB\CreateSchedulePartial.cshtml" />
+    <Content Include="Views\JobB\BookingTypePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

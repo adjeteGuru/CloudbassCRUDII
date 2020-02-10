@@ -16,8 +16,8 @@ namespace CloudbassCRUDII.Models.DTO
         public string JobId { get; set; }
 
         [Display(Name = "Type")]
-        public Nullable<int> SchTypeId { get; set; }
-        // public string SelectedSchTyp { get; set; }
+       // public Nullable<int> SchTypeId { get; set; }
+        public int SelectedSchType { get; set; }
         public IEnumerable<SelectListItem> SchType { get; set; }
 
         [Display(Name = "Job Title")]
@@ -35,8 +35,8 @@ namespace CloudbassCRUDII.Models.DTO
   
 
         [Display(Name = "Status")]
-        public Nullable<int> statusId { get; set; }
-        // public string SelectedStatus { get; set; }
+        //public Nullable<int> statusId { get; set; }
+        public int SelectedStatus { get; set; }
         public IEnumerable<SelectListItem> ScheduleStatu { get; set; }
     }
 }

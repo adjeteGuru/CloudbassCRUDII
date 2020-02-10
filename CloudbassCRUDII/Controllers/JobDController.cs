@@ -73,10 +73,10 @@ namespace CloudbassCRUDII.Controllers
                 return View();
             }
         }
-        
+
 
         // GET: Job/Edit/5
-  
+
         public ActionResult Edit(string id)
         {
             if (id == null)

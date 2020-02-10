@@ -33,5 +33,24 @@ namespace CloudbassCRUDII.Repository
                 return new SelectList(schtype, "Value", "Text");
             }
         }
+
+        public string GetSchTypeName(int? id)
+        {
+            if (id != null)
+            {
+                using (var context = new cloudbassDBMSEntities())
+                {
+                    var schtypeName = context.SchTypes.AsNoTracking()
+                        .Where(x => x.Id == id)
+                        .Single();
+                    if (schtypeName != null)
+                    {
+                        var schtypename = schtypeName.name.Trim();
+                        return schtypename;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

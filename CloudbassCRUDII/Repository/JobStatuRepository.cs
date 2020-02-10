@@ -32,5 +32,24 @@ namespace CloudbassCRUDII.Repository
                 return new SelectList(jobstatus, "Value", "Text");
             }
         }
+
+        public string GetJobStatuName(int? id)
+        {
+            if (id != null)
+            {
+                using (var context = new cloudbassDBMSEntities())
+                {
+                    var jobstatuName = context.JobStatus.AsNoTracking()
+                        .Where(x => x.Id == id)
+                        .Single();
+                    if (jobstatuName != null)
+                    {
+                        var jobstatuname = jobstatuName.title.Trim();
+                        return jobstatuname;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

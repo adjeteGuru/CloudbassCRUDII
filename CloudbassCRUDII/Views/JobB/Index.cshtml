@@ -1,0 +1,113 @@
+﻿@model IEnumerable<CloudbassCRUDII.Models.DTO.Job>
+
+@{
+    ViewBag.Title = "Job List";
+}
+
+<h2>Job List</h2>
+
+<p>
+    To see the dropdown lists in action, click "Create New".
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TXDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coordinator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommercialLead)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Client.Name)
+            </th>*@
+
+        <th>
+            @Html.DisplayNameFor(model => model.ClientId)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.JobStatu.title)
+            </th>*@
+
+        <th>
+            @Html.DisplayNameFor(model => model.statusId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TXDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coordinator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommercialLead)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientId)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Client.Name)
+                </td>*@
+
+            <td>
+                @Html.DisplayFor(modelItem => item.statusId)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.JobStatu.title)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+               
+            </td>
+        </tr>
+    }
+
+</table>

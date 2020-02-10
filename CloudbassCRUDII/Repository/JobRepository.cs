@@ -16,8 +16,8 @@ namespace CloudbassCRUDII.Repository
             {
                 List<Models.Job> jobs = new List<Models.Job>();
                 jobs = context.Jobs.AsNoTracking()
-                    //.Include(j => j.)
-                    .ToList();
+                                  // .Include(j => j.Client)
+                                   .ToList();
 
                 if (jobs != null)
                 {
@@ -82,7 +82,7 @@ namespace CloudbassCRUDII.Repository
                             TXDate = job.TXDate,
                             end_date = job.end_date,
                             CommercialLead = job.CommercialLead,
-                            SelectedClient = job.ClientId,
+                            SelectedClient = job.Client.Id,
                             SelectedStatus = job.JobStatu.Id
 
                         };
@@ -93,7 +93,7 @@ namespace CloudbassCRUDII.Repository
 
                         return jobEditVm;
                     }
-                    // return job;
+                   
                 }
             }
             return null;
@@ -108,8 +108,8 @@ namespace CloudbassCRUDII.Repository
 
                 var job = new JobEdit()
                 {
-                    Id = ToString(),
-                    //Id = Guid.NewGuid().ToString(),
+                    //Id = ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     // Id = string.IsNullOrEmpty(string).ToString(),
                     Client = cRepo.GetClients(),
                     JobStatu = sRepo.GetJobStatus()
@@ -126,25 +126,29 @@ namespace CloudbassCRUDII.Repository
                     using (var context = new cloudbassDBMSEntities())
                     {
 
-                        if (string.IsNullOrEmpty(jobedit.Id))
-                        {
+                    // if (string.IsNullOrEmpty(jobedit.Id))
+                    if (Guid.TryParse(jobedit.Id, out Guid newGuid))
+                    {
 
                             var job = new Models.Job()
                             {
-                                //Id = newGuid.ToString(),
-                                Id = ToString(),
+                                Id = newGuid.ToString(),
+                               // Id = ToString(),
                                 text = jobedit.text,
-                                ClientId = jobedit.SelectedClient,
+                                Description =jobedit.Description,
+
                                 Location = jobedit.Location,
                                 Coordinator = jobedit.Coordinator,
+                                DateCreated = jobedit.DateCreated,
+                                                               
                                 //NameConcatenateLocation = jobEdit.Name,
                                 start_date = jobedit.start_date,
                                 TXDate = jobedit.TXDate,
                                 end_date = jobedit.end_date,
+                                ClientId = jobedit.SelectedClient,
                                 statusId = jobedit.SelectedStatus,
-                                CommercialLead = jobedit.CommercialLead,
-
-
+                                CommercialLead = jobedit.CommercialLead
+                                
                             };
 
                             job.Client = context.Clients.Find(jobedit.SelectedClient);
@@ -180,7 +184,7 @@ namespace CloudbassCRUDII.Repository
                         {
                             var scheduleVm = new Models.DTO.Schedule()
                             {
-                                JobId = schedule.JobId,
+                                JobId = schedule.JobId.ToString(),
                                 Id = schedule.Id,
                                 text = schedule.text,
                                 //SchTypeId = schedule.SchTypeId,
@@ -192,10 +196,10 @@ namespace CloudbassCRUDII.Repository
                             };
 
                             var schTypesRepo = new SchTypeRepository();
-                            scheduleVm.SchTypName = schTypesRepo.GetSchTypes().ToString();
-                            var scheduleStatuRepo = new ScheduleStatuRepository();
-                            scheduleVm.StatusName = scheduleStatuRepo.GetScheduleStatus().ToString();
-                            scheduleListView.Schedules.Add(scheduleVm);
+                            scheduleVm.SchTypName = schTypesRepo.GetSchTypeName(schedule.SchTypeId);
+                            var jobStatuRepo = new JobStatuRepository();
+                            scheduleVm.StatusName = jobStatuRepo.GetJobStatuName(schedule.statusId);
+                            scheduleListView.Schedules.Add(scheduleVm);                                                   
                         }
                         return scheduleListView;
                     }
@@ -233,10 +237,18 @@ namespace CloudbassCRUDII.Repository
 
                         };
 
+
                         var schTypesRepo = new SchTypeRepository();
-                        scheduleVm.SchTypName = schTypesRepo.GetSchTypes().ToString();
-                        var scheduleStatuRepo = new ScheduleStatuRepository();
-                        scheduleVm.StatusName = scheduleStatuRepo.GetScheduleStatus().ToString();
+                        scheduleVm.SchTypName = schTypesRepo.GetSchTypeName(schedule.SchTypeId);
+                        var jobStatuRepo = new JobStatuRepository();
+                        scheduleVm.StatusName = jobStatuRepo.GetJobStatuName(schedule.statusId);
+
+                       // scheduleListView.Schedules.Add(scheduleVm);
+
+                        //var schTypesRepo = new SchTypeRepository();
+                        //scheduleVm.SchTypName = schTypesRepo.GetSchTypes().ToString();
+                        //var scheduleStatuRepo = new ScheduleStatuRepository();
+                        //scheduleVm.StatusName = scheduleStatuRepo.GetScheduleStatus().ToString();
                         return scheduleVm;
                     }
 
@@ -303,7 +315,9 @@ namespace CloudbassCRUDII.Repository
 
         public ScheduleEdit SaveSchedule(ScheduleEdit model)
         {
-            if (model != null && string.IsNullOrEmpty(model.JobId) )
+            //if (model != null && string.IsNullOrEmpty(model.JobId) )
+
+            if (model != null && Guid.TryParse(model.Id.ToString(), out Guid jobid))
             {
                 using (var context = new cloudbassDBMSEntities())
                 {
@@ -314,14 +328,17 @@ namespace CloudbassCRUDII.Repository
                         var schedule = new Models.Schedule()
                         {
                             //Id = newGuid.ToString(),
-                            JobId = model.JobId,
+                            //Id = customerid,
+                           // JobId = model.JobId,
+
+                            JobId = jobid.ToString(),
                             text = model.text,
                            
                             start_date = model.start_date,
                             
                             end_date = model.end_date,
-                            statusId = model.statusId,
-                            SchTypeId = model.SchTypeId
+                            statusId = model.SelectedStatus,
+                            SchTypeId = model.SelectedSchType
 
 
                         };
@@ -330,7 +347,14 @@ namespace CloudbassCRUDII.Repository
                         schedule.ScheduleStatu = context.ScheduleStatus.Find(schedule.statusId);
                         context.Schedules.Add(schedule);
                         context.SaveChanges();
-                   
+
+                    var schTypesRepo = new SchTypeRepository();
+                    model.SchType = schTypesRepo.GetSchTypes();
+                    var schStatuRepo = new ScheduleStatuRepository();
+                    model.ScheduleStatu = schStatuRepo.GetScheduleStatus();
+                                                          
+                    return model;
+
                 }
             }
 
