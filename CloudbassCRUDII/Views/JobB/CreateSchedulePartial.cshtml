@@ -1,13 +1,17 @@
 ﻿
 @model CloudbassCRUDII.Models.DTO.ScheduleEdit
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     $("#BookingSchType").change(function () {
         var selectedSchType = $("#BookingSchType").val();
         var selectedScheduleStatu = $("#BookingScheduleStatu").val();
+         if (selectedSchType != null && selectedSchType != '') {
+            addJobs(selectedSchType, selectedScheduleStatu);
+        }
        
     });
-</script>
+</script>*@
+
 @using (Html.BeginForm("CreateSchedulePartial", "Job", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -68,9 +72,9 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => Model.SelectedStatus, @*"statusId",*@ htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => Model.SelectedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => Model.SelectedStatus, new SelectList(Model.ScheduleStatu, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "BookingSchedule" })
+                @Html.DropDownListFor(model => Model.SelectedStatus, new SelectList(Model.ScheduleStatu, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "BookingScheduleStatu" })
                 @Html.ValidationMessageFor(model => Model.SelectedStatus, "", new { @class = "text-danger" })
             </div>
         </div>

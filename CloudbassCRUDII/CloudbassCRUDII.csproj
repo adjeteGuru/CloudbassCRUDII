@@ -264,9 +264,6 @@
     <Compile Include="Models\Job.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JobStatu.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Kit.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
@@ -400,9 +397,6 @@
     <Content Include="Views\ScheduleD\Details.cshtml" />
     <Content Include="Views\ScheduleD\Edit.cshtml" />
     <Content Include="Views\ScheduleD\Index.cshtml" />
-    <Content Include="Views\JobD\Create.cshtml" />
-    <Content Include="Views\JobD\Edit.cshtml" />
-    <Content Include="Views\JobD\Index.cshtml" />
     <Content Include="Views\ClientD\Create.cshtml" />
     <Content Include="Views\ClientD\Delete.cshtml" />
     <Content Include="Views\ClientD\Details.cshtml" />
@@ -423,15 +417,17 @@
     <Content Include="Views\CrewD\Details.cshtml" />
     <Content Include="Views\CrewD\Edit.cshtml" />
     <Content Include="Views\CrewD\Index.cshtml" />
-    <Content Include="Views\JobD\EditJobPartial.cshtml" />
-    <Content Include="Views\JobD\CreateSchedulePartial.cshtml" />
-    <Content Include="Views\JobD\BookingTypePartial.cshtml" />
     <Content Include="Views\JobB\Index.cshtml" />
     <Content Include="Views\JobB\Create.cshtml" />
     <Content Include="Views\JobB\Edit.cshtml" />
     <Content Include="Views\JobB\EditJobPartial.cshtml" />
     <Content Include="Views\JobB\CreateSchedulePartial.cshtml" />
     <Content Include="Views\JobB\BookingTypePartial.cshtml" />
+    <Content Include="Views\JobD\Create.cshtml" />
+    <Content Include="Views\JobD\Delete.cshtml" />
+    <Content Include="Views\JobD\Details.cshtml" />
+    <Content Include="Views\JobD\Edit.cshtml" />
+    <Content Include="Views\JobD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

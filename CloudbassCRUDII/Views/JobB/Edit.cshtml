@@ -42,32 +42,54 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var selectedClient = $("#Client").val();
-           // var SelectedStatus = $("#JobStatu").val();
-            addClient(selectedClient);
-            
-        });
+            var selectedStatus = $("#JobStatu").val();
+            var jobStatuSelect = $('#JobStatu');
+            addJob(selectedClient,jobStatuSelect);
+             if (selectedStatus != null && selectedStatus != '') {
+            jobStatuSelect.val = selectedStatus;
+        };
+    });
 
 
-        $("#Client").change(function () {
-            var selectedClient = $("#Client").val();
-            if (selectedCountry != null && selectedCountry != '') {
-                  addClient(selectedClient);
+
+         $('#Client').change(function () {
+                var selectedClient = $("#Client").val();
+             var jobStatuSelect = $("#JobStatu").val();
+                 //jobStatuSelect.empty();
+             if (selectedClient != null && jobStatuSelect !=null) {
+                     
+                  addJob(selectedClient, jobStatuSelect );
             }
          
         });
 
-            @*function addClient(selectedClient) {
-            $.getJSON('@Url.Action("GetClients")', { id: selectedClient }, function (clients) {
+         //$("#JobStatu").change(function () {
+         //    var SelectedStatus = $("#JobStatu").val();
+         //   if (SelectedStatus != null && SelectedStatus != '') {
+         //         addJob(SelectedStatus);
+         //   }
+         
+         //});
 
-                    $.each(clients, function (index, client) {
-                        selectedClient.append($('<option/>', {
-                            value: client.Value,
-                            text: client.Text
-                        }));
-                    });
+        function addJob(selectedClient, jobStatuSelect) {
+           $.getJSON('@Url.Action("GetJobStatus")', { id: jobStatuSelect }, function (statuss) {
+                        if (statuss != null && !jQuery.isEmptyObject(statuss))
+                        {
+                            jobStatuSelect.append($('<option/>', {
+                                value: null,
+                                text: ""
+                            }));
+                            $.each(statuss, function (index, status) {
+                                regionsSelect.append($('<option/>', {
+                                    value: status.Value,
+                                    text: status.Text
+                                }));
+                            });
+                        };
+           });
+        }
 
-            });
-             }*@
+          
 
        
     </script>

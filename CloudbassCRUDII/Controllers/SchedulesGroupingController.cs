@@ -28,9 +28,10 @@ namespace CloudbassCRUDII.Controllers
                     TXDate = p.TXDate,
                     Coordinator = p.Coordinator,
                     CommercialLead = p.CommercialLead,
-                    ClientId = p.ClientId,
+                    ClientId = p.ClientId
+                    //ClientName = p.Client.Name,
                     //CountryName = p.Country != null ? p.Country.Name : "",
-                    statusId = p.statusId
+                    //statusId = p.statusId
                 });
 
                 if (groupBy == "ClientId")

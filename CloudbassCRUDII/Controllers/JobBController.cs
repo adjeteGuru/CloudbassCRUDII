@@ -11,6 +11,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class JobBController : Controller
     {
+        
         // GET: JobB
         public ActionResult Index()
         {
@@ -33,6 +34,20 @@ namespace CloudbassCRUDII.Controllers
         }
 
 
+        //[HttpGet]
+        //public ActionResult GetJobStatus(int? id)
+        //{
+        //    if (id != null)
+        //    {
+        //        var repo = new JobStatuRepository();
+
+        //        IEnumerable<SelectListItem> statuss = repo.GetJobStatus();
+        //        return Json(statuss, JsonRequestBehavior.AllowGet);
+        //    }
+        //    return null;
+        //}
+
+
         // GET: Job/Details/5
         public ActionResult Details(int id)
         {
@@ -50,7 +65,7 @@ namespace CloudbassCRUDII.Controllers
 
         // POST: Job/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Id, text,Description, SelectedClient, DateCreated, Location, Coordinator,start_date, TXDate, end_date, CommercialLead,status")] JobEdit model)
+        public ActionResult Create([Bind(Include = "Id, text,Description, SelectedClient, DateCreated, Location, Coordinator,start_date, TXDate, end_date, CommercialLead")] JobEdit model)
         {
             try
             {
@@ -77,7 +92,7 @@ namespace CloudbassCRUDII.Controllers
         public ActionResult Edit(string id)
         {
 
-            //if (id !=null)
+            //if (id != null)
             //{
             //    bool isGuid = String.Copy(id, ); ;
 
@@ -87,12 +102,21 @@ namespace CloudbassCRUDII.Controllers
             //}
 
             if (!String.IsNullOrWhiteSpace(id))
-            {
-                bool isGuid = Guid.TryParse(id, out Guid jobId);
+            {           bool isGuid = Guid.TryParse(id, out Guid jobId);
                 if (isGuid && jobId != Guid.Empty)
                 {
+                    //var repo = new JobRepository();
+                    //var model = repo.GetJob(id);
                     return View();
                 }
+
+                //bool isGuid = Guid.TryParse(id, out Guid jobId);
+                //if (isGuid && jobId != Guid.Empty)
+                //{
+                //    //var repo = new JobRepository();
+                //    //var model = repo.GetJob(id);
+                //    return View();
+                //}
             }
 
 
@@ -103,13 +127,14 @@ namespace CloudbassCRUDII.Controllers
         [ChildActionOnly]
         public ActionResult EditJobPartial(string id)
         {
-            if (id != null)
+            //if (id != null)
+            if (!String.IsNullOrWhiteSpace(id))
             {
                 bool isGuid = Guid.TryParse(id, out Guid jobId);
                 if (isGuid && jobId != Guid.Empty)
                 {
                     var repo = new JobRepository();
-                var model = repo.GetJob(id);
+                var model = repo.GetJob(jobId.ToString());
 
                 return View(model);
                 }
@@ -130,7 +155,7 @@ namespace CloudbassCRUDII.Controllers
                     bool isGuid = Guid.TryParse(model.Id, out Guid jobId);
                     if (isGuid)
                     {
-                        var modelUpdate = repo.GetJob(model.Id);
+                        var modelUpdate = repo.GetJob(jobId.ToString());
                     return PartialView(modelUpdate);
                     }
                 }

@@ -15,22 +15,14 @@
         <EntityTypeShape EntityType="cloudbassDBMSModel.Equipment" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Fleet" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Hotel" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="cloudbassDBMSModel.Job" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="cloudbassDBMSModel.JobStatu" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Kit" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Role" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.ScheduleStatu" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.SchType" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_BookingEquipment_Equipment" ManuallyRouted="false" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingEquipment_Job" ManuallyRouted="false" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_BookingFleet_Fleet" ManuallyRouted="false" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingFleet_Job" ManuallyRouted="false" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_BookingHotel_Hotel" ManuallyRouted="false" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingHotel_Job" ManuallyRouted="false" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingKit_Job" ManuallyRouted="false" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_BookingKit_Kit" ManuallyRouted="false" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Job_dbo_Client_ClientId" ManuallyRouted="false" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_Job_JobStatus" ManuallyRouted="false" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.EquipType" Width="1.5" PointX="0.75" PointY="18.625" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.FleetType" Width="1.5" PointX="3.75" PointY="24.625" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.KitType" Width="1.5" PointX="0.75" PointY="21.625" />
@@ -38,7 +30,6 @@
         <AssociationConnector Association="cloudbassDBMSModel.FK_Fleet_FleetType" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_Kit_KitType" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Invoice" Width="1.5" PointX="8.25" PointY="2.25" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_Invoice_Job" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.BookingType" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Crew" Width="1.5" PointX="13.5" PointY="11.125" />
         <EntityTypeShape EntityType="cloudbassDBMSModel.Employee" Width="1.5" PointX="3" PointY="1.25" />
@@ -51,13 +42,20 @@
         <AssociationConnector Association="cloudbassDBMSModel.FK_Has_Role_Categ" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Employee_dbo_County_CountyId" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_Crew_Has_Role" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_Crew_Job" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Has_Role_dbo_Employee_EmployeeId" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_Invoice_Employee" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Has_Role_dbo_Role_RoleId" />
-        <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_Schedule_ScheduleStatus" />
         <AssociationConnector Association="cloudbassDBMSModel.FK_Schedule_SchType" />
+        <EntityTypeShape EntityType="cloudbassDBMSModel.Job" Width="1.5" PointX="3" PointY="9.125" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingEquipment_Job" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingFleet_Job" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingHotel_Job" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_BookingKit_Job" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Job_dbo_Client_ClientId" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_Crew_Job" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_Invoice_Job" />
+        <AssociationConnector Association="cloudbassDBMSModel.FK_dbo_Schedule_dbo_Job_JobId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

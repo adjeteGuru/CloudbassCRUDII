@@ -30,9 +30,9 @@ namespace CloudbassCRUDII.Controllers
                     Coordinator = p.Coordinator,
                     CommercialLead = p.CommercialLead,
                     ClientId = p.ClientId,
-                    //ClientName = p.Client.Name,
+                   // ClientName = p.Client.Name,
               
-                    statusId = p.statusId,
+                   // statusId = p.statusId,
                     //StatusName = p.JobStatu.title
                  
                 });
@@ -49,10 +49,11 @@ namespace CloudbassCRUDII.Controllers
 
                 //if (!string.IsNullOrWhiteSpace(clientname))
                 //{
-                //    query = query.Where(q => q.ClientId.Contains(clientname));
+                //    query = query.Where(q => q.ClientName.Contains(clientname));
                 //}
 
                
+
 
                 if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
                 {
@@ -69,7 +70,7 @@ namespace CloudbassCRUDII.Controllers
                             //case "clientname":
                             //    query = query.OrderBy(q => q.ClientName);
                             //    break;
-                               
+
                         }
                     }
                     else
@@ -82,9 +83,9 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderByDescending(q => q.Location);
                                 break;
-                                //case "clientname":
-                                //    query = query.OrderByDescending(q => q.ClientName);
-                                //    break;
+                            //case "clientname":
+                            //    query = query.OrderByDescending(q => q.ClientName);
+                            //    break;
 
                         }
                     }
@@ -123,7 +124,7 @@ namespace CloudbassCRUDII.Controllers
                     entity.Location = record.Location;
                     entity.ClientId = record.ClientId;
                     //entity.Country = context.Locations.FirstOrDefault(l => l.ID == record.CountryID);
-                    entity.statusId = record.statusId;
+                   // entity.statusId = record.statusId;
                     entity.DateCreated = record.DateCreated;
                     entity.TXDate = record.TXDate;
                     entity.start_date = record.start_date;
@@ -149,7 +150,7 @@ namespace CloudbassCRUDII.Controllers
                         CommercialLead = record.CommercialLead,
                         ClientId = record.ClientId,
                      
-                        statusId = record.statusId,
+                       // statusId = record.statusId,
                     });
                 }
                 context.SaveChanges();

@@ -11,6 +11,7 @@ namespace CloudbassCRUDII.Repository
     {
         public IEnumerable<SelectListItem> GetClients()
         {
+            
             using (var context = new cloudbassDBMSEntities())
             {
                 List<SelectListItem> clients = context.Clients.AsNoTracking()

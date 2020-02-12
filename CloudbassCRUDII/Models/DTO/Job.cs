@@ -47,11 +47,11 @@ namespace CloudbassCRUDII.Models.DTO
         public int ClientId { get; set; }
 
 
-         //public string ClientName { get; set; }
+       // public string ClientName { get; set; }
 
-        [Display(Name = "Status")]
+       // [Display(Name = "Status")]
 
-        public Nullable<int> statusId { get; set; }
+       // public Nullable<int> statusId { get; set; }
 
 
        // public string StatusName { get; set; }

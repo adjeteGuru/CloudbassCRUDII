@@ -35,8 +35,6 @@ namespace CloudbassCRUDII.Models
         public virtual DbSet<Equipment> Equipments { get; set; }
         public virtual DbSet<Fleet> Fleets { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
-        public virtual DbSet<Job> Jobs { get; set; }
-        public virtual DbSet<JobStatu> JobStatus { get; set; }
         public virtual DbSet<Kit> Kits { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<ScheduleStatu> ScheduleStatus { get; set; }
@@ -50,5 +48,6 @@ namespace CloudbassCRUDII.Models
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Has_Role> Has_Role { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
     }
 }

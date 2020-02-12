@@ -33,8 +33,8 @@ namespace CloudbassCRUDII.Repository
                             DateCreated = j.DateCreated,
                             Location = j.Location,
                             Coordinator = j.Coordinator,
-                            ClientId = j.ClientId,
-
+                           // ClientId = j.Client.Name,
+                           ClientId = j.ClientId,
                             start_date = j.start_date,
                             TXDate = j.TXDate,
                             end_date = j.end_date,
@@ -83,13 +83,13 @@ namespace CloudbassCRUDII.Repository
                             end_date = job.end_date,
                             CommercialLead = job.CommercialLead,
                             SelectedClient = job.Client.Id,
-                            SelectedStatus = job.JobStatu.Id
+                            //SelectedStatus = job.JobStatu.Id
 
                         };
                         var clientsRepo = new ClientRepository();
                         jobEditVm.Client = clientsRepo.GetClients();
-                        var jobStatuRepo = new JobStatuRepository();
-                        jobEditVm.JobStatu = jobStatuRepo.GetJobStatus(/*job.statusId*/);
+                        //var jobStatuRepo = new JobStatuRepository();
+                        //jobEditVm.JobStatu = jobStatuRepo.GetJobStatus();
 
                         return jobEditVm;
                     }
@@ -112,7 +112,7 @@ namespace CloudbassCRUDII.Repository
                     Id = Guid.NewGuid().ToString(),
                     // Id = string.IsNullOrEmpty(string).ToString(),
                     Client = cRepo.GetClients(),
-                    JobStatu = sRepo.GetJobStatus()
+                    //JobStatu = sRepo.GetJobStatus()
 
                 };
 
@@ -146,13 +146,13 @@ namespace CloudbassCRUDII.Repository
                                 TXDate = jobedit.TXDate,
                                 end_date = jobedit.end_date,
                                 ClientId = jobedit.SelectedClient,
-                                statusId = jobedit.SelectedStatus,
+                               // statusId = jobedit.SelectedStatus,
                                 CommercialLead = jobedit.CommercialLead
                                 
                             };
 
                             job.Client = context.Clients.Find(jobedit.SelectedClient);
-                            job.JobStatu = context.JobStatus.Find(jobedit.SelectedStatus);
+                            //job.JobStatu = context.JobStatus.Find(jobedit.SelectedStatus);
                             context.Jobs.Add(job);
                             context.SaveChanges();
                             return true;
@@ -195,11 +195,19 @@ namespace CloudbassCRUDII.Repository
 
                             };
 
+                            //var schTypesRepo = new SchTypeRepository();
+                            //scheduleVm.SchTypName = schTypesRepo.GetSchTypeName(schedule.SchTypeId);
+                            //var jobStatuRepo = new JobStatuRepository();
+                            //scheduleVm.StatusName = jobStatuRepo.GetJobStatuName(schedule.statusId);
+                            //scheduleListView.Schedules.Add(scheduleVm);                                                   
+
+
                             var schTypesRepo = new SchTypeRepository();
-                            scheduleVm.SchTypName = schTypesRepo.GetSchTypeName(schedule.SchTypeId);
-                            var jobStatuRepo = new JobStatuRepository();
-                            scheduleVm.StatusName = jobStatuRepo.GetJobStatuName(schedule.statusId);
-                            scheduleListView.Schedules.Add(scheduleVm);                                                   
+                            scheduleVm.SchTypName = schTypesRepo.GetSchTypes().ToString();
+                            var schStatuRepo = new ScheduleStatuRepository();
+                            scheduleVm.StatusName = schStatuRepo.GetScheduleStatus().ToString();
+                            scheduleListView.Schedules.Add(scheduleVm);
+
                         }
                         return scheduleListView;
                     }
@@ -238,12 +246,18 @@ namespace CloudbassCRUDII.Repository
                         };
 
 
-                        var schTypesRepo = new SchTypeRepository();
-                        scheduleVm.SchTypName = schTypesRepo.GetSchTypeName(schedule.SchTypeId);
-                        var jobStatuRepo = new JobStatuRepository();
-                        scheduleVm.StatusName = jobStatuRepo.GetJobStatuName(schedule.statusId);
+                        //var schTypesRepo = new SchTypeRepository();
+                        //scheduleVm.SchTypName = schTypesRepo.GetSchTypeName(schedule.SchTypeId);
+                        //var jobStatuRepo = new JobStatuRepository();
+                        //scheduleVm.StatusName = jobStatuRepo.GetJobStatuName(schedule.statusId);
 
-                       // scheduleListView.Schedules.Add(scheduleVm);
+
+                        var schTypesRepo = new SchTypeRepository();
+                        scheduleVm.SchTypName = schTypesRepo.GetSchTypes().ToString();
+                        var schStatuRepo = new ScheduleStatuRepository();
+                        scheduleVm.StatusName = schStatuRepo.GetScheduleStatus().ToString();
+                       
+                  
 
                         //var schTypesRepo = new SchTypeRepository();
                         //scheduleVm.SchTypName = schTypesRepo.GetSchTypes().ToString();
@@ -259,59 +273,6 @@ namespace CloudbassCRUDII.Repository
         }
 
 
-            //END SECOND
-
-
-
-
-
-
-
-        //public JobEdit GetSchedule(string id)
-        //{
-        //    if (id != string.Empty)
-        //    {
-        //        using (var context = new cloudbassDBMSEntities())
-        //        {
-        //            var job = context.Jobs.AsNoTracking()
-        //                                    .Where(j => j.Id == id)
-        //                                    .Single();
-
-        //            if (job != null)
-        //            {
-        //                var jobEditVm = new JobEdit()
-        //                {
-        //                    Id = job.Id/*.ToString("")*/,
-        //                    text = job.text.Trim(),
-        //                    Description = job.Description,
-        //                    //NameConcatenateLocation = j.
-        //                    DateCreated = job.DateCreated,
-        //                    Location = job.Location,
-        //                    Coordinator = job.Coordinator,
-        //                    // ClientName = j.Client.Name,
-
-        //                    start_date = job.start_date,
-        //                    TXDate = job.TXDate,
-        //                    end_date = job.end_date,
-        //                    CommercialLead = job.CommercialLead,
-        //                    SelectedClient = job.ClientId,
-        //                    SelectedStatus = job.JobStatu.Id
-
-        //                };
-        //                var clientsRepo = new ClientRepository();
-        //                jobEditVm.Client = clientsRepo.GetClients();
-        //                var jobStatuRepo = new JobStatuRepository();
-        //                jobEditVm.JobStatu = jobStatuRepo.GetJobStatus(/*job.statusId*/);
-
-        //                return jobEditVm;
-        //            }
-        //            // return job;
-        //        }
-        //    }
-        //    return null;
-        //}
-
-       
 
         public ScheduleEdit SaveSchedule(ScheduleEdit model)
         {
