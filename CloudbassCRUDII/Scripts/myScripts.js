@@ -67,7 +67,7 @@ function renderEmployee(element, data) {
 
 $(document).ready(function () {
     //add button click event
-    $('#add').click(function () { 
+    $('#add').click(function () {
 
         //validation and aa job roles
         var isAllValid = true;
@@ -93,7 +93,7 @@ $(document).ready(function () {
 
 
         //totalDays
-        if (!($('#totalDays').val().trim() != '' && (parseInt($('#totalDays').val()) || 0 ))) {
+        if (!($('#totalDays').val().trim() != '' && (parseInt($('#totalDays').val()) || 0))) {
             isAllValid = false;
             $('#totalDays').siblings('span.error').css('visibility', 'visible');
         }
@@ -135,4 +135,102 @@ $(document).ready(function () {
     })
 
     //remove button click event
-})
+    $('#crewStaff').on('click', 'remove', function () {
+        $(this).parent('tr').remove();
+    });
+
+    //save
+    $('#submit').click(function () {
+        var isAllValid = true;
+
+        //valid jo
+        $('#crewError').text('');
+
+        var list = [];
+        var errorItemCount = 0;
+        $('#crewStaff tbody tr').each(function (index, ele) {
+            if (
+                $('select.employee', this).val() == "0" ||
+                (parseInt($('.totalDays', this).val()) || 0) == 0 ||
+                isNaN($('.rate', this).val())
+            ) {
+
+                errorItemCount++;
+                $(this).addClass('error');
+            } else {
+                var crew = {
+                    employeeId: $('select.employee', this).val(),
+                    totalDays: parseInt($('.totalDays', this).val()),
+                    rate: parseFloat($('.rate', this).val())
+                }
+
+                list.push(crew);
+            }
+
+        })
+
+        if (errorItemCount > 0) {
+            $('#crewError').text(errorItemCount + "invalid entry in booking list")
+            isAllValid = false;
+        }
+
+        if (list.length == 0) {
+            $('#crewError').text('At least 1 booking is required.');
+            isAllValid = false;
+
+        }
+
+        if ($('dateCreated').val().trim() == '') {
+            $('#dateCreated').siblings('span.error').css('visibility', 'visible');
+            isAllValid = false;
+        }
+
+        else {
+            $('dateCreated').siblings('span.error').css('visibility', 'hidden');
+        }
+
+        if (isAllValid) {
+            var data = {
+                jobRef: $('#jobRef').val().trim(),
+                DateCreatedString: $('#dateCreated').val().trim(),
+                Description: $('#description').va().trim(),
+                Crew: list
+
+            }
+
+            $(this).val('Please wait...');
+            $.ajax({
+
+                type: 'POST',
+                url: '/Master/save',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function (data) {
+                    if (d.status) {
+                        alert('Successfully saved');
+                        //here we will clear the dorm
+                        list = [];
+                        $('#jobRef, #dateCreated, #description').val('');
+                        $('#crewStaff').empty();
+
+                    }
+
+                    else {
+                        alert('Error');
+                    }
+                    $('#submit').text('save');
+                },
+
+                error: function (error) {
+                    console.log(error);
+                    $('#submit').text('save');
+                }
+            });
+
+        }
+
+    });
+
+});
+
+LoadRole($('#hasroleRole'));
