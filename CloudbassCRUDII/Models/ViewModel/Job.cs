@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CloudbassCRUDII.Models.ViewModel
+namespace CloudbassCRUDII.Models
 {
-    public class Job
+    public partial class Job
     {public string DateCreatedString { get; set; }
     }
 }

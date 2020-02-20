@@ -6,7 +6,7 @@ function LoadRole(element) {
 //ajax function for fetch data
         $.ajax({
             type: "Get",
-            url: '/Master/getHas_RoleRole',
+            url: '/Master/getEmployeeRole',
             success: function () {
                 Role = data;
                 //render role
@@ -43,7 +43,7 @@ function renderRole(element) {
 function LoadEmployee(roleDD) {
     $.ajax({
         type: "Get",
-        url: "Master/getHas_Roles",
+        url: "Master/getEmployee",
         data: { 'roleId': $(roleDD).val() },
         success: function (data) {
             //render has_roles (products) to appropriate dropdown
