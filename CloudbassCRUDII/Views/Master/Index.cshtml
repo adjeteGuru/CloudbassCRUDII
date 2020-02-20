@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Master details entry form</h2>
+
+<div class="container">
+    <div class="master">
+        <h2>Job details</h2>
+
+        <table class="table table-responsive">
+            <tr>
+                <td> Job Ref</td>
+                <td>
+                    <input type="text" id="jobRef" class="form-control" />
+                    <span class="error">Job Reference required</span>
+                </td>
+
+                <td> Date Created</td>
+                <td>
+                    <input type="text" id="dateCreated" class="form-control" />
+                    <span class="error">Valid job date created required</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Job Desciption</td>
+                <td colspan="3">
+                    <textarea id="description" class="form-control"></textarea>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="details">
+        <h2>
+            Booking details
+        </h2>
+
+        <table class="table table-responsive">
+            <tr>
+                <td>Role</td>
+                <td>Has_Role</td>
+                <td>TotalDays</td>
+                <td>Rate</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr class="mycontainer" id="mainrow">
+                <td>
+                    <select id="hasroleRole" class="pc form-control" onchange="LoadHas_Role(this)">
+                        <option>Select</option>
+                    </select>
+                    <span class="error">Select Role</span>
+                </td>
+
+                <td>
+                    <select id="hasrole" class="pc form-control">
+                        <option>Select</option>
+                    </select>
+                    <span class="error">Select hasrole</span>
+                </td>
+                <td>
+                    <input type="text" id="totalDays" class="totalDays form-control" />
+                    <span class="error">Valid hasrole required</span>
+                </td>
+                <td>
+                    <input type="text" id="rate" class="rate form-control" />
+                    <span class="error">Valid rate required</span>
+                </td>
+                <td>
+                    <input type="button" id="add" value="add" style="width:80px" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+
+        <div id="crews">
+            <table class="table table-responsive" id="crewStaff"></table>
+            <span id="crewError" style="color:red"></span>
+        </div>
+        <div style="padding:10px 0; text-align:right">
+            <input id="submit" type="button" value="Save Booking" class="btn btn-warning" style="padding:10px 20px" />
+        </div>
+    </div>
+</div>
+
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1/11/4/themes/smoothness/jquery-ui.css" />*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#mpvalue').autocomplete({
+            source: '@Url.Action("GetMP")'
+        });
+
+    })
+    $('#dateCreated').datepicker({
+        dateFormat: 'mm-dd-yy'
+    })
+
+</script>
+
+<style>
+    span.error {
+    display:block;
+    visibility:hidden;
+    color:red;
+    font-size:90%;
+    }
+
+    tr.error {
+    background-color:rgba(255,0,0,0.35);
+    }
+</style>
