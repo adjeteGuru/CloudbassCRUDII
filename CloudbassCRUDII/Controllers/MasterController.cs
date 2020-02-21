@@ -17,11 +17,11 @@ namespace CloudbassCRUDII.Controllers
 
         public JsonResult getEmployeeRole()
         {
-            List<Has_Role> roles = new List<Has_Role>();
+            List<Role> roles = new List<Role>();
 
             using (cloudbassDBMSEntities dc= new cloudbassDBMSEntities())
             {
-                roles = dc.Has_Role.OrderBy(x => x.Role.Name).ToList();
+                roles = dc.Roles.OrderBy(x => x.Name).ToList();
             }
 
               
@@ -29,17 +29,23 @@ namespace CloudbassCRUDII.Controllers
         }
 
 
-        public JsonResult getEmployee(int roldId)
+        //THIS SEREVE TO GET EMPLOYEE DETAILS FROM ROLE FOREIGN KEY
+
+        public JsonResult getEmployees(int roleID)
         {
 
-            List<Has_Role> employees = new List<Has_Role>();
-            using (cloudbassDBMSEntities dc= new cloudbassDBMSEntities())
+            List<Employee> employees = new List<Employee>();
+
+            using (cloudbassDBMSEntities dc = new cloudbassDBMSEntities())
             {
-                employees = dc.Has_Role.Where(x => x.employeeId.Equals(roldId)).OrderBy(x => x.Employee.fullName).ToList();
+                employees = dc.Employees.Where(x => x.roleId.Equals(roleID)).OrderBy(x => x.fullName).ToList();
             }
 
             return new JsonResult { Data = employees, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+
+
 
         [HttpPost]
 

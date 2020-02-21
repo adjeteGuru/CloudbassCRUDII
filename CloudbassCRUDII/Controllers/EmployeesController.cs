@@ -183,42 +183,42 @@ namespace CloudbassCRUDII.Controllers
             return Json(new { result = true });
         }
 
-        public JsonResult GetTeams(int employeeId, int? page, int? limit)
-        {
-            List<Models.DTO.Has_Role> records;
-            int total;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
-            {
-                // I USED BOTH FOREIGN KEYS HERE BELONG TO CREW TABLE
-                var query = context.Has_Role.Where(pt => pt.Id == employeeId ).Select(pt => new Models.DTO.Has_Role
-                {
+        //public JsonResult GetTeams(int employeeId, int? page, int? limit)
+        //{
+        //    List<Models.DTO.Has_Role> records;
+        //    int total;
+        //    using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+        //    {
+        //        // I USED BOTH FOREIGN KEYS HERE BELONG TO CREW TABLE
+        //        var query = context.Has_Role.Where(pt => pt.Id == employeeId ).Select(pt => new Models.DTO.Has_Role
+        //        {
                     
-                    Id = pt.Id,
+        //            Id = pt.Id,
                    
-                    start_date = pt.start_date,
-                    end_date = pt.end_date,
-                    roleId = pt.roleId,
-                    employeeId = pt.employeeId,
+        //            start_date = pt.start_date,
+        //            end_date = pt.end_date,
+        //            roleId = pt.roleId,
+        //            employeeId = pt.employeeId,
                     
-                    totalDays = pt.totalDays,
-                    catId = pt.catId
+        //            totalDays = pt.totalDays,
+        //            catId = pt.catId
                    
-                }); ;
+        //        }); ;
 
-                total = query.Count();
-                if (page.HasValue && limit.HasValue)
-                {
-                    int start = (page.Value - 1) * limit.Value;
-                    records = query.OrderBy(pt => pt.start_date).Skip(start).Take(limit.Value).ToList();
-                }
+        //        total = query.Count();
+        //        if (page.HasValue && limit.HasValue)
+        //        {
+        //            int start = (page.Value - 1) * limit.Value;
+        //            records = query.OrderBy(pt => pt.start_date).Skip(start).Take(limit.Value).ToList();
+        //        }
 
-                else
-                {
-                    records = query.ToList();
-                }
-            }
+        //        else
+        //        {
+        //            records = query.ToList();
+        //        }
+        //    }
 
-            return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
-        }
+        //    return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

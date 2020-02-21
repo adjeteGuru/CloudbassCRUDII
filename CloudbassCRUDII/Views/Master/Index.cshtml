@@ -1,4 +1,6 @@
 ﻿
+@model IEnumerable<CloudbassCRUDII.Models.Job>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -7,7 +9,7 @@
 
 <div class="container">
     <div class="master">
-        <h2>Job details</h2>
+        <h2>Booking</h2>
 
         <table class="table table-responsive">
             <tr>
@@ -20,11 +22,11 @@
                 <td> Date Created</td>
                 <td>
                     <input type="text" id="dateCreated" class="form-control" />
-                    <span class="error">Valid job date created required</span>
+                    <span class="error">Valid job date created required (ex: MM-dd-yyyy)</span>
                 </td>
             </tr>
             <tr>
-                <td>Job Desciption</td>
+                <td>Desciption</td>
                 <td colspan="3">
                     <textarea id="description" class="form-control"></textarea>
                 </td>
@@ -40,7 +42,7 @@
         <table class="table table-responsive">
             <tr>
                 <td>Role</td>
-                <td>Has_Role</td>
+                <td>Employee</td>
                 <td>TotalDays</td>
                 <td>Rate</td>
                 <td>&nbsp;</td>
@@ -48,21 +50,22 @@
 
             <tr class="mycontainer" id="mainrow">
                 <td>
-                    <select id="hasroleRole" class="pc form-control" onchange="LoadRole(this)">
+                    <select id="em
+                            ployeeRole" class="er form-control" onchange="LoadEmployee(this)">
                         <option>Select</option>
                     </select>
                     <span class="error">Select Role</span>
                 </td>
 
                 <td>
-                    <select id="hasrole" class="pc form-control">
+                    <select id="employee" class="employee form-control">
                         <option>Select</option>
                     </select>
-                    <span class="error">Select hasrole</span>
+                    <span class="error">Select employee</span>
                 </td>
                 <td>
                     <input type="text" id="totalDays" class="totalDays form-control" />
-                    <span class="error">Valid hasrole required</span>
+                    <span class="error">Valid totalDays required</span>
                 </td>
                 <td>
                     <input type="text" id="rate" class="rate form-control" />
@@ -78,18 +81,19 @@
             <table class="table table-responsive" id="crewStaff"></table>
             <span id="crewError" style="color:red"></span>
         </div>
+
         <div style="padding:10px 0; text-align:right">
             <input id="submit" type="button" value="Save Booking" class="btn btn-warning" style="padding:10px 20px" />
         </div>
     </div>
 </div>
 
-@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="//code.jquery.com/ui/1/11/4/themes/smoothness/jquery-ui.css" />*@
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1/11/4/themes/smoothness/jquery-ui.css" />
 <script src="~/Scripts/myScripts.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    @*$(document).ready(function () {
 
         $('#mpvalue').autocomplete({
             source: '@Url.Action("GetMP")'
@@ -98,6 +102,13 @@
     })
     $('#dateCreated').datepicker({
         dateFormat: 'mm-dd-yy'
+    })*@
+
+    $(function () {
+
+        $('#dateCreated').datepicker({
+            dateFormat: 'mm-dd-yy'
+        })
     })
 
 </script>

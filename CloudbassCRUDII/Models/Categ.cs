@@ -17,13 +17,13 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categ()
         {
-            this.Has_Role = new HashSet<Has_Role>();
+            this.Employees = new HashSet<Employee>();
         }
     
         public int Id { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Has_Role> Has_Role { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

@@ -2,15 +2,15 @@
 //fetch Role from database
 
 function LoadRole(element) {
-    if (Has_Role.length == 0) {
-//ajax function for fetch data
+    if (Role.length == 0) {
+            //ajax function for fetch data
         $.ajax({
-            type: "Get",
+            type: "GET",
             url: '/Master/getEmployeeRole',
             success: function () {
                 Role = data;
                 //render role
-                renderRole(element)
+                renderRole(element);
             }
             
         })
@@ -30,58 +30,61 @@ function renderRole(element) {
     $ele.empty();
 
     //then added new option for sellect level   
-    $ele.append($('<option/>').val('0').text('select'));
+    $ele.append($('<option/>').val('0').text('Select'));
 
      //then loop through the role for load all the Role faced from database to the dropdown list
     $.each(Role, function (i, val){
-        $ele.append($('<option/>').val(val.Id).text(val.Name));
+        $ele.append($('<option/>').val(val.roleId).text(val.Name));
     })
-
 }
 
-//fetch has_role (employee)
+
+//fetch employees
 function LoadEmployee(roleDD) {
     $.ajax({
-        type: "Get",
-        url: "Master/getEmployee",
-        data: { 'roleId': $(roleDD).val() },
+        type: "GET",
+        url: "Master/getEmployees",
+        data: { 'roleID': $(roleDD).val() },
         success: function (data) {
-            //render has_roles (products) to appropriate dropdown
-            renderEmployee($(roleDD).parents('mycontainer').find('select.employee'), data);
+            //render employees to appropriate dropdown
+            renderEmployee($(roleDD).parents('.mycontainer').find('select.employee'), data);
         },
         error: function (error) {
             console.log(error);
         }
     })
 }
+
 // function to render employees
 function renderEmployee(element, data) {
     //render employee
     var $ele = $(element);
     $ele.empty;
-    $ele.append($('<option/>').val('0').text('select'));
+    $ele.append($('<option/>').val('0').text('Select'));
     $.each(data, function (i, val) {
         $ele.append($('<option/>').val(val.Id).text(val.fullName));
     })
 }
 
+
+
 $(document).ready(function () {
     //add button click event
     $('#add').click(function () {
 
-        //validation and aa job roles
+        //validation and add job roles
         var isAllValid = true;
-        if ($('#hasroleRole').val() == "0") {
+        if ($('#employeeRole').val() == "0") {
             isAllValid = false;
-            $('#hasroleRole').siblings('span.error').css('visibility', 'visible');
+            $('#employeeRole').siblings('span.error').css('visibility', 'visible');
         }
 
         else {
-            $('#hasroleRole').siblings('span.error').css('visibility', 'hidden');
+            $('#employeeRole').siblings('span.error').css('visibility', 'hidden');
         }
 
 
-        //employee/product
+        //employee/
         if ($('#employee').val() == "0") {
             isAllValid = false;
             $('#employee').siblings('span.error').css('visibility', 'visible');
@@ -114,28 +117,28 @@ $(document).ready(function () {
 
         if (isAllValid) {
             var $newRow = $('#mainrow').clone().removeAttr('id');
-            $('.pc', $newRow).val($('#hasroleRole').val());
+            $('.er', $newRow).val($('#employeeRole').val());
             $('.employee', $newRow).val($('#employee').val());
 
             //Replace add button with rempove button
             $('#add', $newRow).addClass('remove').val('Remove').removeClass('btn-success').addClass('btn-danger');
 
             //remove id attribute from new clone row
-            $('#hasroleRole, #employee, totalDays, rate, add', $newRow).removeAttr('id');
+            $('#employeeRole,#employee,#totalDays,#rate,#add', $newRow).removeAttr('id');
             $('span-error', $newRow).remove();
 
             //append clone row
             $('#crewStaff').append($newRow);
 
             //clear select data
-            $('#hasroleRole, ##employee,').val('0');
-            $('#totalDays, #rate').val('');
+            $('#employeeRole,#employee,').val('0');
+            $('#totalDays,#rate').val('');
             $('#crewError').empty();
         }
     })
 
     //remove button click event
-    $('#crewStaff').on('click', 'remove', function () {
+    $('#crewStaff').on('click', '.remove', function () {
         $(this).parent('tr').remove();
     });
 
@@ -143,7 +146,7 @@ $(document).ready(function () {
     $('#submit').click(function () {
         var isAllValid = true;
 
-        //valid jo
+        //validate crew members
         $('#crewError').text('');
 
         var list = [];
@@ -152,14 +155,15 @@ $(document).ready(function () {
             if (
                 $('select.employee', this).val() == "0" ||
                 (parseInt($('.totalDays', this).val()) || 0) == 0 ||
+                $('.rate', this).val() == "" ||
                 isNaN($('.rate', this).val())
-            ) {
+                ) {
 
                 errorItemCount++;
                 $(this).addClass('error');
             } else {
                 var crew = {
-                    employeeId: $('select.employee', this).val(),
+                    Id: $('select.employee', this).val(),
                     totalDays: parseInt($('.totalDays', this).val()),
                     rate: parseFloat($('.rate', this).val())
                 }
@@ -170,7 +174,7 @@ $(document).ready(function () {
         })
 
         if (errorItemCount > 0) {
-            $('#crewError').text(errorItemCount + "invalid entry in booking list")
+            $('#crewError').text(errorItemCount + "invalid entry in booking list.")
             isAllValid = false;
         }
 
@@ -180,13 +184,22 @@ $(document).ready(function () {
 
         }
 
-        if ($('dateCreated').val().trim() == '') {
+        if ($('#jobRef').val().trim() == '') {
+            $('#jobRef').siblings('span.error').css('visibility', 'visible');
+            isAllValid = false;
+        }
+
+        else {
+            $('#jobRef').siblings('span.error').css('visibility', 'hidden');
+        }
+
+        if ($('#dateCreated').val().trim() == '') {
             $('#dateCreated').siblings('span.error').css('visibility', 'visible');
             isAllValid = false;
         }
 
         else {
-            $('dateCreated').siblings('span.error').css('visibility', 'hidden');
+            $('#dateCreated').siblings('span.error').css('visibility', 'hidden');
         }
 
         if (isAllValid) {
@@ -206,11 +219,11 @@ $(document).ready(function () {
                 data: JSON.stringify(data),
                 contentType: 'application/json',
                 success: function (data) {
-                    if (d.status) {
+                    if (data.status) {
                         alert('Successfully saved');
-                        //here we will clear the dorm
+                        //here we will clear the form
                         list = [];
-                        $('#jobRef, #dateCreated, #description').val('');
+                        $('#jobRef,#dateCreated,#description').val('');
                         $('#crewStaff').empty();
 
                     }
@@ -233,4 +246,4 @@ $(document).ready(function () {
 
 });
 
-LoadRole($('#hasroleRole'));
+LoadRole($('#employeeRole'));

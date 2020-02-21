@@ -29,25 +29,24 @@ namespace CloudbassCRUDII.Models
         public virtual DbSet<BookingFleet> BookingFleets { get; set; }
         public virtual DbSet<BookingHotel> BookingHotels { get; set; }
         public virtual DbSet<BookingKit> BookingKits { get; set; }
-        public virtual DbSet<Categ> Categs { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<County> Counties { get; set; }
         public virtual DbSet<Equipment> Equipments { get; set; }
         public virtual DbSet<Fleet> Fleets { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<Kit> Kits { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<ScheduleStatu> ScheduleStatus { get; set; }
         public virtual DbSet<SchType> SchTypes { get; set; }
         public virtual DbSet<EquipType> EquipTypes { get; set; }
         public virtual DbSet<FleetType> FleetTypes { get; set; }
         public virtual DbSet<KitType> KitTypes { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<BookingType> BookingTypes { get; set; }
-        public virtual DbSet<Crew> Crews { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Has_Role> Has_Role { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<Categ> Categs { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<BookingType> BookingTypes { get; set; }
         public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<Crew> Crews { get; set; }
     }
 }

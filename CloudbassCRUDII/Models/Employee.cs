@@ -21,8 +21,8 @@ namespace CloudbassCRUDII.Models
             this.BookingFleets = new HashSet<BookingFleet>();
             this.BookingHotels = new HashSet<BookingHotel>();
             this.BookingKits = new HashSet<BookingKit>();
-            this.Has_Role = new HashSet<Has_Role>();
             this.Invoices = new HashSet<Invoice>();
+            this.Crews = new HashSet<Crew>();
         }
     
         public int Id { get; set; }
@@ -38,6 +38,8 @@ namespace CloudbassCRUDII.Models
         public string alergy { get; set; }
         public string note { get; set; }
         public string postNominals { get; set; }
+        public Nullable<int> categId { get; set; }
+        public Nullable<int> roleId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingEquipment> BookingEquipments { get; set; }
@@ -47,10 +49,12 @@ namespace CloudbassCRUDII.Models
         public virtual ICollection<BookingHotel> BookingHotels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingKit> BookingKits { get; set; }
+        public virtual Categ Categ { get; set; }
         public virtual County County { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Has_Role> Has_Role { get; set; }
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Crew> Crews { get; set; }
     }
 }

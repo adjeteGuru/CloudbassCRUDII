@@ -48,6 +48,6 @@ namespace CloudbassCRUDII.Models.ViewModel
 
         public Schedule Schedule { get; set; }
         public Crew BookingCrew { get; set; }
-        public Has_Role Has_Role { get; set; }
+        //public Has_Role Has_Role { get; set; }
     }
 }
