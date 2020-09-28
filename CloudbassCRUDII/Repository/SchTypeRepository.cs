@@ -12,7 +12,7 @@ namespace CloudbassCRUDII.Repository
 
         public IEnumerable<SelectListItem> GetSchTypes()
         {
-            using (var context = new cloudbassDBMSEntities())
+            using (var context = new CBDBEntities())
             {
                 List<SelectListItem> schtype = context.SchTypes.AsNoTracking()
                     .OrderBy(cl => cl.name)
@@ -38,7 +38,7 @@ namespace CloudbassCRUDII.Repository
         //{
         //    if (id != null)
         //    {
-        //        using (var context = new cloudbassDBMSEntities())
+        //        using (var context = new CBDBEntities())
         //        {
         //            var schtypeName = context.SchTypes.AsNoTracking()
         //                .Where(x => x.Id == id)

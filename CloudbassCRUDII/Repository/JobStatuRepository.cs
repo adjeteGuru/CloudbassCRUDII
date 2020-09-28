@@ -11,7 +11,7 @@ namespace CloudbassCRUDII.Repository
     {
         //public IEnumerable<SelectListItem> GetJobStatus()
         //{
-        //    using (var context = new cloudbassDBMSEntities())
+        //    using (var context = new CBDBEntities())
         //    {
         //        List<SelectListItem> jobstatus = context.JobStatus.AsNoTracking()
         //            .OrderBy(cl => cl.title)
@@ -37,7 +37,7 @@ namespace CloudbassCRUDII.Repository
         //{
         //    if (id != null)
         //    {
-        //        using (var context = new cloudbassDBMSEntities())
+        //        using (var context = new CBDBEntities())
         //        {
         //            var jobstatuName = context.JobStatus.AsNoTracking()
         //                .Where(x => x.Id == id)

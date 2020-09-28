@@ -11,7 +11,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class JobBController : Controller
     {
-        
+
         // GET: JobB
         public ActionResult Index()
         {
@@ -102,7 +102,8 @@ namespace CloudbassCRUDII.Controllers
             //}
 
             if (!String.IsNullOrWhiteSpace(id))
-            {           bool isGuid = Guid.TryParse(id, out Guid jobId);
+            {
+                bool isGuid = Guid.TryParse(id, out Guid jobId);
                 if (isGuid && jobId != Guid.Empty)
                 {
                     //var repo = new JobRepository();
@@ -134,9 +135,9 @@ namespace CloudbassCRUDII.Controllers
                 if (isGuid && jobId != Guid.Empty)
                 {
                     var repo = new JobRepository();
-                var model = repo.GetJob(jobId.ToString());
+                    var model = repo.GetJob(jobId.ToString());
 
-                return View(model);
+                    return View(model);
                 }
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -156,7 +157,7 @@ namespace CloudbassCRUDII.Controllers
                     if (isGuid)
                     {
                         var modelUpdate = repo.GetJob(jobId.ToString());
-                    return PartialView(modelUpdate);
+                        return PartialView(modelUpdate);
                     }
                 }
             }
@@ -173,12 +174,12 @@ namespace CloudbassCRUDII.Controllers
                 if (isGuid && jobId != Guid.Empty)
                 {
                     var repo = new MetadataRepository();
-                var model = new Models.DTO.BookingType()
-                {
-                    JobId = id,
-                    BookingTypes = repo.GetBookingTypes()
-                };
-                return PartialView("BookingTypePartial", model);
+                    var model = new Models.DTO.BookingType()
+                    {
+                        JobId = id,
+                        //BookingTypes = repo.GetBookingTypes()
+                    };
+                    return PartialView("BookingTypePartial", model);
                 }
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -279,7 +280,7 @@ namespace CloudbassCRUDII.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
-                               
+
 
 
         // GET: job/Delete/5

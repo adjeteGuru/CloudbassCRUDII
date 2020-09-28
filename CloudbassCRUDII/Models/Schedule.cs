@@ -20,10 +20,8 @@ namespace CloudbassCRUDII.Models
         public Nullable<System.DateTime> end_date { get; set; }
         public Nullable<int> SchTypeId { get; set; }
         public string JobId { get; set; }
-        public Nullable<int> statusId { get; set; }
     
-        public virtual ScheduleStatu ScheduleStatu { get; set; }
-        public virtual SchType SchType { get; set; }
         public virtual Job Job { get; set; }
+        public virtual SchType SchType { get; set; }
     }
 }

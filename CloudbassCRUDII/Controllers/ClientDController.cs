@@ -12,7 +12,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class ClientDController : Controller
     {
-        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
+        private CBDBEntities db = new CBDBEntities();
 
         // GET: ClientD
         public ActionResult Index()

@@ -11,7 +11,7 @@ namespace CloudbassCRUDII.Repository
     {
         public IEnumerable<SelectListItem> GetCounties()
         {
-            using (var context = new cloudbassDBMSEntities())
+            using (var context = new CBDBEntities())
             {
                 List<SelectListItem> counties = context.Counties.AsNoTracking()
                     .OrderBy(cl => cl.Name)

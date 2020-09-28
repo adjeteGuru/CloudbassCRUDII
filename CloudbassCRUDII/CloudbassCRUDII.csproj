@@ -151,21 +151,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SortHelper.cs" />
-    <Compile Include="Models\BookingEquipment.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingFleet.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingHotel.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingKit.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Categ.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
@@ -238,40 +223,16 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Equipment.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EquipType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Fleet.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FleetType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Hotel.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Invoice.cs">
+    <Compile Include="Models\Has_Role.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Job.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Kit.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KitType.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Schedule.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ScheduleStatu.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SchType.cs">
@@ -331,17 +292,9 @@
     <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
     <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
     <Content Include="Content\themes\base\menu.css" />
     <Content Include="Content\themes\base\progressbar.css" />
     <Content Include="Content\themes\base\resizable.css" />
@@ -404,8 +357,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

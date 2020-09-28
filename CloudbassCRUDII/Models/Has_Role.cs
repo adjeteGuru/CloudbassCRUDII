@@ -12,18 +12,27 @@ namespace CloudbassCRUDII.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class BookingKit
+    public partial class Has_Role
     {
-        public string JobId { get; set; }
-        public int kitId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Has_Role()
+        {
+            this.Crews = new HashSet<Crew>();
+        }
+    
+        public int Id { get; set; }
+        public int employeeId { get; set; }
+        public int roleId { get; set; }
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public Nullable<decimal> totalDays { get; set; }
         public Nullable<decimal> rate { get; set; }
-        public Nullable<int> createdBy { get; set; }
+        public Nullable<int> catId { get; set; }
     
-        public virtual Kit Kit { get; set; }
+        public virtual Categ Categ { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Crew> Crews { get; set; }
         public virtual Employee Employee { get; set; }
-        public virtual Job Job { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

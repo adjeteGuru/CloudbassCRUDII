@@ -11,7 +11,7 @@ namespace CloudbassCRUDII.Repository
     {
         public IEnumerable<SelectListItem> GetCategs()
         {
-            using (var context = new cloudbassDBMSEntities())
+            using (var context = new CBDBEntities())
             {
                 List<SelectListItem> categs = context.Categs.AsNoTracking()
                     .OrderBy(cl => cl.name)

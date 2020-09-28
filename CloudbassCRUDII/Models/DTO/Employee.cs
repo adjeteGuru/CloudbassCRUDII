@@ -12,8 +12,11 @@ namespace CloudbassCRUDII.Models.DTO
         [Display(Name = "Emplyee ID")]
         public int Id { get; set; }
 
-        [Display(Name = "Fullname")]
-        public string fullName { get; set; }
+        //[Display(Name = "Fullname")]
+        //public string fullName { get; set; }
+
+        [Display(Name = "FirstName")]
+        public string firstName { get; set; }
 
         [Display(Name = "Mobile")]
         public string mobile { get; set; }
@@ -49,6 +52,8 @@ namespace CloudbassCRUDII.Models.DTO
         [Display(Name = "Post Nominals")]
         public string postNominals { get; set; }
 
+        [Display(Name = "Role")]
 
+        public Nullable<int> roleId { get; set; }
     }
 }

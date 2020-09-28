@@ -7,7 +7,7 @@ function LoadRole(element) {
         $.ajax({
             type: "GET",
             url: '/Master/getEmployeeRole',
-            success: function () {
+            success: function (data) {
                 Role = data;
                 //render role
                 renderRole(element);
@@ -34,7 +34,7 @@ function renderRole(element) {
 
      //then loop through the role for load all the Role faced from database to the dropdown list
     $.each(Role, function (i, val){
-        $ele.append($('<option/>').val(val.roleId).text(val.Name));
+        $ele.append($('<option/>').val(val.Id).text(val.Name));
     })
 }
 

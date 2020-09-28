@@ -12,7 +12,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class JobDController : Controller
     {
-        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
+        private CBDBEntities db = new CBDBEntities();
 
         // GET: JobD
         public ActionResult Index()
@@ -40,7 +40,7 @@ namespace CloudbassCRUDII.Controllers
         public ActionResult Create()
         {
             ViewBag.ClientId = new SelectList(db.Clients, "Id", "Name");
-           // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title");
+            // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace CloudbassCRUDII.Controllers
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "Id", "Name", job.ClientId);
-           // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title", job.statusId);
+            // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title", job.statusId);
             return View(job);
         }
 
@@ -76,7 +76,7 @@ namespace CloudbassCRUDII.Controllers
                 return HttpNotFound();
             }
             ViewBag.ClientId = new SelectList(db.Clients, "Id", "Name", job.ClientId);
-           // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title", job.statusId);
+            // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title", job.statusId);
             return View(job);
         }
 
@@ -94,11 +94,11 @@ namespace CloudbassCRUDII.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ClientId = new SelectList(db.Clients, "Id", "Name", job.ClientId);
-           // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title", job.statusId);
+            // ViewBag.statusId = new SelectList(db.JobStatus, "Id", "title", job.statusId);
             return View(job);
         }
 
-           
+
 
         // GET: JobD/Delete/5
         public ActionResult Delete(string id)

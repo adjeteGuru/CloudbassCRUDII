@@ -1,6 +1,4 @@
 ﻿
-@model IEnumerable<CloudbassCRUDII.Models.Job>
-
 @{
     ViewBag.Title = "Index";
 }
@@ -50,8 +48,7 @@
 
             <tr class="mycontainer" id="mainrow">
                 <td>
-                    <select id="em
-                            ployeeRole" class="er form-control" onchange="LoadEmployee(this)">
+                    <select id="employeeRole" class="er form-control" onchange="LoadEmployee(this)">
                         <option>Select</option>
                     </select>
                     <span class="error">Select Role</span>
@@ -89,8 +86,10 @@
 </div>
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="//code.jquery.com/ui/1/11/4/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="~/Scripts/myScripts.js"></script>
+
 
 <script type="text/javascript">
     @*$(document).ready(function () {
@@ -115,13 +114,13 @@
 
 <style>
     span.error {
-    display:block;
-    visibility:hidden;
-    color:red;
-    font-size:90%;
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
     }
 
     tr.error {
-    background-color:rgba(255,0,0,0.35);
+        background-color: rgba(255,0,0,0.35);
     }
 </style>

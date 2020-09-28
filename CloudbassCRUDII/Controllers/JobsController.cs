@@ -14,13 +14,13 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Job> records;
             int total;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 var query = context.Jobs.Select(p => new Models.DTO.Job
                 {
                     Id = p.Id,
                     text = p.text,
-                   
+
                     Description = p.Description,
                     Location = p.Location,
                     start_date = p.start_date,
@@ -30,11 +30,11 @@ namespace CloudbassCRUDII.Controllers
                     Coordinator = p.Coordinator,
                     CommercialLead = p.CommercialLead,
                     ClientId = p.ClientId,
-                   // ClientName = p.Client.Name,
-              
-                   // statusId = p.statusId,
+                    // ClientName = p.Client.Name,
+
+                    // statusId = p.statusId,
                     //StatusName = p.JobStatu.title
-                 
+
                 });
 
                 if (!string.IsNullOrWhiteSpace(jobname))
@@ -52,7 +52,7 @@ namespace CloudbassCRUDII.Controllers
                 //    query = query.Where(q => q.ClientName.Contains(clientname));
                 //}
 
-               
+
 
 
                 if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
@@ -67,9 +67,9 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderBy(q => q.Location);
                                 break;
-                            //case "clientname":
-                            //    query = query.OrderBy(q => q.ClientName);
-                            //    break;
+                                //case "clientname":
+                                //    query = query.OrderBy(q => q.ClientName);
+                                //    break;
 
                         }
                     }
@@ -83,9 +83,9 @@ namespace CloudbassCRUDII.Controllers
                             case "location":
                                 query = query.OrderByDescending(q => q.Location);
                                 break;
-                            //case "clientname":
-                            //    query = query.OrderByDescending(q => q.ClientName);
-                            //    break;
+                                //case "clientname":
+                                //    query = query.OrderByDescending(q => q.ClientName);
+                                //    break;
 
                         }
                     }
@@ -114,7 +114,7 @@ namespace CloudbassCRUDII.Controllers
         public JsonResult Save(Models.DTO.Job record)
         {
             Job entity;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 if (record.Id.Length == 0)
                 {
@@ -124,14 +124,14 @@ namespace CloudbassCRUDII.Controllers
                     entity.Location = record.Location;
                     entity.ClientId = record.ClientId;
                     //entity.Country = context.Locations.FirstOrDefault(l => l.ID == record.CountryID);
-                   // entity.statusId = record.statusId;
+                    // entity.statusId = record.statusId;
                     entity.DateCreated = record.DateCreated;
                     entity.TXDate = record.TXDate;
                     entity.start_date = record.start_date;
                     entity.end_date = record.end_date;
                     entity.Coordinator = record.Coordinator;
                     entity.CommercialLead = record.CommercialLead;
-                   
+
                 }
                 else
                 {
@@ -139,7 +139,7 @@ namespace CloudbassCRUDII.Controllers
                     {
                         Id = record.Id,
                         text = record.text,
-                        
+
                         Description = record.Description,
                         Location = record.Location,
                         start_date = record.start_date,
@@ -149,8 +149,8 @@ namespace CloudbassCRUDII.Controllers
                         Coordinator = record.Coordinator,
                         CommercialLead = record.CommercialLead,
                         ClientId = record.ClientId,
-                     
-                       // statusId = record.statusId,
+
+                        // statusId = record.statusId,
                     });
                 }
                 context.SaveChanges();
@@ -161,7 +161,7 @@ namespace CloudbassCRUDII.Controllers
         [HttpPost]
         public JsonResult Delete(string id)
         {
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 Job entity = context.Jobs.First(p => p.Id == id);
                 context.Jobs.Remove(entity);
@@ -174,7 +174,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Schedule> records;
             int total;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 var query = context.Schedules.Where(pt => pt.JobId == Id).Select(pt => new Models.DTO.Schedule
                 {
@@ -183,12 +183,12 @@ namespace CloudbassCRUDII.Controllers
                     //JobName = pt.
                     text = pt.text,
 
-                   // SchTypeId = pt.SchTypeId,
+                    // SchTypeId = pt.SchTypeId,
                     SchTypName = pt.SchType.name,
                     start_date = pt.start_date,
                     end_date = pt.end_date,
                     //statusId = pt.statusId,
-                    StatusName = pt.ScheduleStatu.title
+                    //StatusName = pt.ScheduleStatu.title
 
                 });
 
@@ -207,6 +207,6 @@ namespace CloudbassCRUDII.Controllers
             return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
         }
 
-        
+
     }
 }
