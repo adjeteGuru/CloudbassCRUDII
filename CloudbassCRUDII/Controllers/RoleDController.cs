@@ -12,7 +12,7 @@ namespace CloudbassCRUDII.Controllers
 {
     public class RoleDController : Controller
     {
-        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
+        private CBDBEntities db = new CBDBEntities();
 
         // GET: RoleD
         public ActionResult Index()

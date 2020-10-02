@@ -12,12 +12,14 @@ namespace CloudbassCRUDII.Controllers
 {
     public class ScheduleDController : Controller
     {
-        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
+        private CBDBEntities db = new CBDBEntities();
 
         // GET: ScheduleD
         public ActionResult Index()
         {
-            var schedules = db.Schedules.Include(s => s.Job).Include(s => s.ScheduleStatu).Include(s => s.SchType);
+            var schedules = db.Schedules
+                .Include(s => s.Job)
+                .Include(s => s.SchType);
             return View(schedules.ToList());
         }
 
@@ -40,7 +42,7 @@ namespace CloudbassCRUDII.Controllers
         public ActionResult Create()
         {
             ViewBag.JobId = new SelectList(db.Jobs, "Id", "text");
-            ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title");
+            //ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title");
             ViewBag.SchTypeId = new SelectList(db.SchTypes, "Id", "name");
             return View();
         }
@@ -60,7 +62,7 @@ namespace CloudbassCRUDII.Controllers
             }
 
             ViewBag.JobId = new SelectList(db.Jobs, "Id", "text", schedule.JobId);
-            ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title", schedule.statusId);
+            //ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title", schedule.statusId);
             ViewBag.SchTypeId = new SelectList(db.SchTypes, "Id", "name", schedule.SchTypeId);
             return View(schedule);
         }
@@ -78,7 +80,7 @@ namespace CloudbassCRUDII.Controllers
                 return HttpNotFound();
             }
             ViewBag.JobId = new SelectList(db.Jobs, "Id", "text", schedule.JobId);
-            ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title", schedule.statusId);
+            //ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title", schedule.statusId);
             ViewBag.SchTypeId = new SelectList(db.SchTypes, "Id", "name", schedule.SchTypeId);
             return View(schedule);
         }
@@ -97,7 +99,7 @@ namespace CloudbassCRUDII.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.JobId = new SelectList(db.Jobs, "Id", "text", schedule.JobId);
-            ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title", schedule.statusId);
+            //ViewBag.statusId = new SelectList(db.ScheduleStatus, "Id", "title", schedule.statusId);
             ViewBag.SchTypeId = new SelectList(db.SchTypes, "Id", "name", schedule.SchTypeId);
             return View(schedule);
         }

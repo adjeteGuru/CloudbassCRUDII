@@ -26,6 +26,7 @@ namespace CloudbassCRUDII.Models
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public Nullable<decimal> totalDays { get; set; }
+        public Nullable<decimal> rate { get; set; }
         public Nullable<int> catId { get; set; }
     
         public virtual Categ Categ { get; set; }

@@ -17,11 +17,6 @@ namespace CloudbassCRUDII.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Job()
         {
-            this.BookingEquipments = new HashSet<BookingEquipment>();
-            this.BookingFleets = new HashSet<BookingFleet>();
-            this.BookingHotels = new HashSet<BookingHotel>();
-            this.BookingKits = new HashSet<BookingKit>();
-            this.Invoices = new HashSet<Invoice>();
             this.Crews = new HashSet<Crew>();
             this.Schedules = new HashSet<Schedule>();
         }
@@ -37,20 +32,9 @@ namespace CloudbassCRUDII.Models
         public string Coordinator { get; set; }
         public string CommercialLead { get; set; }
         public int ClientId { get; set; }
-        public Nullable<int> statusId { get; set; }
+        public string Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingEquipment> BookingEquipments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingFleet> BookingFleets { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingHotel> BookingHotels { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingKit> BookingKits { get; set; }
         public virtual Client Client { get; set; }
-        public virtual JobStatu JobStatu { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crew> Crews { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

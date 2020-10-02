@@ -51,10 +51,10 @@ namespace CloudbassCRUDII.Models.DTO
 
         public IEnumerable<SelectListItem> Client { get; set; }
 
-        [Display(Name = "Status")]
+      //  [Display(Name = "Status")]
 
-        public int SelectedStatus { get; set; }
-        public IEnumerable<SelectListItem> JobStatu { get; set; }
+        //public int SelectedStatus { get; set; }
+        //public IEnumerable<SelectListItem> JobStatu { get; set; }
 
     }
 }

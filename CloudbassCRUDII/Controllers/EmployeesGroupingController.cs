@@ -14,13 +14,13 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Employee> records;
             int total;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 var query = context.Employees.Select(p => new Models.DTO.Employee
                 {
                     Id = p.Id,
-                    fullName = p.fullName,
-                 
+                    firstName = p.firstName,
+
                     mobile = p.mobile,
                     email = p.email,
                     countyId = p.countyId,
@@ -34,7 +34,7 @@ namespace CloudbassCRUDII.Controllers
                     nextOfKin = p.nextOfKin,
                     alergy = p.alergy,
                     postNominals = p.postNominals,
-                   
+
                 });
 
                 if (groupBy == "County")

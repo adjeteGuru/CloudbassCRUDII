@@ -1,0 +1,50 @@
+﻿@model CloudbassCRUDII.Models.Crew
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Crew</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.totalDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Has_Role.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Has_Role.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Job.text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job.text)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

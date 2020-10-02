@@ -14,7 +14,7 @@ namespace CloudbassCRUDII.Controllers
         {
             List<Models.DTO.Job> records;
             int total;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 var query = context.Jobs.Select(p => new Models.DTO.Job
                 {
@@ -28,20 +28,21 @@ namespace CloudbassCRUDII.Controllers
                     TXDate = p.TXDate,
                     Coordinator = p.Coordinator,
                     CommercialLead = p.CommercialLead,
-                    ClientId = p.ClientId,
+                    ClientId = p.ClientId
+                    //ClientName = p.Client.Name,
                     //CountryName = p.Country != null ? p.Country.Name : "",
-                    statusId = p.statusId
+                    //statusId = p.statusId
                 });
 
                 if (groupBy == "ClientId")
                 {
                     if (groupByDirection.Trim().ToLower() == "asc")
                     {
-                        query = query.OrderBy(q => q.ClientName);/*.ThenBy(q => q.OrderNumber);*/
+                        query = query.OrderBy(q => q.ClientId);/*.ThenBy(q => q.OrderNumber);*/
                     }
                     else
                     {
-                        query = query.OrderByDescending(q => q.ClientName);/*.ThenBy(q => q.OrderNumber);*/
+                        query = query.OrderByDescending(q => q.ClientId);/*.ThenBy(q => q.OrderNumber);*/
                     }
                 }
                 //else

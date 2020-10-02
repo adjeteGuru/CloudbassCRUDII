@@ -9,32 +9,32 @@ namespace CloudbassCRUDII.Controllers
 {
     public class SchedRolesController : Controller
     {
-        private cloudbassDBMSEntities context = new cloudbassDBMSEntities();
+        private CBDBEntities context = new CBDBEntities();
         // GET: SchedRoles
-       public JsonResult Get(int? page, int? limit, string sortBy, string direction, string schedname)
+        public JsonResult Get(int? page, int? limit, string sortBy, string direction, string schedname)
         {
             List<Models.DTO.Schedule> records;
             int total;
 
-           
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+
+            using (CBDBEntities context = new CBDBEntities())
             {
                 var query = context.Schedules.Select(p => new Models.DTO.Schedule
                 {
                     Id = p.Id,
                     text = p.text,
-                   
-                    
+
+
                     start_date = p.start_date,
-                   
+
                     end_date = p.end_date,
-                    
+
                     SchTypName = p.SchType.name,
                     //jo = p.Client.Name,
-              
-                   // statusId = p.statusId,
-                    StatusName = p.ScheduleStatu.title
-                 
+
+                    // statusId = p.statusId,
+                    //StatusName = p.ScheduleStatu.title
+
                 });
 
                 if (!string.IsNullOrWhiteSpace(schedname))
@@ -42,7 +42,7 @@ namespace CloudbassCRUDII.Controllers
                     query = query.Where(q => q.text.Contains(schedname));
                 }
 
-                
+
 
                 if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
                 {
@@ -53,7 +53,7 @@ namespace CloudbassCRUDII.Controllers
                             case "schedname":
                                 query = query.OrderBy(q => q.text);
                                 break;
-                            
+
                         }
                     }
                     else
@@ -63,7 +63,7 @@ namespace CloudbassCRUDII.Controllers
                             case "schedname":
                                 query = query.OrderByDescending(q => q.text);
                                 break;
-                          
+
                         }
                     }
                 }
@@ -91,7 +91,7 @@ namespace CloudbassCRUDII.Controllers
         public JsonResult Save(Models.DTO.Schedule record)
         {
             Schedule entity;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 if (record.Id == 0)
                 {
@@ -99,13 +99,13 @@ namespace CloudbassCRUDII.Controllers
                     entity.text = record.text;
                     //entity.SchTypeId = record.SchTypeId;
                     //entity.Country = context.Locations.FirstOrDefault(l => l.ID == record.CountryID);
-                   // entity.statusId = record.statusId;
-                   // entity.JobId = record.JobId;
-                   
+                    // entity.statusId = record.statusId;
+                    // entity.JobId = record.JobId;
+
                     entity.start_date = record.start_date;
                     entity.end_date = record.end_date;
-                   
-                   
+
+
                 }
                 else
                 {
@@ -114,12 +114,12 @@ namespace CloudbassCRUDII.Controllers
                         Id = record.Id,
                         text = record.text,
                         //statusId = record.statusId,
-                       // JobId = record.JobId,
-                       // SchTypeId = record.SchTypeId,
+                        // JobId = record.JobId,
+                        // SchTypeId = record.SchTypeId,
                         start_date = record.start_date,
                         end_date = record.end_date,
 
-                    
+
                     });
                 }
                 context.SaveChanges();
@@ -130,7 +130,7 @@ namespace CloudbassCRUDII.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
+            using (CBDBEntities context = new CBDBEntities())
             {
                 Schedule entity = context.Schedules.First(p => p.Id == id);
                 context.Schedules.Remove(entity);
@@ -139,40 +139,40 @@ namespace CloudbassCRUDII.Controllers
             return Json(new { result = true });
         }
 
-        public JsonResult GetHas_Roles(int Id, int? page, int? limit)
-        {
-            List<Models.DTO.Crew> records;
-            int total;
-            using (cloudbassDBMSEntities context = new cloudbassDBMSEntities())
-            {
-                var query = context.BookingCrews.Where(pt => pt.has_RoleId == Id && pt.scheduleId==Id).Select(pt => new Models.DTO.Crew
-                {
-                    has_RoleId = pt.has_RoleId,
-                    scheduleId = pt.scheduleId,
-                    //JobName = pt.
-                    roleName = pt.Has_Role.Role.Name,
+        //public JsonResult GetHas_Roles(int Id, int? page, int? limit)
+        //{
+        //    List<Models.DTO.Crew> records;
+        //    int total;
+        //    using (CBDBEntities context = new CBDBEntities())
+        //    {
+        //        var query = context.Crews.Where(pt => pt.has_roleId == Id && pt.has_roleId==Id).Select(pt => new Models.DTO.Crew
+        //        {
+        //            has_RoleId = pt.has_roleId,
+        //            JobId = pt.JobId,
+        //            //JobName = pt.
+        //            roleName = pt.Has_Role.Role.Name,
 
-                   // SchTypeId = pt.SchTypeId,
-                    totalDays = pt.totalDays,
-                   
-                    rate = pt.rate
-                    
+        //           // SchTypeId = pt.SchTypeId,
+        //            totalDays = pt.totalDays,
 
-                });
+        //            rate = pt.rate
 
-                total = query.Count();
-                if (page.HasValue && limit.HasValue)
-                {
-                    int start = (page.Value - 1) * limit.Value;
-                    records = query.OrderBy(pt => pt.roleName).Skip(start).Take(limit.Value).ToList();
-                }
-                else
-                {
-                    records = query.ToList();
-                }
-            }
 
-            return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
-        }
+        //        });
+
+        //        total = query.Count();
+        //        if (page.HasValue && limit.HasValue)
+        //        {
+        //            int start = (page.Value - 1) * limit.Value;
+        //            records = query.OrderBy(pt => pt.roleName).Skip(start).Take(limit.Value).ToList();
+        //        }
+        //        else
+        //        {
+        //            records = query.ToList();
+        //        }
+        //    }
+
+        //    return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

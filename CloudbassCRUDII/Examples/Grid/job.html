@@ -45,13 +45,14 @@
                 primaryKey: 'Id',
                 dataSource: '/Jobs/Get',
                 columns: [
-                    //{ field: 'Id', width: 56 },
-                    { field: 'ClientName', title: 'Client' },
-                    { field: 'NameConcatenateLocation', title: 'Job Name' },
                     { field: 'Id', title: 'Job Number' },
+                    //{ field: 'Id', width: 56 },
+                    { field: 'ClientId', title: 'Client' },
+                    { field: 'NameConcatenateLocation', title: 'Job Name' },
+                    
 
-                    { field: 'Coordinator', title: 'Coordinator' },
-                    { field: 'StatusName', title: 'Job Status' }
+                    { field: 'Coordinator', title: 'Coordinator' }
+                    //{ field: 'StatusName', title: 'Job Status' }
                 ],
                 detailTemplate: '<div><table/></div>'
             });

@@ -11,7 +11,8 @@ namespace CloudbassCRUDII.Repository
     {
         public IEnumerable<SelectListItem> GetClients()
         {
-            using (var context = new cloudbassDBMSEntities())
+
+            using (var context = new CBDBEntities())
             {
                 List<SelectListItem> clients = context.Clients.AsNoTracking()
                     .OrderBy(cl => cl.Name)

@@ -134,39 +134,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BookingCrewDController.cs" />
     <Compile Include="Controllers\ClientDController.cs" />
     <Compile Include="Controllers\EmployeeDController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesGroupingController.cs" />
-    <Compile Include="Controllers\Has_RoleDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobBController.cs" />
     <Compile Include="Controllers\JobDController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\MultipleController.cs" />
     <Compile Include="Controllers\RoleDController.cs" />
     <Compile Include="Controllers\SchedRolesController.cs" />
     <Compile Include="Controllers\ScheduleDController.cs" />
     <Compile Include="Controllers\SchedulesGroupingController.cs" />
-    <Compile Include="Controllers\VewModelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SortHelper.cs" />
-    <Compile Include="Models\BookingEquipment.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingFleet.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingHotel.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingKit.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Categ.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
@@ -239,51 +224,23 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Equipment.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EquipType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Fleet.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FleetType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Has_Role.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Hotel.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Invoice.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Job.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JobStatu.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Kit.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KitType.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\MultipleClass.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Schedule.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ScheduleStatu.cs">
-      <DependentUpon>CloudbassDBMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SchType.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\Job.cs" />
     <Compile Include="Models\ViewModel\JobSchedCrewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategRepository.cs" />
@@ -318,6 +275,39 @@
     <Content Include="Content\grid\grid.css" />
     <Content Include="Content\grid\grid.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Examples\Grid\ajax-sourced-data.html" />
     <Content Include="Examples\Grid\bootstrap-grid-inline-edit.html" />
     <Content Include="Examples\Grid\connected-jquery-grids.html" />
@@ -369,11 +359,14 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\myScripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -399,36 +392,40 @@
     <Content Include="Views\ScheduleD\Details.cshtml" />
     <Content Include="Views\ScheduleD\Edit.cshtml" />
     <Content Include="Views\ScheduleD\Index.cshtml" />
-    <Content Include="Views\JobD\Create.cshtml" />
-    <Content Include="Views\JobD\Delete.cshtml" />
-    <Content Include="Views\JobD\Details.cshtml" />
-    <Content Include="Views\JobD\Edit.cshtml" />
-    <Content Include="Views\JobD\Index.cshtml" />
     <Content Include="Views\ClientD\Create.cshtml" />
     <Content Include="Views\ClientD\Delete.cshtml" />
     <Content Include="Views\ClientD\Details.cshtml" />
     <Content Include="Views\ClientD\Edit.cshtml" />
     <Content Include="Views\ClientD\Index.cshtml" />
-    <Content Include="Views\Has_RoleD\Create.cshtml" />
-    <Content Include="Views\Has_RoleD\Delete.cshtml" />
-    <Content Include="Views\Has_RoleD\Details.cshtml" />
-    <Content Include="Views\Has_RoleD\Edit.cshtml" />
-    <Content Include="Views\Has_RoleD\Index.cshtml" />
     <Content Include="Views\RoleD\Create.cshtml" />
     <Content Include="Views\RoleD\Delete.cshtml" />
     <Content Include="Views\RoleD\Details.cshtml" />
     <Content Include="Views\RoleD\Edit.cshtml" />
     <Content Include="Views\RoleD\Index.cshtml" />
-    <Content Include="Views\BookingCrewD\Create.cshtml" />
-    <Content Include="Views\BookingCrewD\Delete.cshtml" />
-    <Content Include="Views\BookingCrewD\Details.cshtml" />
-    <Content Include="Views\BookingCrewD\Edit.cshtml" />
-    <Content Include="Views\BookingCrewD\Index.cshtml" />
+    <Content Include="Views\CrewD\Create.cshtml" />
+    <Content Include="Views\CrewD\Delete.cshtml" />
+    <Content Include="Views\CrewD\Details.cshtml" />
+    <Content Include="Views\CrewD\Edit.cshtml" />
+    <Content Include="Views\CrewD\Index.cshtml" />
+    <Content Include="Views\JobB\Index.cshtml" />
+    <Content Include="Views\JobB\Create.cshtml" />
+    <Content Include="Views\JobB\Edit.cshtml" />
+    <Content Include="Views\JobB\EditJobPartial.cshtml" />
+    <Content Include="Views\JobB\CreateSchedulePartial.cshtml" />
+    <Content Include="Views\JobB\BookingTypePartial.cshtml" />
+    <Content Include="Views\JobD\Create.cshtml" />
+    <Content Include="Views\JobD\Delete.cshtml" />
+    <Content Include="Views\JobD\Details.cshtml" />
+    <Content Include="Views\JobD\Edit.cshtml" />
+    <Content Include="Views\JobD\Index.cshtml" />
+    <Content Include="Views\Master\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="stylesheet\" />
     <Folder Include="Views\EmployeesGrouping\" />
     <Folder Include="Views\Employees\" />
+    <Folder Include="Views\Multiple\" />
     <Folder Include="Views\SchedRoles\" />
     <Folder Include="Views\SchedulesGrouping\" />
     <Folder Include="Views\VewModel\" />

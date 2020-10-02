@@ -14,10 +14,9 @@ namespace CloudbassCRUDII.Models
     
     public partial class Crew
     {
-        public string JobId { get; set; }
-        public int has_roleId { get; set; }
+        public string jobId { get; set; }
+        public int has_RoleId { get; set; }
         public Nullable<decimal> totalDays { get; set; }
-        public Nullable<decimal> rate { get; set; }
     
         public virtual Has_Role Has_Role { get; set; }
         public virtual Job Job { get; set; }

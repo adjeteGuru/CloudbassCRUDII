@@ -11,7 +11,7 @@ namespace CloudbassCRUDII.Repository
     {
         public IEnumerable<SelectListItem> GetRoles()
         {
-            using (var context = new cloudbassDBMSEntities())
+            using (var context = new CBDBEntities())
             {
                 List<SelectListItem> roles = context.Roles.AsNoTracking()
                     .OrderBy(cl => cl.Name)

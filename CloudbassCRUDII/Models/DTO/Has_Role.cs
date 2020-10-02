@@ -12,13 +12,13 @@ namespace CloudbassCRUDII.Models.DTO
         public int Id { get; set; }
 
         [Display(Name = "Employee Name")]
-        // public int employeeId { get; set; }
-        public string EmployeeName { get; set; }
+         public int employeeId { get; set; }
+        //public string EmployeeName { get; set; }
 
         [Display(Name = "Role Name")]
 
-        //public int roleId { get; set; }
-        public string roleName { get; set; }
+        public int roleId { get; set; }
+       // public string roleName { get; set; }
 
         [Display(Name = "Start Date")]
         public Nullable<System.DateTime> start_date { get; set; }
@@ -32,8 +32,8 @@ namespace CloudbassCRUDII.Models.DTO
 
         [Display(Name = "Employee Category")]
 
-        public string CategoName { get; set; }
-       // public Nullable<int> catId { get; set; }
+        //public string CategoName { get; set; }
+        public Nullable<int> catId { get; set; }
 
     }
 }

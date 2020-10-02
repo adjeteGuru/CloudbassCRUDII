@@ -13,8 +13,8 @@ namespace CloudbassCRUDII.Controllers
 {
     public class EmployeeDController : Controller
     {
-        private cloudbassDBMSEntities db = new cloudbassDBMSEntities();
-            
+        private CBDBEntities db = new CBDBEntities();
+
 
         public ViewResult Index(string sortEvent, string currentFilter, string searchString, int? page)
         {
@@ -43,14 +43,14 @@ namespace CloudbassCRUDII.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                employees = employees.Where(e => e.fullName.Contains(searchString));
-                    //|| e.fullName.Contains(searchString));
+                employees = employees.Where(e => e.firstName.Contains(searchString));
+                //|| e.fullName.Contains(searchString));
             }
 
             switch (sortEvent)
             {
                 case "name_desc":
-                    employees = employees.OrderByDescending(e => e.fullName);
+                    employees = employees.OrderByDescending(e => e.firstName);
                     break;
 
 
@@ -97,72 +97,72 @@ namespace CloudbassCRUDII.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,fullName,mobile,email,countyId,bared,IsAvailable,startDate,photo,nextOfKin,alergy,note,postNominals")] Employee employee, HttpPostedFileBase file)
         {
-       
+
             string filename = Path.GetFileName(file.FileName);
             string _filename = DateTime.Now.ToString("yymmssfff") + filename;
             string extension = Path.GetExtension(file.FileName);
             string path = Path.Combine(Server.MapPath("~/Images/"), _filename);
             employee.photo = "~/Images/" + _filename;
-            if (extension.ToLower() ==".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png")
+            if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png")
             {
                 //if (file.ContentLength <= 1000000)
                 //{
-                    db.Employees.Add(employee);
-                    //db.Employees.Add(employee);
-                     db.SaveChanges();
-                     return RedirectToAction("Index");
+                db.Employees.Add(employee);
+                //db.Employees.Add(employee);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-                    ViewBag.countyId = new SelectList(db.Counties, "Id", "Name", employee.countyId);
-                    return View(employee);
+            ViewBag.countyId = new SelectList(db.Counties, "Id", "Name", employee.countyId);
+            return View(employee);
 
-                    //NEW BEGINNING
+            //NEW BEGINNING
 
-                    //        if (db.SaveChanges() > 0)
-                    //        {
-                    //            file.SaveAs(path);
-                    //            ViewBag.photo = "Record Added";
-                    //            ModelState.Clear();
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        ViewBag.photo = "Size is not valid";
-                    //    }
-                    //}
-                    //return View();
+            //        if (db.SaveChanges() > 0)
+            //        {
+            //            file.SaveAs(path);
+            //            ViewBag.photo = "Record Added";
+            //            ModelState.Clear();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        ViewBag.photo = "Size is not valid";
+            //    }
+            //}
+            //return View();
 
-                    //END NEW
-
-
-                    //if (ModelState.IsValid)
-                    //{
-                    //to convert the user photo as Byte Array before save tp DB
-                    //string convert = hdnImage.Replace("data:image/png;imageData,", String.Empty);
-
-                    //var imageParts = model.ImageAsString.Split(',').ToList<string>();
-                    //Exclude the header from base64 by taking second element in List.
+            //END NEW
 
 
-                    // Byte[] imageData = Convert.FromBase64String(imageParts[1]);
-                    //if (Request.Files.Count> 0)
-                    //{
-                    // HttpPostedFileBase ImageData = Request.Files["ImageData"];
-                    //    ContentRepository service = new ContentRepository();
-                    //    int i = service.UploadImageInDataBase(file, employee);
+            //if (ModelState.IsValid)
+            //{
+            //to convert the user photo as Byte Array before save tp DB
+            //string convert = hdnImage.Replace("data:image/png;imageData,", String.Empty);
 
-                    //    using (var binary = new BinaryReader(poImgFile.InputStream))
-                    //    {
-                    //        imageData = binary.ReadBytes(poImgFile.ContentLength);
-                    //    }
-                    //}
+            //var imageParts = model.ImageAsString.Split(',').ToList<string>();
+            //Exclude the header from base64 by taking second element in List.
 
-                //    int i = UploadImageInDataBase(ImageData, employee);
-                //if (i == 1)
-                //{
-                //    return RedirectToAction("Index");
-                //}
-                //return View(employee);
+
+            // Byte[] imageData = Convert.FromBase64String(imageParts[1]);
+            //if (Request.Files.Count> 0)
+            //{
+            // HttpPostedFileBase ImageData = Request.Files["ImageData"];
+            //    ContentRepository service = new ContentRepository();
+            //    int i = service.UploadImageInDataBase(file, employee);
+
+            //    using (var binary = new BinaryReader(poImgFile.InputStream))
+            //    {
+            //        imageData = binary.ReadBytes(poImgFile.ContentLength);
+            //    }
+            //}
+
+            //    int i = UploadImageInDataBase(ImageData, employee);
+            //if (i == 1)
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            //return View(employee);
             //}
 
 
@@ -177,26 +177,26 @@ namespace CloudbassCRUDII.Controllers
 
         //public int UploadImageInDataBase(HttpPostedFileBase file, Employee employee)
         //{
-           // employee.photo = ConvertToBytes(file);// store the image bytes to database directly
-            //var Content = new Content
-            //{
-            //    Title = contentViewModel.Title,
+        // employee.photo = ConvertToBytes(file);// store the image bytes to database directly
+        //var Content = new Content
+        //{
+        //    Title = contentViewModel.Title,
 
-            //    Description = contentViewModel.Description,
+        //    Description = contentViewModel.Description,
 
-            //    Contents = contentViewModel.Contents,
+        //    Contents = contentViewModel.Contents,
 
-            //    Image = contentViewModel.Image
-            //};
+        //    Image = contentViewModel.Image
+        //};
 
 
-            //db.Employees.Add(employee);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
+        //db.Employees.Add(employee);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
 
         //    db.Employees.Add(employee);
         //    int i = db.SaveChanges();
-         
+
 
         //    if (i == 1)
         //    {
