@@ -143,6 +143,7 @@
     <Compile Include="Controllers\JobDController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\MultipleController.cs" />
     <Compile Include="Controllers\RoleDController.cs" />
     <Compile Include="Controllers\SchedRolesController.cs" />
     <Compile Include="Controllers\ScheduleDController.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="Models\Job.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MultipleClass.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>CloudbassDBMS.tt</DependentUpon>
     </Compile>
@@ -423,6 +425,7 @@
     <Folder Include="stylesheet\" />
     <Folder Include="Views\EmployeesGrouping\" />
     <Folder Include="Views\Employees\" />
+    <Folder Include="Views\Multiple\" />
     <Folder Include="Views\SchedRoles\" />
     <Folder Include="Views\SchedulesGrouping\" />
     <Folder Include="Views\VewModel\" />

@@ -17,8 +17,9 @@ namespace CloudbassCRUDII.Controllers
         // GET: JobD
         public ActionResult Index()
         {
-            var jobs = db.Jobs.Include(j => j.Client)/*.Include(j => j.JobStatu)*/;
-            return View(jobs.ToList());
+            var jobs = db.Jobs.Include(j => j.Client).ToList();
+            return View(jobs);
+            //return View(jobs.ToList());
         }
 
         // GET: JobD/Details/5
@@ -28,7 +29,7 @@ namespace CloudbassCRUDII.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Job job = db.Jobs.Find(id);
+            var job = db.Jobs.Find(id);
             if (job == null)
             {
                 return HttpNotFound();

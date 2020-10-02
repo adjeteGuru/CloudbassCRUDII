@@ -9,103 +9,109 @@ namespace CloudbassCRUDII.Controllers
 {
     public class JobsController : Controller
     {
+        private CBDBEntities context = new CBDBEntities();
         // GET: Jobs
         public JsonResult Get(int? page, int? limit, string sortBy, string direction, string jobname, string clientname, string location)
         {
             List<Models.DTO.Job> records;
-            int total;
-            using (CBDBEntities context = new CBDBEntities())
-            {
-                var query = context.Jobs.Select(p => new Models.DTO.Job
-                {
-                    Id = p.Id,
-                    text = p.text,
 
-                    Description = p.Description,
-                    Location = p.Location,
-                    start_date = p.start_date,
-                    DateCreated = p.DateCreated,
-                    end_date = p.end_date,
-                    TXDate = p.TXDate,
-                    Coordinator = p.Coordinator,
-                    CommercialLead = p.CommercialLead,
-                    ClientId = p.ClientId,
+            int total;
+            //using (CBDBEntities context = new CBDBEntities())
+            //{
+            var query = context.Jobs
+            //adding this new class Models.DTO.Job
+            .Select(p => new Models.DTO.Job
+            {
+                Id = p.Id,
+                text = p.text,
+
+                Description = p.Description,
+                Location = p.Location,
+                start_date = p.start_date,
+                DateCreated = p.DateCreated,
+                end_date = p.end_date,
+                TXDate = p.TXDate,
+                Coordinator = p.Coordinator,
+                CommercialLead = p.CommercialLead,
+                ClientId = p.ClientId,
                     // ClientName = p.Client.Name,
 
                     // statusId = p.statusId,
                     //StatusName = p.JobStatu.title
 
-                });
-
-                if (!string.IsNullOrWhiteSpace(jobname))
-                {
-                    query = query.Where(q => q.text.Contains(jobname));
                 }
 
-                if (!string.IsNullOrWhiteSpace(location))
+            );
+
+            if (!string.IsNullOrWhiteSpace(jobname))
+            {
+                query = query.Where(q => q.text.Contains(jobname));
+            }
+
+            if (!string.IsNullOrWhiteSpace(location))
+            {
+                query = query.Where(q => q.Location.Contains(location));
+            }
+
+            //if (!string.IsNullOrWhiteSpace(clientname))
+            //{
+            //    query = query.Where(q => q.ClientName.Contains(clientname));
+            //}
+
+
+
+
+            if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
+            {
+                if (direction.Trim().ToLower() == "asc")
                 {
-                    query = query.Where(q => q.Location.Contains(location));
-                }
-
-                //if (!string.IsNullOrWhiteSpace(clientname))
-                //{
-                //    query = query.Where(q => q.ClientName.Contains(clientname));
-                //}
-
-
-
-
-                if (!string.IsNullOrEmpty(sortBy) && !string.IsNullOrEmpty(direction))
-                {
-                    if (direction.Trim().ToLower() == "asc")
+                    switch (sortBy.Trim().ToLower())
                     {
-                        switch (sortBy.Trim().ToLower())
-                        {
-                            case "jobname":
-                                query = query.OrderBy(q => q.text);
-                                break;
-                            case "location":
-                                query = query.OrderBy(q => q.Location);
-                                break;
-                                //case "clientname":
-                                //    query = query.OrderBy(q => q.ClientName);
-                                //    break;
+                        case "jobname":
+                            query = query.OrderBy(q => q.text);
+                            break;
+                        case "location":
+                            query = query.OrderBy(q => q.Location);
+                            break;
+                            //case "clientname":
+                            //    query = query.OrderBy(q => q.ClientName);
+                            //    break;
 
-                        }
-                    }
-                    else
-                    {
-                        switch (sortBy.Trim().ToLower())
-                        {
-                            case "jobname":
-                                query = query.OrderByDescending(q => q.text);
-                                break;
-                            case "location":
-                                query = query.OrderByDescending(q => q.Location);
-                                break;
-                                //case "clientname":
-                                //    query = query.OrderByDescending(q => q.ClientName);
-                                //    break;
-
-                        }
                     }
                 }
                 else
                 {
-                    query = query.OrderBy(q => q.TXDate);
-                }
+                    switch (sortBy.Trim().ToLower())
+                    {
+                        case "jobname":
+                            query = query.OrderByDescending(q => q.text);
+                            break;
+                        case "location":
+                            query = query.OrderByDescending(q => q.Location);
+                            break;
+                            //case "clientname":
+                            //    query = query.OrderByDescending(q => q.ClientName);
+                            //    break;
 
-                total = query.Count();
-                if (page.HasValue && limit.HasValue)
-                {
-                    int start = (page.Value - 1) * limit.Value;
-                    records = query.Skip(start).Take(limit.Value).ToList();
-                }
-                else
-                {
-                    records = query.ToList();
+                    }
                 }
             }
+            else
+            {
+                query = query.OrderBy(q => q.TXDate);
+            }
+
+            total = query.Count();
+            if (page.HasValue && limit.HasValue)
+            {
+                int start = (page.Value - 1) * limit.Value;
+                records = query.Skip(start).Take(limit.Value).ToList();
+            }
+            else
+            {
+                records = query.ToList();
+            }
+            //} //end using semi-colon
 
             return this.Json(new { records, total }, JsonRequestBehavior.AllowGet);
         }
